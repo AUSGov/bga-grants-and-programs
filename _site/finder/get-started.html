@@ -774,7 +774,7 @@
     <div class="row">
         <div class="col-12 col-lg-12 col-xl-12">
         
-            <h2>Showing 508 grants and programs</h2>
+            <h2 class="showing-results">Showing <span class="number">508</span> grants and programs</h2>
           
         </div>
     </div>
@@ -784,7 +784,8 @@
     <div class="row">
         <div class="col-4">
             <div class="filters">
-                <div class="filter-item">
+                
+                <div class="filter-item" id="filter-support-type">
                     <div class="filter-item-title">
                          <p>Support type</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
@@ -796,43 +797,128 @@
                          </div>
                     <div class="active-filters">
                         <ul>
-                            <li class="selected">Funding</li>
-                            <li>Subsidy</li>
-                            <li>Concession</li>
-                            <li>Expertise and advice</li>
-                            <li>Scholarship</li>
-                            <li class="selected">Tax rebate</li>
-                            <li>Mentorship</li>
+                            <li class="selected" data-value="funding">Funding</li>
+                            <li data-value="subsidy">Subsidy</li>
+                            <li data-value="concession">Concession</li>
+                            <li data-value="scholarship">Scholarship</li>
+                            <li class="selected" data-value="tax-rebate">Tax rebate</li>
+                            <li data-value="advice">Advice</li>
+                            <li data-value="mentorship">Mentorship</li>
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
                         <form>
-                            <input type="checkbox" id="support-type-funding" name="support-type-funding" value="funding">
+                            <div class="checkbox-item selected">
+                            <input type="checkbox" id="funding" name="support-type-funding" value="funding">
                             <label for="funding">Funding</label>
+                            </div>
                             
-                            <input type="checkbox" id="support-type-subsidy" name="support-type-subsidy" value="subsidy">
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="subsidy" name="support-type-subsidy" value="subsidy">
                             <label for="subsidy">Subsidy</label>
+                            </div>  
                             
-                            <input type="checkbox" id="support-type-concession" name="support-type-concession" value="concession">
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="concession" name="support-type-concession" value="concession">
                             <label for="concession">Concession</label>
+                            </div>
                             
-                            <input type="checkbox" id="support-type-tax-rebate" name="support-type-tax-rebate" value="tax-rebate">
+                            <div class="checkbox-item selected">
+                            <input type="checkbox" id="tax-rebate" name="support-type-tax-rebate" value="tax-rebate">
                             <label for="tax-rebate">Tax rebate</label>
+                            </div>
                             
-                            <input type="checkbox" id="support-type-scholarship" name="support-type-scholarship" value="scholarship">
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="scholarship" name="support-type-scholarship" value="scholarship">
                             <label for="scholarship">Scholarship</label>
+                            </div>
                             
-                            <input type="checkbox" id="support-type-advice" name="support-type-advice" value="advice">
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="advice" name="support-type-advice" value="advice">
                             <label for="advice">Advice</label>
+                            </div>
                             
-                            <input type="checkbox" id="support-type-mentorship" name="support-type-mentorship" value="mentorship">
-                            <label for="tax-mentorship">Tax rebate</label>
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="mentorship" name="support-type-mentorship" value="mentorship">
+                            <label for="tax-mentorship">Mentorship</label>
+                            </div>
                             
                         </form>
 
                         </div>
                     </div>
+              
+                
+                <div class="filter-item" id="filter-objectives">
+                    <div class="filter-item-title">
+                         <p>Business objectives</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
+
+                         </div>
+                    <div class="active-filters">
+                        <ul>
+                            <li data-value="build-or-improve-infrastructure-for-a-community">Build or improve infrastructure for a community</li>
+                            <li data-value="employ-people">Employ people</li>
+                            <li data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
+                            <li data-value="import-or-export-products-or-services">Import or export products or services
+                    </li>
+                            <li data-value="tax-rebate">Tax rebate</li>
+                            <li data-value="advice">Advice</li>
+                            <li data-value="mentorship">Mentorship</li>
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="build-or-improve-infrastructure-for-a-community">
+                            <label>Build or improve infrastructure for a community</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="employ-people">
+                            <label>Employ people</label>
+                            </div>  
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="funding-for-training-and-skills-development">
+                            <label>Funding for training and skills development</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="import-or-export-products-or-services">
+                            <label>Import or export products or services</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="scholarship" name="support-type-scholarship" value="scholarship">
+                            <label for="scholarship">Scholarship</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="advice" name="support-type-advice" value="advice">
+                            <label for="advice">Advice</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="mentorship" name="support-type-mentorship" value="mentorship">
+                            <label for="tax-mentorship">Mentorship</label>
+                            </div>
+                            
+                        </form>
+
+                        </div>
+                    </div>
+              
+                
+                
+                
+                
             </div>
         </div>
         

@@ -437,6 +437,34 @@ $(document).ready(function () {
     
     
     
+    // FINDER FILTERS
+    // Open filter accordions
+    $('.filter-item-title').on('click', function(){
+        $(this).parents('.filter-item').find('.filter-item-content').slideToggle();
+        $(this).toggleClass('open');
+    });
+    
+    // Deselect filter 'bubble' options
+    $('.active-filters li').on('click', function(){
+        $(this).removeClass('selected');
+        
+        //var filter_option = $(this).text().toLowerCase();
+        //filter_option = filter_option.split(' ').join('-');
+        var filter_option = $(this).attr('data-value');
+        $('#' + filter_option).parent('.checkbox-item').removeClass('selected');
+    });
+    
+    // Select filter checkbox options
+    $('.checkbox-item label').on('click', function(){
+        $(this).parents('.checkbox-item').toggleClass('selected');
+        
+        var filter_option = $(this).text().toLowerCase();
+        filter_option = filter_option.split(' ').join('-');
+
+        $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
+    });
+    
+    
     // FINDER RESULTS CARDS
     $(".accordion-title").on('click', function(){
         $(this).parents('.search-accordion-expand-wrapper').find(".collapse").slideToggle();

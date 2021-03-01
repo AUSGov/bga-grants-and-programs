@@ -78,6 +78,10 @@
             font-size: 21px;
             line-height: 28px;
             padding-bottom: 48px;
+            
+            &:hover {
+                
+            }
         }
         
         @media (max-width: 767px) {
@@ -755,19 +759,31 @@
     padding-top: 64px;
     padding-bottom: 32px;
     
+    .showing-results {
+        @include font-format($font-family, $font-regular, normal);
+        font-size: 28px;
+        margin-bottom: 16px;
+        
+        .number {
+            @include font-format($font-family, $font-semibold, normal);
+        }
+    }
+    
     .filters {
         
         .filter-item {
             border-bottom: solid 1px $grey-light;
+            padding: 16px 0;
+            
+            &:first-of-type {
+                padding-top: 0;
+            }
             
             .filter-item-title {
                 position: relative;
-                margin: 16px 0;
-
-                &:first-of-type {
-                    margin-top: 0;
-                }
-
+                padding: 0;
+                cursor: pointer;
+    
                 p {
                     text-transform: uppercase;
                     font-size: 16px;
@@ -779,24 +795,30 @@
                     top: calc(50% - 6px);
                     right: 0;
                 }
-
+                &.open {
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                }
             }
             
             .active-filters {
+                padding: 0 0 0 0;
                 ul {
                     margin: 0;
                     padding: 0;
                     
                     li {
                         list-style: none;
-                        font-size: 14px;
+                        font-size: 13px;
                         padding: 6px 16px 6px 32px;
                         background: $tool-teal-mid;
                         border: 1px solid $tool-teal;
                         border-radius: 30px;
-                        margin: 0 8px 8px 0;
+                        margin: 8px 8px 0 0;
                         line-height: 1;
                         cursor: pointer;
+                        display: inline-block;
                         display: none;
                         
                         &.selected {
@@ -804,6 +826,8 @@
                             background-size: 10px 10px;
                             background-position: left 12px center;
                             display: inline-block;
+                            
+                            
                         }
                     }
                 }
@@ -811,15 +835,54 @@
             }
             
             .filter-item-content {
+                padding: 16px 0 0 0;
+                display: none;
                 
-                input {
+                .checkbox-item {
+                    line-height: 28px;
                     display: block;
-                    background: pink;
-                }    
-                label {
+                    margin-bottom: 16px;
+        
+                    input {
+                        opacity: 1;
+                        width: 0;
+                        height: 24px;
+                        display: block;
+                        position: absolute;
+                    }    
+                    label {
                         font-size: 14px;
+                        line-height: 1.5;
                         @include font-format($font-family, $font-regular, normal);
+                        position: relative;
+                        padding-left: 42px;
+                        cursor: pointer;
+                        display: block;
+                        padding: 0 0 0 32px;
+                        margin-bottom: 0;
+                        
+                        &::before {
+                            height: 24px;
+                            width: 24px;
+                            content: " ";
+                            border: solid 1px $black-light;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
                     }
+                
+                    &.selected {
+                        label {
+                            &::before {
+                                position: absolute;
+                                border: solid 2px $black-light;
+                                background: url(../assets/Icon-tick-filters.svg) no-repeat;
+                                background-position: center center;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
