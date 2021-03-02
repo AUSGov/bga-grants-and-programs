@@ -295,173 +295,108 @@ $(document).ready(function () {
     });
     
     
-    // TOOL FUNCTIONALITY
-    /*------------------- Form functionality -------------------*/
-    // Disable next button functionality
-    $(".disabled").on('click', function(e){
-       //e.preventDefault(); 
-    });
-    
-    // Radio buttons
-    $(".radio-item label").on('click', function(){
-    
-        $(this).parents(".radio-item").find("label").removeClass('radio-focus');
-        $(this).addClass("radio-focus");
-        
-        $(this).parents(".form-question").addClass("item-checked").removeClass("error");
-        /*if ($(".form-question").length === $(".form-question.item-checked").length) {
-            $(this).parents("form").find(".disabled").removeClass("disabled");
-            
-        }*/
-        
-        if($(this).parents(".form-question").hasClass("last")) {
-            //$('form .disabled').removeClass('disabled');
-        }
-    });
-    
-    // Error messaging
-    $(".next-button").on("click", function(e){
-        //if(!$(this).hasClass('disabled')){
-        //e.preventDefault(); 
-        //alert($(".form-question:visible").length);  
-        //alert($(".form-question.item-checked:visible").length);
-        
-        if ($(".form-question:visible").length !== $(".form-question.item-checked:visible").length) {
-                e.preventDefault(); 
 
-                $(".form-question:visible").each(function(){
-                    if(!$(this).hasClass("item-checked")) 
-                        {
-                            $(this).addClass("error");
-                        }
-                });
-            }
-        //}
+    // FINDER ALT LINK - scroll to results      
+    $('.alt-link').on('click', function(){
+        $('html, body').animate({
+            scrollTop: $('.showing-results').offset().top
+        }, 500);
     });
     
     
-    // Contextual help
-    $(".help-question").on('click', function(){
-        $(this).next(".help-answer").slideToggle();
-        $(this).find("svg").toggleClass("open");
-    });
-    
-    // Show clause box
-    $(".radio-item label").on('click', function(){
-        if($(this).hasClass("show-regulation")) {
-            $(this).parents(".form-question").find(".clause-box").slideDown();
-        } else if($(this).hasClass("hide-regulation")) {
-            $(this).parents(".form-question").find(".clause-box").slideUp();
-        }
-    });
-    
-    // Results accordion
-    $(".result-item-title").on('click', function(){
-        $(this).next(".result-item-text").slideToggle();
-        $(this).toggleClass('open');
-    });
-    
-    // Change answers accordion
-    $(".answers-item-title").on('click', function(){
-        $(this).next(".answers-item-text").slideToggle();
-        $(this).toggleClass('open');
-    });
-    
-
-    // Dynamic form questions - VERSION B
-    // First section
-    $(".b .location .radio-item label").on('click', function(){
-      
-        if($(this).hasClass("land")) {
-            sessionStorage.setItem('location', "land");
-        } 
-        else if($(this).hasClass("sea")) {
-            sessionStorage.setItem('location', "sea");
-        } 
-        else if($(this).hasClass("both")){
-            sessionStorage.setItem('location', "both");
-        }
-    });
-    $(".b .location-submit").on('click', function(e){
-        e.preventDefault(); 
-        var location = sessionStorage.getItem('location');
-
-        if (location === 'land' || location === 'both') {
-            window.location.pathname = "/bga-major-projects-help/tool-airport-b.html";
-        } else if (location === 'sea') {
-            window.location.pathname = "/bga-major-projects-help/tool-maritime-b.html";
-        }
-    });  
-
-    
-    // Land section
-    $(".b .location-land-1 .radio-item label").on("click", function(){
-        if($(this).hasClass("yes")) {
-            $(".location-land-1-yes").removeClass('inactive');
-            $(".location-land-2").removeClass('inactive');
-        }
-        else if($(this).hasClass("no")) {
-            $(".location-land-1-yes").addClass('inactive');
-        }
-    });
-    
-    $(".b .road-submit").on('click', function(e){
-        e.preventDefault(); 
-        var location = sessionStorage.getItem('location');
+    // FINDER CHANGE SECTION
+    $('.finder-wrapper .form-buttons .previous').on('click', function(){
+        $('.finder_section').hide();
         
-        if (location === 'both') {
-            window.location.pathname = "/bga-major-projects-help/tool-maritime-b.html";
-        } else {
-            window.location.pathname = "/bga-major-projects-help/tool-results.html";
-        }
+        var new_section = $(this).attr('data-value');
+        $('#' + new_section).show();
     });
-         
-         
-    // Sea section
-    $('.b .location-sea-1 .radio-item label').on('click', function(){
-        if($(this).hasClass("yes")) {
-            $(".location-sea-1-yes").removeClass('inactive');
-        }
-        else if($(this).hasClass("no")) {
-            $(".location-sea-1-yes").addClass('inactive');
-        }
-    });
-    $('.b .location-sea-2 .radio-item label').on('click', function(){
-        if($(this).hasClass("yes")) {
-            $(".location-sea-2-yes").removeClass('inactive');
-        }
-        else if($(this).hasClass("no")) {
-            $(".location-sea-2-yes").addClass('inactive');
-        }
+    $('.finder-wrapper .form-buttons .next').on('click', function(){
+        $('.finder_section').hide();
+        
+        var new_section = $(this).attr('data-value');
+        $('#' + new_section).show();
     });
     
+    
+    // FINDER QUESTIONS
+    // Multiple selects
+    $('.finder-question.multi-select li').on('click', function(){
+        $(this).toggleClass('selected');
+        
+        var filter_option = $(this).attr('data-value');
+        
+        $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+    });
+    
+    // Single selects
+    $('.finder-question.single-select select').change(function(){
+        // Add bubble
+        $('.active-filters.single-select li').removeClass('selected');
+        var filter_option = $(this).val();
+        $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
+        
+        // Change select in the filters
+         $('.filter-item-content select').val(filter_option);
+    });
     
     
     // FINDER FILTERS
     // Open filter accordions
     $('.filter-item-title').on('click', function(){
-        $(this).parents('.filter-item').find('.filter-item-content').slideToggle();
-        $(this).toggleClass('open');
+        
+        if ( $(this).hasClass('open') ) {
+            $(this).parents('.filter-item').find('.filter-item-content').slideUp();
+            $(this).removeClass('open');
+        } else { 
+            $('.filter-item-content').slideUp();
+            $('.filter-item-title').removeClass('open');
+            
+            $(this).parents('.filter-item').find('.filter-item-content').slideDown();
+            $(this).addClass('open');
+        }
+        
     });
     
-    // Deselect filter 'bubble' options
+    // Select filter 'bubble' options - multiple select
     $('.active-filters li').on('click', function(){
-        $(this).removeClass('selected');
+        $(this).toggleClass('selected');
         
-        //var filter_option = $(this).text().toLowerCase();
-        //filter_option = filter_option.split(' ').join('-');
         var filter_option = $(this).attr('data-value');
-        $('#' + filter_option).parent('.checkbox-item').removeClass('selected');
+        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
     });
     
     // Select filter checkbox options
     $('.checkbox-item label').on('click', function(){
         $(this).parents('.checkbox-item').toggleClass('selected');
         
-        var filter_option = $(this).text().toLowerCase();
-        filter_option = filter_option.split(' ').join('-');
-
+        //var filter_option = $(this).text().toLowerCase();
+        //filter_option = filter_option.split(' ').join('-');
+        
+        var filter_option = $(this).parents('.checkbox-item').find('input').attr('id');
         $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
+        
+        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+    });
+    
+    
+    // Select filter 'bubble' options -single select
+     $('.active-filters.single-select li').on('click', function(){
+         $(this).removeClass('selected');
+         
+         $('.finder-question.single-select select').val('select-industry');
+         $('.filter-item-content select').val('select-industry');
+    });
+    
+    // Select single select options
+    $('.filter-item-content select').change(function(){
+        $('.active-filters.single-select li').removeClass('selected');
+        var filter_option = $(this).val();
+        $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
+        
+        $('.finder-question.single-select select').val(filter_option);
     });
     
     
