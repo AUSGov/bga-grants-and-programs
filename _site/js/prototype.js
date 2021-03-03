@@ -1,12 +1,6 @@
 /*jshint browser: true, devel: true, jquery: true*/
 
-// Active pathway tiles
-function changePage(page){
-    window.location.pathname = page;
-}
-function changePageExternal(url) {
-    window.location = url;
-}
+
 
 $(document).ready(function () {
     
@@ -16,19 +10,15 @@ $(document).ready(function () {
     });
 
     $('body').click(function(e){
-        
-        //console.log(e.target);
         var top_menu_link = $('.navigation-main-menu > .nav-item').has(e.target).length > 0,
             dropdown_menu = $('dropdown-menu').has(e.target).length > 0;
         
         if(!top_menu_link) {
-            //console.log("I'm not the menu link");
             
             $('.dropdown-menu').each(function(){
                 $(this).removeClass('show');
             });
         } else {
-            //console.log("I'm a top link");
         }
     });
     
@@ -301,23 +291,42 @@ $(document).ready(function () {
         $('html, body').animate({
             scrollTop: $('.showing-results').offset().top
         }, 500);
+        window.location.hash = "section_0";
     });
     
     
     // FINDER CHANGE SECTION
-    $('.finder-wrapper .form-buttons .previous').on('click', function(){
-        $('.finder_section').hide();
-        
-        var new_section = $(this).attr('data-value');
-        $('#' + new_section).show();
-    });
+    
+    if ($('#section_0').length) {
+        console.log('section 0');
+        window.location.hash = "section_0";
+    } else {
+        console.log('not section 0');
+    }
+
+    // Change section on prev / next click
+    var setSection = function(element){   
+        $('.finder_section').hide(); 
+        var new_section = element.attr('data-value');
+        $('#' + new_section).show();    
+        window.location.hash = '#' + new_section;
+    };
+    $('.finder-wrapper .form-buttons .previous').on('click', function(){         
+        setSection($(this));
+    });    
     $('.finder-wrapper .form-buttons .next').on('click', function(){
-        $('.finder_section').hide();
-        
-        var new_section = $(this).attr('data-value');
-        $('#' + new_section).show();
+         setSection($(this));
     });
     
+
+    // Change sections on url fragment change (to catch browser back button clicks)
+    $(window).on('popstate', function(e) {
+        var new_section = window.location.hash; 
+        $('.finder_section').hide();
+        $(new_section).show();
+    });
+    
+
     
     // FINDER QUESTIONS
     // Multiple selects
@@ -372,9 +381,6 @@ $(document).ready(function () {
     $('.checkbox-item label').on('click', function(){
         $(this).parents('.checkbox-item').toggleClass('selected');
         
-        //var filter_option = $(this).text().toLowerCase();
-        //filter_option = filter_option.split(' ').join('-');
-        
         var filter_option = $(this).parents('.checkbox-item').find('input').attr('id');
         $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
         
@@ -405,6 +411,21 @@ $(document).ready(function () {
         $(this).parents('.search-accordion-expand-wrapper').find(".collapse").slideToggle();
         $(this).parents('.grant-expand-title').toggleClass('collapsed');
     });
+   
+    
+    // Back button
+    /*jQuery(document).ready(function($) {
+      if (window.history && window.history.pushState) {
+
+        //window.history.pushState('forward', null, './#forward');
+
+        $(window).on('popstate', function() {
+          alert('Back button was pressed.');
+        });
+
+      }
+    });*/
+
     
     
 }); // END doc ready
