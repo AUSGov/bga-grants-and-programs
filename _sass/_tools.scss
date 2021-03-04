@@ -32,10 +32,15 @@
 #section_1,
 #section_2, 
 #section_3,
-#section_4 {
+#section_4,
+#section_5,
+#section_6, 
+#section_7,
+#section_8,
+#section_9 {
     display: none;
 }
-#section_0 {
+#section_1 {
     display: block;
 } 
 
@@ -157,7 +162,7 @@
                 border-radius: 0;
                 margin-top: 16px;
                 font-size: 18px;
-                border: solid 1px $blue-primary-mid;
+                border: none;
                 border-bottom: solid 3px $blue-primary-mid;
                 background: $white url(../assets/Icon-chevron-down-blue.svg) no-repeat;
                 background-position: right 16px center;
@@ -169,15 +174,17 @@
             }
             
             input {
-                padding: 8px 56px 8px 16px;
+                padding: 8px 16px 8px 16px;
                 border-radius: 0;
                 margin-top: 16px;
                 font-size: 18px;
-                border: solid 1px $blue-primary-mid;
+                border: none;
                 border-bottom: solid 3px $blue-primary-mid;
                 background: $white;
                 
-                
+                &#postcode {
+                    width: 90px;
+                }
                 &:focus {
                     outline: none;
                 }

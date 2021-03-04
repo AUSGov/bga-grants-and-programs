@@ -1,7 +1,48 @@
 <div class="filters">
                 
-    <!-- SUPPORT TYPE -->
-                <div class="filter-item" id="filter-support-type">
+    
+    <!-- 1. BUSINESS TYPE -->
+                <div class="filter-item" id="business-type">
+                    <div class="filter-item-title">
+                         <p>Business type</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
+
+                         </div>
+                    <div class="active-filters single-select">
+                        <ul>
+                            <li data-value="">select business type</li>
+                            <li data-value="sole-trader">Sole trader</li>
+                            <li data-value="partnership">Partnership</li>
+                            <li data-value="company">Company</li>
+                            <li data-value="trust">Trust</li>
+                            <li data-value="not-for-profit">Not for profit</li>
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                        <select id="filter_business">
+                            <option value="select-option" selected="selected" disabled="">select business type</option>
+                            <option value="sole-trader">Sole trader</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="company">Company</option>
+                            <option value="trust">Trust</option>
+                            <option value="not-for-profit">Not for profit</option>
+                        </select>
+                        </form>
+
+                        </div>
+                    </div>
+   
+              
+   
+    
+    <!-- 2. SUPPORT TYPE -->
+                <div class="filter-item" id="support-type">
                     <div class="filter-item-title">
                          <p>Support type</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
@@ -67,10 +108,10 @@
               
                 
     
-    <!-- BUSINESS OBJECTIVES -->
-                <div class="filter-item" id="filter-objectives">
+    <!-- 3. OBJECTIVES -->
+                <div class="filter-item" id="objectives">
                     <div class="filter-item-title">
-                         <p>Business objectives</p>
+                         <p>Objectives</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -178,8 +219,81 @@
               
       
     
-    <!-- INDUSTRY -->
-                <div class="filter-item" id="filter-objectives">
+     <!-- 4. LOCATION -->
+                <div class="filter-item" id="location">
+                    <div class="filter-item-title">
+                         <p>Location</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
+
+                         </div>
+                    <div class="active-filters">
+                        <ul>
+                            <li data-value="australian-capital-territory">Australian Capital Territory</li>
+                            <li data-value="new-south-wales">New South Wales</li>
+                            <li data-value="northern-territory">Northern Territory</li>
+                            <li data-value="queensland">Queensland</li>
+                            <li data-value="south-australia">South Australia</li>
+                            <li data-value="tasmania">Tasmania</li>
+                            <li data-value="victoria">Victoria</li>
+                            <li data-value="western-australia">Western Australia</li>
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="australian-capital-territory">
+                            <label >Australian Capital Territory</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="new-south-wales">
+                            <label >New South Wales</label>
+                            </div>  
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="northern-territory">
+                            <label >Northern Territory</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="queensland">
+                            <label>Queensland</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="south-australia">
+                            <label>South Australia</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="tasmania">
+                            <label>Tasmania</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="victoria">
+                            <label >Victoria</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="western-australia">
+                            <label >Western Australia</label>
+                            </div>
+                            
+                        </form>
+
+                        </div>
+                    </div>
+              
+                
+   
+    <!-- 5. INDUSTRY -->
+                <div class="filter-item" id="industry">
                     <div class="filter-item-title">
                          <p>Industry</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
@@ -216,8 +330,8 @@
 
                         <form>
 
-                            <select id="sel_industry">
-                                <option value="select-industry" selected="selected" class="select-option" disabled="">select industry</option>
+                            <select id="filter_industry">
+                                <option value="select-option" selected="selected" class="select-option" disabled="">select industry</option>
                                 <option value="accommodation-and-food-services" class="select-option">Accommodation and Food Services</option>
                                 <option value="administrative-and-support-services" class="select-option">Administrative and Support Services</option>
                                 <option value="agriculture-forestry-and-fishing" class="select-option">Agriculture, Forestry and Fishing</option>
@@ -245,12 +359,11 @@
                     </div>
    
               
-      
-    
-    <!-- Location -->
-                <div class="filter-item" id="filter-objectives">
+
+    <!-- 6. TURNOVER -->
+                <div class="filter-item" id="turnover">
                     <div class="filter-item-title">
-                         <p>Location</p>
+                         <p>Turnover</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -258,22 +371,198 @@
                         </svg>
 
                          </div>
-                    <div class="active-filters textx-input">
+                    <div class="active-filters single-select">
                         <ul>
-                            <li data-value=""></li>
-                            
+                           <li data-value="749000-or-less">$749,000 or less</li>
+                            <li data-value="-75000-to-140000" class="select-option">$750,000 to $1.4 million</li>
+                            <li data-value="1500000-to-3000000" class="select-option">$1.5 million to $3 million</li>
+                            <li data-value="more-than-5-years" class="select-option">over $3 million</li>
+
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
-                    <form>
+                        <form>
+                        <select id="filter_turnover">
+                            <option value="select-option" selected="selected" disabled="">select turnover</option>
+                            <option value="749000-or-less" class="select-option">$749,000 or less</option>
+                            <option value="-75000-to-140000" class="select-option">$750,000 to $1.4 million</option>
+                            <option value="1500000-to-3000000" class="select-option">$1.5 million to $3 million</option>
+                            <option value="more-than-5-years" class="select-option">over $3 million</option>
+                            
+                        </select>
+                        </form>
 
-                     <input type="Text" inputmode="numeric" maxlength="4" placeholder="" minlength="4" onfocus="this.placeholder = ''" id="postcode" autocomplete="off" aria-label="postcode">   
-                    </form>
+                        </div>
+                    </div>
+   
+              
+   
+    <!-- 7. BUSINESS STAGE -->
+                <div class="filter-item" id="business-stage">
+                    <div class="filter-item-title">
+                         <p>Business stage</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
 
+                         </div>
+                    <div class="active-filters single-select">
+                        <ul>
+                            <li data-value="2-years-or-less" class="select-option">2 years or less</li>
+                            <li data-value="3-and-5-years" class="select-option">3 and 5 years</li>
+                            <li data-value="more-than-5-years" class="select-option">More than 5 years</li>
+
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                        <select id="filter_stage">
+                            <option value="select-option" selected="selected" disabled="">select stage</option>
+                            <option value="2-years-or-less" class="select-option">2 years or less</option>
+                            <option value="3-and-5-years" class="select-option">3 and 5 years</option>
+                            <option value="more-than-5-years" class="select-option">More than 5 years</option>
+                            
+                        </select>
+                        </form>
+
+                        </div>
                     </div>
+   
+              
+   
+    <!-- 8. I AM A -->
+                <div class="filter-item" id="audience">
+                    <div class="filter-item-title">
+                         <p>Audience</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
+
+                         </div>
+                    <div class="active-filters">
+                        <ul>
+                            <li data-value="aboriginal-or-torres-strait-islander-person">Aboriginal or Torres Strait Islander person</li>
+                            <li data-value="artist-or-filmmaker">Artist or filmmaker</li>
+                            <li data-value="farmer">Farmer</li>
+                            <li data-value="manufacturing">Manufacturing business</li>
+                            <li data-value="research-organisation">Research organisation</li>
+                            <li data-value="rural-or-regional-business">Rural or regional business</li>
+                            <li data-value="small-business">Small business</li>
+                            <li data-value="start-up">Start-up</li>
+                            <li data-value="tourism-business">Tourism business</li>
+                            <li data-value="none-of-these">None of these</li>
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="aboriginal-or-torres-strait-islander-person">
+                            <label >Aboriginal or Torres Strait Islander person</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="artist-or-filmmaker">
+                            <label>Artist or filmmaker</label>
+                            </div>  
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="farmer">
+                            <label >Farmer</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="manufacturing-business">
+                            <label>Manufacturing business</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="research-organisation">
+                            <label>Research organisation</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="rural-or-regional-business">
+                            <label>Rural or regional business</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="small-business">
+                            <label>Small business</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="start-up">
+                            <label>Start up</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="tourism-business">
+                            <label>Tourism business</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="none-of-these">
+                            <label>None of these</label>
+                            </div>
+                            
+                        </form>
+
+                        </div>
                     </div>
+              
+      
+    
+     <!-- 9. GRANT / PROGRAM STATUS -->
+                <div class="filter-item" id="status">
+                    <div class="filter-item-title">
+                         <p>Grant / program status</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
+
+                         </div>
+                    <div class="active-filters">
+                        <ul>
+                            <li data-value="open">Open</li>
+                            <li data-value="coming-soon">Coming soon</li>
+                            <li data-value="closed">Closed</li>    
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="open">
+                            <label >Open</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="coming-soon">
+                            <label>Coming soon</label>
+                            </div>  
+                            
+                            <div class="checkbox-item">
+                            <input type="checkbox" id="closed">
+                            <label >Closed</label>
+                            </div>
+
+                        </form>
+
+                        </div>
+                    </div>
+              
+      
+      
                    
-
-                
-            </div>
+                 
+    </div>
+    

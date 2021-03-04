@@ -297,19 +297,19 @@ $(document).ready(function () {
     
     // FINDER CHANGE SECTION
     
-    if ($('#section_0').length) {
+    /*if ($('#section_0').length) {
         console.log('section 0');
-        window.location.hash = "section_0";
+        window.location.hash = "0";
     } else {
         console.log('not section 0');
-    }
+    }*/
 
     // Change section on prev / next click
     var setSection = function(element){   
         $('.finder_section').hide(); 
         var new_section = element.attr('data-value');
         $('#' + new_section).show();    
-        window.location.hash = '#' + new_section;
+        //window.location.hash = '#' + new_section;
     };
     $('.finder-wrapper .form-buttons .previous').on('click', function(){         
         setSection($(this));
@@ -320,11 +320,11 @@ $(document).ready(function () {
     
 
     // Change sections on url fragment change (to catch browser back button clicks)
-    $(window).on('popstate', function(e) {
+    /*$(window).on('popstate', function(e) {
         var new_section = window.location.hash; 
         $('.finder_section').hide();
         $(new_section).show();
-    });
+    });*/
     
 
     
@@ -368,6 +368,7 @@ $(document).ready(function () {
         
     });
     
+    // MULTIPLE SELECT FILTERS
     // Select filter 'bubble' options - multiple select
     $('.active-filters li').on('click', function(){
         $(this).toggleClass('selected');
@@ -388,22 +389,36 @@ $(document).ready(function () {
     });
     
     
+    // SINGLE SELECT FILTERS
     // Select filter 'bubble' options -single select
      $('.active-filters.single-select li').on('click', function(){
          $(this).removeClass('selected');
          
-         $('.finder-question.single-select select').val('select-industry');
-         $('.filter-item-content select').val('select-industry');
+         var filter_type = $(this).parents('.filter-item').attr('id');
+         
+         $('#question-' + filter_type + ' select').val('select-option');     
+         $('#' + filter_type + ' .filter-item-content select').val('select-option');
     });
     
     // Select single select options
     $('.filter-item-content select').change(function(){
-        $('.active-filters.single-select li').removeClass('selected');
+        
+        var filter_type = $(this).parents('.filter-item').attr('id');
+        
+        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
+        
         var filter_option = $(this).val();
         $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
         
         $('.finder-question.single-select select').val(filter_option);
     });
+    
+    // TEXT INPUT FILTERS
+    // Postcode text input
+    /*$('#postcode').change(function(){
+        var postcode = $(this).val();
+        $('.active-filters.postcode li').text(postcode).addClass('selected');
+    });*/
     
     
     // FINDER RESULTS CARDS
@@ -413,18 +428,6 @@ $(document).ready(function () {
     });
    
     
-    // Back button
-    /*jQuery(document).ready(function($) {
-      if (window.history && window.history.pushState) {
-
-        //window.history.pushState('forward', null, './#forward');
-
-        $(window).on('popstate', function() {
-          alert('Back button was pressed.');
-        });
-
-      }
-    });*/
 
     
     

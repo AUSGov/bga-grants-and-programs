@@ -3612,9 +3612,9 @@ label { display: block; padding: 5px 0; font-weight: bold; }
 .top-of-page { padding-top: 0; }
 
 /* FINDER SECTION */
-#section_0, #section_1, #section_2, #section_3, #section_4 { display: none; }
+#section_0, #section_1, #section_2, #section_3, #section_4, #section_5, #section_6, #section_7, #section_8, #section_9 { display: none; }
 
-#section_0 { display: block; }
+#section_1 { display: block; }
 
 .finder-main-section { background: #CFEBEB; }
 
@@ -3654,11 +3654,13 @@ label { display: block; padding: 5px 0; font-weight: bold; }
 
 .finder-main-section .finder-wrapper .finder-question ul li.selected { color: #ffffff; background: #4569A0 url(../assets/Icon-finder-tick-white.svg) no-repeat; background-position: left 9px center; }
 
-.finder-main-section .finder-wrapper .finder-question select { -o-appearance: none; -ms-appearance: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: 8px 56px 8px 16px; border-radius: 0; margin-top: 16px; font-size: 18px; border: solid 1px #4569A0; border-bottom: solid 3px #4569A0; background: #ffffff url(../assets/Icon-chevron-down-blue.svg) no-repeat; background-position: right 16px center; }
+.finder-main-section .finder-wrapper .finder-question select { -o-appearance: none; -ms-appearance: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: 8px 56px 8px 16px; border-radius: 0; margin-top: 16px; font-size: 18px; border: none; border-bottom: solid 3px #4569A0; background: #ffffff url(../assets/Icon-chevron-down-blue.svg) no-repeat; background-position: right 16px center; }
 
 .finder-main-section .finder-wrapper .finder-question select:focus { outline: none; }
 
-.finder-main-section .finder-wrapper .finder-question input { padding: 8px 56px 8px 16px; border-radius: 0; margin-top: 16px; font-size: 18px; border: solid 1px #4569A0; border-bottom: solid 3px #4569A0; background: #ffffff; }
+.finder-main-section .finder-wrapper .finder-question input { padding: 8px 16px 8px 16px; border-radius: 0; margin-top: 16px; font-size: 18px; border: none; border-bottom: solid 3px #4569A0; background: #ffffff; }
+
+.finder-main-section .finder-wrapper .finder-question input#postcode { width: 90px; }
 
 .finder-main-section .finder-wrapper .finder-question input:focus { outline: none; }
 
