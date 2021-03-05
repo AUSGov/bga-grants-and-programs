@@ -286,12 +286,16 @@ $(document).ready(function () {
     
     
 
-    // FINDER ALT LINK - scroll to results      
+    // FINDER ALT LINK and VIEW RESULTS - scroll to results      
     $('.alt-link').on('click', function(){
         $('html, body').animate({
             scrollTop: $('.showing-results').offset().top
         }, 500);
-        window.location.hash = "section_0";
+    });
+    $('.view-results').on('click', function(){
+        $('html, body').animate({
+            scrollTop: $('.showing-results').offset().top
+        }, 500);
     });
     
     
@@ -331,23 +335,72 @@ $(document).ready(function () {
     // FINDER QUESTIONS
     // Multiple selects
     $('.finder-question.multi-select li').on('click', function(){
-        $(this).toggleClass('selected');
         
-        var filter_option = $(this).attr('data-value');
+        var filter_option = $(this).attr('data-value'); 
+        var filter_type = $(this).parents('.finder-question').attr('id');
         
-        $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        // IF audience question - manage 'none of these' response
+        if ($(this).parents('.finder-question').attr('id') == 'question-audience') {
+        
+            if ($(this).hasClass('none-of-these')) {
+                
+                if ($(this).hasClass('selected')) {
+                    
+                    $(this).removeClass('selected');
+                    $('#audience .active-filters li.none-of-these').removeClass('selected');
+                    $('#audience .none-of-these').removeClass('selected');
+                    
+                } else if (!$(this).hasClass('selected')) {
+                    $('.finder-question.multi-select li').removeClass('selected');
+                    $(this).addClass('selected');
+                    
+                    $('#audience .active-filters li').removeClass('selected');
+                    $('#audience .active-filters .none-of-these').addClass('selected');
+                    
+                    $('#audience .checkbox-item').removeClass('selected');
+                    $('#audience .none-of-these').addClass('selected');
+                }
+                
+  
+            } 
+            else {
+                $('.finder-question.multi-select li.none-of-these').removeClass('selected');
+                $(this).toggleClass('selected');
+                
+                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+                $('#audience .active-filters .none-of-these').removeClass('selected');
+                
+                $('#audience #' + filter_option).parents('.checkbox-item').toggleClass('selected');
+                $('#audience .none-of-these').removeClass('selected');
+                
+            }
+                
+        } 
+        
+        // Else logic for all other multi-selects    
+        else {
+            $(this).toggleClass('selected');
+
+            $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+            $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        }
+        
+        
     });
     
     // Single selects
     $('.finder-question.single-select select').change(function(){
-        // Add bubble
-        $('.active-filters.single-select li').removeClass('selected');
+        
         var filter_option = $(this).val();
+        var filter_type = $(this).parents('.finder-question').attr('id');
+        filter_type = (filter_type.slice(9, filter_type.length));
+        
+        // Add bubble
+        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
         $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
         
         // Change select in the filters
-         $('.filter-item-content select').val(filter_option);
+        $('#' + filter_type + ' .filter-item-content select').val(filter_option);
     });
     
     
@@ -371,22 +424,112 @@ $(document).ready(function () {
     // MULTIPLE SELECT FILTERS
     // Select filter 'bubble' options - multiple select
     $('.active-filters li').on('click', function(){
-        $(this).toggleClass('selected');
         
         var filter_option = $(this).attr('data-value');
-        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
-        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+    
+        /*if ( $(this).parents('filter-item').attr('id') == "audience" ) {
+            
+            if ($(this).hasClass('none-of-these')) {
+                
+                if ($(this).hasClass('selected')) {
+                    
+                    $(this).removeClass('selected');
+                    $('#question-audience .none-of-these').removeClass('selected');
+                    $('#audience #none-of-these').removeClass('selected');
+                    
+                } else if (!$(this).hasClass('selected')) {
+                    $('#audience .finder-question.multi-select li').removeClass('selected');
+                    $('#audience .finder-question.multi-select .none-of-these').addClass('selected');
+                    
+                    $('#audience .active-filters li').removeClass('selected');
+                    $(this).addClass('selected');
+                    
+                    $('#audience .checkbox-item').removeClass('selected');
+                    $('#audience .none-of-these').addClass('selected');
+                }
+                
+  
+            } 
+            else {
+                $('#question-audience .finder-question.multi-select li.none-of-these').removeClass('selected');
+                $('#question-audience .finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+                
+                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+                $('#audience .active-filters .none-of-these').removeClass('selected');
+                
+                $('#audience #' + filter_option).parents('.checkbox-item').toggleClass('selected');
+                $('#audience .none-of-these').removeClass('selected');
+                
+            }
+            
+        } 
+        
+        else {
+        */
+        $(this).toggleClass('selected');
+        
+            $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected'); 
+            
+        //}
     });
     
     // Select filter checkbox options
     $('.checkbox-item label').on('click', function(){
-        $(this).parents('.checkbox-item').toggleClass('selected');
         
         var filter_option = $(this).parents('.checkbox-item').find('input').attr('id');
-        $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
         
-        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-    });
+        if ( $(this).parents('.filter-item').attr('id') == "audience" ) {
+        
+            if ($(this).parents('.checkbox-item').hasClass('none-of-these')) {
+                
+                if ($(this).hasClass('selected')) {
+                    
+                    console.log('selecting none');
+                   
+                    $('#question-audience .none-of-these').removeClass('selected');
+                    $('#audience .finder-question.multi-select .none-of-these').removeClass('selected');
+                    $(this).removeClass('selected');
+                    
+                } else if (!$(this).hasClass('selected')) {
+                    
+                    
+                    $('#question-audience li').removeClass('selected');
+                    $('#question-audience .none-of-these').addClass('selected');
+                    
+                    $('#audience .active-filters li').removeClass('selected');
+                    $('#audience .active-filters .none-of-these').addClass('selected');
+                    
+                    $('#audience .checkbox-item').removeClass('selected');
+                    $(this).parents('.checkbox-item').addClass('selected');
+                }
+                
+  
+            } 
+            
+            else {
+                
+                $('#question-audience .none-of-these').removeClass('selected');
+                $('#question-audience li[data-value="' + filter_option + '"]').toggleClass('selected');
+                
+                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+                $('#audience .active-filters .none-of-these').removeClass('selected');
+                
+                $(this).parents('.checkbox-item').toggleClass('selected');
+                $('#audience .none-of-these').removeClass('selected');
+                
+            }
+
+
+        } // end if audience
+        
+        else {       
+            $(this).parents('.checkbox-item').toggleClass('selected');
+            $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
+            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+        } 
+                  
+    }); 
     
     
     // SINGLE SELECT FILTERS
@@ -404,21 +547,12 @@ $(document).ready(function () {
     $('.filter-item-content select').change(function(){
         
         var filter_type = $(this).parents('.filter-item').attr('id');
-        
-        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
-        
         var filter_option = $(this).val();
-        $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
-        
-        $('.finder-question.single-select select').val(filter_option);
+
+        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
+        $('#' + filter_type + ' .active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');   
+        $('#question-' + filter_type + ' select').val(filter_option);
     });
-    
-    // TEXT INPUT FILTERS
-    // Postcode text input
-    /*$('#postcode').change(function(){
-        var postcode = $(this).val();
-        $('.active-filters.postcode li').text(postcode).addClass('selected');
-    });*/
     
     
     // FINDER RESULTS CARDS

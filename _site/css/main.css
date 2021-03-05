@@ -3614,7 +3614,7 @@ label { display: block; padding: 5px 0; font-weight: bold; }
 /* FINDER SECTION */
 #section_0, #section_1, #section_2, #section_3, #section_4, #section_5, #section_6, #section_7, #section_8, #section_9 { display: none; }
 
-#section_1 { display: block; }
+#section_9 { display: block; }
 
 .finder-main-section { background: #CFEBEB; }
 

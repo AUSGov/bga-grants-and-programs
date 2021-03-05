@@ -761,7 +761,7 @@
                     </div>
                 </div>
                 
-                <p class="alt-link">Or explore the <a href="#results-section">full list of grants and programs for business</a> below.</p>
+                <p class="alt-link">Or explore the <a>full list of grants and programs for business</a> below.</p>
             </div>
         </div>
 
@@ -1057,9 +1057,9 @@
                        <select id="sel_turnover">
                             <option value="select-option" selected="selected" disabled="">select turnover</option>
                             <option value="749000-or-less" class="select-option">$749,000 or less</option>
-                            <option value="-75000-to-140000" class="select-option">$750,000 to $1.4 million</option>
-                            <option value="1500000-to-3000000" class="select-option">$1.5 million to $3 million</option>
-                            <option value="more-than-5-years" class="select-option">over $3 million</option>
+                            <option value="750000-to-140000" class="select-option">$750,000 to $1.4 million</option>
+                            <option value="1.5-million-to-3-million" class="select-option">$1.5 million to $3 million</option>
+                            <option value="over-3-million" class="select-option">over $3 million</option>
                             
                         </select>
                     
@@ -1149,7 +1149,7 @@
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question multi-select">
+                <div class="finder-question multi-select" id="question-audience">
                     <p class="section-title">Audience</p>
                     <h2>I am a</h2>
                     <p class="help-text">Select  one or more options</p>
@@ -1163,7 +1163,7 @@
                         <li data-value="small-business">Small business</li>
                         <li data-value="start-up">Start-up</li>
                         <li data-value="tourism-business">Tourism business</li>
-                        <li data-value="none-of-these">None of these</li>
+                        <li data-value="none-of-these" class="none-of-these">None of these</li>
                     </ul>
                 </div>
                 
@@ -1217,7 +1217,7 @@
                        
                         <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
                             <div>
-                                <a class="theme-button theme-button-primary theme-button-small btn">
+                                <a class="view-results theme-button theme-button-primary theme-button-small btn">
                                     <span>View results</span>
                                 </a>
                             </div>
@@ -1637,9 +1637,9 @@
                     <div class="active-filters single-select">
                         <ul>
                            <li data-value="749000-or-less">$749,000 or less</li>
-                            <li data-value="-75000-to-140000" class="select-option">$750,000 to $1.4 million</li>
-                            <li data-value="1500000-to-3000000" class="select-option">$1.5 million to $3 million</li>
-                            <li data-value="more-than-5-years" class="select-option">over $3 million</li>
+                            <li data-value="750000-to-140000" class="select-option">$750,000 to $1.4 million</li>
+                            <li data-value="1.5-million-to-3-million" class="select-option">$1.5 million to $3 million</li>
+                            <li data-value="over-3-million" class="select-option">over $3 million</li>
 
                         </ul>
                     </div>                
@@ -1649,9 +1649,9 @@
                         <select id="filter_turnover">
                             <option value="select-option" selected="selected" disabled="">select turnover</option>
                             <option value="749000-or-less" class="select-option">$749,000 or less</option>
-                            <option value="-75000-to-140000" class="select-option">$750,000 to $1.4 million</option>
-                            <option value="1500000-to-3000000" class="select-option">$1.5 million to $3 million</option>
-                            <option value="more-than-5-years" class="select-option">over $3 million</option>
+                            <option value="750000-to-140000" class="select-option">$750,000 to $1.4 million</option>
+                            <option value="1.5-million-to-3-million" class="select-option">$1.5 million to $3 million</option>
+                            <option value="over-3-million" class="select-option">over $3 million</option>
                             
                         </select>
                         </form>
@@ -1713,13 +1713,13 @@
                             <li data-value="aboriginal-or-torres-strait-islander-person">Aboriginal or Torres Strait Islander person</li>
                             <li data-value="artist-or-filmmaker">Artist or filmmaker</li>
                             <li data-value="farmer">Farmer</li>
-                            <li data-value="manufacturing">Manufacturing business</li>
+                            <li data-value="manufacturing-business">Manufacturing business</li>
                             <li data-value="research-organisation">Research organisation</li>
                             <li data-value="rural-or-regional-business">Rural or regional business</li>
                             <li data-value="small-business">Small business</li>
                             <li data-value="start-up">Start-up</li>
                             <li data-value="tourism-business">Tourism business</li>
-                            <li data-value="none-of-these">None of these</li>
+                            <li class="none-of-these" data-value="none-of-these">None of these</li>
                         </ul>
                     </div>                
                     <div class="filter-item-content">
@@ -1770,7 +1770,7 @@
                             <label>Tourism business</label>
                             </div>
                             
-                            <div class="checkbox-item">
+                            <div class="checkbox-item none-of-these">
                             <input type="checkbox" id="none-of-these">
                             <label>None of these</label>
                             </div>
