@@ -307,7 +307,7 @@ $(document).ready(function () {
         var parent_card = $(this).parents('.search-card-standard-content'),
             grant = parent_card.find('.search-card-content-type').text(),
             description = parent_card.find('h5').text(),
-            shortlist_li = '<li><a href="">'+grant+"</a><p>"+description+"</p></li>",
+            shortlist_li = '<li><span></span><a href="">'+grant+"</a><p>"+description+"</p></li>",
             shortlist_li_text = grant + description,
             count = parseInt($('.shortlist-btn-counter').text());
 
@@ -334,7 +334,7 @@ $(document).ready(function () {
             $(this).find('p').text('Remove from shortlist');
             $(this).addClass('shortlisted'); 
             
-            $('.shortlist-links ul').append(shortlist_li);
+            $('.shortlist-links ul').prepend(shortlist_li);
             
             $('.shortlist-counter').text(count + 1);
             $('.shortlist-btn-counter').text(count + 1);
@@ -347,14 +347,31 @@ $(document).ready(function () {
         } 
     });
     
-    // Remove items from shortlist (in the shortlist modal)
-    $('.shortlist-links li:before').on('click', function(){
-        console.log('clicked');
+    // Remove items from shortlist (in the shortlist modal)  
+    $(document).on('click', '.shortlist-links li span', function(){
+        var count = parseInt($('.shortlist-btn-counter').text()),
+            grant = $(this).parent('li').find('a').text();
+         
         $(this).parent('li').remove();
+        $('.search-card-content-type').each(function(){
+            if ( $(this).text() == grant ){
+                $(this).parents('.search-card-standard-content').find('.shortlist').removeClass('shortlisted'); 
+            }
+        });
+        
+        $('.shortlist-btn-counter').text(count - 1);
+        $('.shortlist-counter').text(count - 1);
+        
+        if( $('.shortlist-btn-counter').text() == '0' ) {
+            $('.empty-shortlist').removeClass('inactive');
+        } else {
+            $('.empty-shortlist').addClass('inactive');
+        }
+        
     });
     
     // Shortlist modal
-     $(".view-shortlist").on("click", function(){
+    $(".view-shortlist").on("click", function(){
         if( !($(this).hasClass('disabled')) ) {
             $(".shortlist-wrapper").addClass("active");
             $(".modal-background").addClass("active");
