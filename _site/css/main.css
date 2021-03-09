@@ -3838,6 +3838,12 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .shortlist-wrapper.active .shortlist-links { height: auto; max-height: calc(100% - 260px); overflow-y: scroll; padding: 16px; background: #EBEBEB; }
 
+.shortlist-wrapper.active .shortlist-links .empty-shortlist { display: block; }
+
+.shortlist-wrapper.active .shortlist-links .empty-shortlist p { margin-bottom: 0px; }
+
+.shortlist-wrapper.active .shortlist-links .empty-shortlist.inactive { display: none; }
+
 .shortlist-wrapper.active h2 { position: relative; padding-right: 40px; padding: 0 50px 32px 0; display: inline-block; }
 
 .shortlist-wrapper.active h2 span { width: 32px; height: 32px; font-size: 18px; border-radius: 25px; background: #2F70BF; display: inline-block; color: #ffffff; text-align: center; line-height: 1.7; position: absolute; top: 6px; right: 0; }
@@ -3856,7 +3862,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .shortlist-wrapper.active ul li p { margin: 8px 0 8px 24px; font-size: 14px; padding: 0 0 16px 0; }
 
-.shortlist-wrapper.active ul li:before { background: url(../assets/Icon-cross-333333.svg) no-repeat; background-size: 14px 14px; content: " "; height: 14px; width: 14px; margin-right: 12px; display: inline-block; }
+.shortlist-wrapper.active ul li:before { background: url(../assets/Icon-cross-333333.svg) no-repeat; background-size: 14px 14px; content: " "; height: 14px; width: 14px; margin-right: 12px; display: inline-block; cursor: pointer; }
 
 .shortlist-wrapper.active .email-shortlist { padding-top: 16px; }
 

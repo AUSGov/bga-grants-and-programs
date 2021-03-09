@@ -301,6 +301,7 @@ $(document).ready(function () {
     
     // SHORTLIST
     
+    // Add or remove items from the checklist (using link on results cards)
     $('.shortlist').on('click', function(){
         
         var parent_card = $(this).parents('.search-card-standard-content'),
@@ -323,11 +324,10 @@ $(document).ready(function () {
             $('.shortlist-btn-counter').text(count - 1);
             $('.shortlist-counter').text(count - 1);
             
-            console.log($('.shortlist-btn-counter').text());
             if( $('.shortlist-btn-counter').text() == '0' ) {
-                $('.view-shortlist a').addClass('disabled');
+                $('.empty-shortlist').removeClass('inactive');
             } else {
-                $('.view-shortlist a').removeClass('disabled');
+                $('.empty-shortlist').addClass('inactive');
             }
             
         } else {
@@ -339,18 +339,19 @@ $(document).ready(function () {
             $('.shortlist-counter').text(count + 1);
             $('.shortlist-btn-counter').text(count + 1);
             
-            console.log($('.shortlist-btn-counter').text());
             if( $('.shortlist-btn-counter').text() == '0' ) {
-                $('.view-shortlist a').addClass('disabled');
+                $('.empty-shortlist').removeClass('inactive');
             } else {
-                $('.view-shortlist a').removeClass('disabled');
+                $('.empty-shortlist').addClass('inactive');
             }
-        }
-        
-        
+        } 
     });
     
-
+    // Remove items from shortlist (in the shortlist modal)
+    $('.shortlist-links li:before').on('click', function(){
+        console.log('clicked');
+        $(this).parent('li').remove();
+    });
     
     // Shortlist modal
      $(".view-shortlist").on("click", function(){
@@ -368,10 +369,7 @@ $(document).ready(function () {
         $(".shortlist-wrapper").removeClass("active");
         $(".modal-background").removeClass("active");
     });
-    /*$('.view-shortlist .disabled').on('click', function(e){
-        e.preventDefault();
-    });*/
-    
+
     
     
     

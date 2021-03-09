@@ -775,6 +775,16 @@
         padding: 16px;
         //box-shadow: inset 0 0 5px $grey;
         background: $grey-lighter;
+        
+        .empty-shortlist {
+            display: block;
+            p {
+                margin-bottom: 0px;
+            }
+            &.inactive {
+                display: none;
+            }
+        }
     }
     
     h2 {
@@ -839,6 +849,7 @@
                 width: 14px;
                 margin-right: 12px;
                 display: inline-block;
+                cursor: pointer;
             }
         }
     }
