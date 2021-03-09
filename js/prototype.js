@@ -299,6 +299,82 @@ $(document).ready(function () {
     });
     
     
+    // SHORTLIST
+    
+    $('.shortlist').on('click', function(){
+        
+        var parent_card = $(this).parents('.search-card-standard-content'),
+            grant = parent_card.find('.search-card-content-type').text(),
+            description = parent_card.find('h5').text(),
+            shortlist_li = '<li><a href="">'+grant+"</a><p>"+description+"</p></li>",
+            shortlist_li_text = grant + description,
+            count = parseInt($('.shortlist-btn-counter').text());
+
+        
+        if ( $(this).hasClass('shortlisted')) {
+            $(this).find('p').text('Add to shortlist');
+            $(this).removeClass('shortlisted');
+            
+            $('.shortlist-links li').each(function(){
+                if ($(this).text() == shortlist_li_text) {
+                    $(this).remove();
+                }
+            });
+            $('.shortlist-btn-counter').text(count - 1);
+            $('.shortlist-counter').text(count - 1);
+            
+            console.log($('.shortlist-btn-counter').text());
+            if( $('.shortlist-btn-counter').text() == '0' ) {
+                $('.view-shortlist a').addClass('disabled');
+            } else {
+                $('.view-shortlist a').removeClass('disabled');
+            }
+            
+        } else {
+            $(this).find('p').text('Remove from shortlist');
+            $(this).addClass('shortlisted'); 
+            
+            $('.shortlist-links ul').append(shortlist_li);
+            
+            $('.shortlist-counter').text(count + 1);
+            $('.shortlist-btn-counter').text(count + 1);
+            
+            console.log($('.shortlist-btn-counter').text());
+            if( $('.shortlist-btn-counter').text() == '0' ) {
+                $('.view-shortlist a').addClass('disabled');
+            } else {
+                $('.view-shortlist a').removeClass('disabled');
+            }
+        }
+        
+        
+    });
+    
+
+    
+    // Shortlist modal
+     $(".view-shortlist").on("click", function(){
+        if( !($(this).hasClass('disabled')) ) {
+            $(".shortlist-wrapper").addClass("active");
+            $(".modal-background").addClass("active");
+        }
+    });
+    $(".shortlist-wrapper .modal-close").on("click", function(){
+        $(".shortlist-wrapper").removeClass("active");
+        $(".modal-background").removeClass("active");
+    });
+
+    $(".modal-background").on("click", function(){
+        $(".shortlist-wrapper").removeClass("active");
+        $(".modal-background").removeClass("active");
+    });
+    /*$('.view-shortlist .disabled').on('click', function(e){
+        e.preventDefault();
+    });*/
+    
+    
+    
+    
     // FINDER CHANGE SECTION
     
     /*if ($('#section_0').length) {
