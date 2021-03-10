@@ -40,7 +40,7 @@
 #section_9 {
     display: none;
 }
-#section_0 {
+#section_1 {
     display: block;
 } 
 
@@ -213,12 +213,34 @@
                 &.right {
                     text-align: right;
                 }
+                a {
+                    &:hover,
+                    &:focus {
+                        box-shadow: #fff 0px -30px 0px 0px inset;
+
+                    }
+                }
                 .tertiary-link {
                     display: inline-block;
                     margin-right: 16px;
                 }
                 .previous {
                     color: $blue-primary-mid;
+                }
+                .start-again {
+                    margin-right: 52px;
+                    color: $blue-primary-mid;
+                    position: relative;
+                    
+                    &:after {
+                        background: url(../assets/Icon-refresh.svg) no-repeat;
+                        content: " ";
+                        width: 16px;
+                        height: 16px;
+                        position: absolute;
+                        top: 4px;
+                        right: -22px;
+                    }
                 }
                 .standardcta-button-wrapper {
                     margin: 0 0 0 32px;
@@ -416,7 +438,8 @@
         }
     }
     
-    .filters {
+    .filters {    
+        margin-bottom: 16px;
         
         .filter-item {
             border-bottom: solid 1px $grey-light;
@@ -568,7 +591,61 @@
         }
     }
     
-    
+    .clear-filters {
+        margin-bottom: 32px;
+        
+        
+        a {
+            text-decoration: underline;
+            display: inline;
+            position: relative;
+            
+            &:hover, &:focus {
+                text-decoration: underline;
+                font-weight: 600;
+            }
+        }
+        svg {
+            position: absolute;
+            top: 4px; 
+            right: -24px;
+        }
+    }
+    .name-search {
+        background: $grey-lighter;
+        border-top: 4px solid $grey-light;
+        padding: 24px;
+        //margin-top: 32px;
+        
+        h4 {
+            padding-top: 0px;
+        }
+        .search-wrapper {
+            display: flex;
+        }
+        input {
+            height: 52px;
+            width: calc(100% - 52px);
+            border: none;
+            outline: none;
+            padding: 6px 12px;
+        }
+        
+        button {
+            background: $blue-primary-mid;
+            border: none;
+            outline: none;
+            height: 52px;
+            width: 52px;
+            border-bottom-right-radius: 6px;
+            border-top-right-radius: 6px;
+            
+            svg {
+                fill: $white;
+            }
+        }
+    }
+        
     .results-wrapper {
         
         .search-card-button {

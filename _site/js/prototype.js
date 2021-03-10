@@ -200,11 +200,15 @@ $(document).ready(function () {
     });
     
     // Search not working modal
-     $(".btn-search").on("click", function(){
+    $(".search-bar-search").on("click", function(){
         $(".modal-wrapper").addClass("active");
         $(".modal-background").addClass("active");
     });
-    
+    $(".name-search button").on("click", function(){
+        $(".modal-wrapper").addClass("active");
+        $(".modal-background").addClass("active");
+    });
+     
     
     
     // EXPORT TOOL TABS & NAV TILES FUNCTIONALITY
@@ -412,7 +416,11 @@ $(document).ready(function () {
     $('.finder-wrapper .form-buttons .next').on('click', function(){
          setSection($(this));
     });
-    
+    $('.finder-wrapper .form-buttons .start-again').on('click', function(){
+        $('.finder_section').hide();
+        $('#section_0').show();
+    });
+
 
     // Change sections on url fragment change (to catch browser back button clicks)
     /*$(window).on('popstate', function(e) {
@@ -653,7 +661,12 @@ $(document).ready(function () {
     });
    
     
-
+        // Clear all
+    $('.clear-all').on('click', function(){
+        $('.active-filters li.selected').removeClass('selected');
+        $('.checkbox-item.selected').removeClass('selected');
+        $('.finder-question li.selected').removeClass('selected');
+    });
     
     
 }); // END doc ready
