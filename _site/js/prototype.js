@@ -435,7 +435,7 @@ $(document).ready(function () {
     // Multiple selects
     $('.finder-question.multi-select li').on('click', function(){
         
-        var filter_option = $(this).attr('data-value'); 
+        var filter_option = $(this).attr('data-value');
         var filter_type = $(this).parents('.finder-question').attr('id');
         
         // IF audience question - manage 'none of these' response
@@ -661,11 +661,17 @@ $(document).ready(function () {
     });
    
     
-        // Clear all
+    // CLEAR ALL FILTERS / QUESTIONS
     $('.clear-all').on('click', function(){
         $('.active-filters li.selected').removeClass('selected');
         $('.checkbox-item.selected').removeClass('selected');
         $('.finder-question li.selected').removeClass('selected');
+        
+        $('.finder-question.single-select select').val('select-option');
+        $('.filter-item-content select').val('select-option');
+        
+        $('.filter-item-title').removeClass('open');
+        $('.filter-item-content').slideUp();
     });
     
     
