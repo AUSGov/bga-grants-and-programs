@@ -3258,6 +3258,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 /* BREADCRUMBS */
 .breadcrumb-wrapper { display: flex; }
 
+.breadcrumb-wrapper .breadcrumb-location { line-height: 2.2; padding: 0; }
+
 /* MODAL */
 .modal-wrapper { display: none; }
 
@@ -3669,7 +3671,9 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .start-button-wrapper .tool-time { padding: 32px; background: #E1F2F2; position: absolute; top: 0; right: 0; width: 33.333333%; height: 100%; }
 
-.finder-main-section .finder-wrapper .start-button-wrapper .start-lead { font-size: 18px; line-height: 32px; padding: 0; margin: 0 0 0 0; }
+.finder-main-section .finder-wrapper .start-button-wrapper .start-lead { font-size: 18px; line-height: 32px; padding: 0 0 16px 0; margin: 0 0 0 0; }
+
+.finder-main-section .finder-wrapper .start-button-wrapper .start-lead:last-of-type { padding: 0; }
 
 .finder-main-section .finder-wrapper .start-button-wrapper .standardcta-button-wrapper { margin: 0; }
 
@@ -3679,7 +3683,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .alt-link a { color: #4569A0; cursor: pointer; }
 
-.finder-main-section .finder-wrapper .alt-link a:hover { box-shadow: #ffffff; }
+.finder-main-section .finder-wrapper .alt-link a:hover, .finder-main-section .finder-wrapper .alt-link a:focus { box-shadow: #fff 0px -30px 0px 0px inset; }
 
 .finder-main-section .finder-wrapper .finder-question { padding: 32px 0; }
 

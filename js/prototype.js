@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
     $('#navbarDropdownMenuLink_2').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-grants-and-programs/grants-and-programs.html";
+        window.location.pathname = "/bga-grants-and-programs/finder/tool.html";
     });
     $('#navbarDropdownMenuLink_3').on('click', function(e){
         e.preventDefault();

@@ -80,8 +80,12 @@
             .start-lead {
                 font-size: 18px;
                 line-height: 32px;
-                padding: 0;
+                padding: 0 0 16px 0;
                 margin: 0 0 0 0;
+                
+                &:last-of-type {
+                    padding: 0;
+                }
             }
             .standardcta-button-wrapper {
                 margin: 0;
@@ -99,8 +103,8 @@
                 color: $blue-primary-mid;
                 cursor: pointer;
                 
-                &:hover {
-                    box-shadow: $white;
+                &:hover, &:focus {
+                    box-shadow: #fff 0px -30px 0px 0px inset;
                 }
             }
         }
