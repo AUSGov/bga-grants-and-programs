@@ -31,19 +31,19 @@ $(document).ready(function () {
     });
     $('#navbarDropdownMenuLink_2').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Grants-and-programs.html";
+        window.location.pathname = "/bga-grants-and-programs/grants-and-programs.html";
     });
     $('#navbarDropdownMenuLink_3').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Expertise-and-advice.html";
+        window.location.pathname = "/bga-grants-and-programs/Expertise-and-advice.html";
     });
     $('#navbarDropdownMenuLink_4').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Events-and-training.html";
+        window.location.pathname = "/bga-grants-and-programs/Events-and-training.html";
     });
     $('#navbarDropdownMenuLink_5').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/News.html";
+        window.location.pathname = "/bga-grants-and-programs/News.html";
     }); 
 
     

@@ -16,15 +16,47 @@ html {
 }
 
 /* ANCHOR MENU */
-.anchor-menu .sticky-container ul li .active-sticky {
-    font-weight: 600 !important;
-    color: #254f90;
-    font-size: 14px;
-    line-height: 20px;
-    text-decoration: none;
-    padding-left: 16px;
-    border: none;
-    border-left: #b3c2d8 solid 4px;
+#mainsection .anchor-menu {
+    .sticky-container ul li .active-sticky {
+        font-weight: 600 !important;
+        color: #254f90;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+        padding-left: 16px;
+        border: none;
+        border-left: #b3c2d8 solid 4px;
+    }
+
+    a {
+        color: #254f90;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        box-shadow: none;
+        display: inline-block;
+        border: 1px dotted transparent;
+        transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 0 0 16px 0;
+            position: relative;
+            list-style: none;
+            
+            
+            &::before {
+                content: none !important;
+            }
+        }
+    }
 }
 
 /* BREADCRUMBS */
@@ -128,6 +160,9 @@ html {
 }
 
 .main-section {
+    h3 {
+        padding: 16px 0 32px 0 !important;
+    }
     a:visited {
         color: $blue-primary-mid;
         border-bottom-color: $blue-primary-mid;
@@ -157,6 +192,101 @@ html {
         text-align: left;
         border-top: .125rem solid #edca72;
     }    
+}
+
+// Call to action
+.main-section .call-to-action {
+    height: auto;
+    border-top: none;
+    background: none;
+    padding: 32px;
+    margin-bottom: 32px;
+    border-top: 4px solid #d8d8d8;
+    background: #ebebeb;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.0125rem;
+    line-height: 1.78;
+    text-align: left;
+
+    h2, h3 {
+        padding-top: 0;    
+    }
+
+    p {
+        line-height: 32px;
+        font-size: 16px;
+        padding: 0 0 32px 0;
+        margin: 0;
+        letter-spacing: 0.0125rem;
+        color: #333;
+        display: inline-block;
+    }
+    ul {
+        padding: 0 0 0 16px;
+        margin: 0;
+        line-height: 1.78;
+        list-style: none;
+
+        li {
+            padding-bottom: 16px;
+            margin: 0;
+            line-height: 32px;
+            position: relative;
+            padding-left: 32px;
+            
+            &:last-of-type {
+                padding-bottom: 32px;
+            }
+            p {
+                padding: 0px;
+                display: inline;
+            }
+        }
+    }
+    .button-wrapper {
+        width: auto;
+        display: inline-block;
+        transition-property: transform, -webkit-transform;
+        transition-duration: 0.4s, 0.4s;
+        transition-timing-function: ease, ease;
+        transition-delay: 0s, 0s;
+        margin-top: 4px;
+        
+        &:hover {
+            transform: translateY(-0.1875rem);
+        }
+    }
+    .button {
+        background: #4569a0 0% 0% no-repeat padding-box;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+        border: 2px solid #254f90;
+        border-radius: 6px;
+        opacity: 1;
+        padding: 8px 32px;
+        text-align: center;
+        letter-spacing: 0;
+        color: #ffffff;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+        text-decoration: none !important;
+        
+        &:hover {
+            background: #254f90 0% 0% no-repeat padding-box;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px 0px;
+            border: 2px solid #18335c;
+            border-radius: 6px;
+            opacity: 1;
+        }
+
+    }
+
+    @media (max-width: 576px) {
+        padding: 24px;
+
+    }
 }
 
 
@@ -245,4 +375,5 @@ html {
        }
    }      
 }
+
    
