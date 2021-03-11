@@ -3766,7 +3766,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 @media (max-width: 576px) { .finder-main-section form .form-buttons .standardcta-button-wrapper:last-of-type { margin: 0; } }
 
 /* GRANTS RESULTS SECTION */
-.results-section { padding-top: 64px; padding-bottom: 32px; }
+.results-section { padding-bottom: 32px; }
 
 .results-section .results-title { display: flex; }
 
@@ -3856,15 +3856,15 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .sort-wrapper .select-number-results, .results-section .sort-wrapper .select-sort-results { width: 175px; display: flex; position: absolute; top: 0; right: 0; text-align: right; padding: 0; margin: 0; border-bottom: solid 1px #333333; }
 
-.results-section .sort-wrapper .select-number-results label, .results-section .sort-wrapper .select-sort-results label { display: inline-block; width: 70px; text-align: right; font-size: 14px; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; padding: 0; margin: 0; }
+.results-section .sort-wrapper .select-number-results label, .results-section .sort-wrapper .select-sort-results label { display: inline-block; width: 60px; text-align: right; font-size: 14px; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; padding: 0; margin: 0; }
 
 .results-section .sort-wrapper .select-number-results select, .results-section .sort-wrapper .select-sort-results select { display: inline-block; width: 100px; border: none; font-size: 14px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; padding: 4px; margin: 0; }
 
-.results-section .sort-wrapper .select-sort-results { right: 191px; width: 235px; }
+.results-section .sort-wrapper .select-sort-results { right: 191px; width: 175px; }
 
 .results-section .sort-wrapper .select-sort-results label { width: 50px; }
 
-.results-section .sort-wrapper .select-sort-results select { width: 180px; }
+.results-section .sort-wrapper .select-sort-results select { width: 120px; }
 
 .results-section .results-wrapper .search-card-button:hover { text-decoration: none; }
 
@@ -3915,6 +3915,32 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .results-section .results-wrapper .search-accordion-expand-wrapper .card-body .accordion-expand-contents .accordion-grant-content-heading { font-size: 14px; font-weight: bold; line-height: 2; color: #333; padding-bottom: 16px; }
 
 .results-section .results-wrapper .search-accordion-expand-wrapper .card-body .accordion-expand-contents .accordion-grant-content-description { font-size: 14px; font-weight: normal; color: #333; padding-bottom: 16px; }
+
+.pagination { text-align: center; margin-left: 25%; }
+
+.pagination a { display: inline; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; color: #254f90; box-shadow: none; padding: 0 6px; margin: 0 10px; text-decoration: none; border: 1px solid transparent; }
+
+.pagination a.active { color: #000000; background: #e5edf7; padding: 0 6px; border-radius: 2px; }
+
+.pagination a:focus { border: 1px dotted #748fb8; outline: none; }
+
+.pagination a:hover { background-color: #e5edf7; border-radius: 2px; padding: 0 6px; }
+
+.pagination a:active { color: #000; background: #b3c2d8; border: 1px dotted transparent; border-radius: 2px; border: 1px dotted #748fb8; }
+
+.pagination a:active .svg-container svg path { fill: #000; }
+
+.pagination a.last { background-image: url(../assets/BGAIcon-chevrondouble-right.svg); background-repeat: no-repeat; background-size: 12px 12px; background-position: right 6px center; padding: 0 24px 0 6px; }
+
+.pagination a.next { background-image: url(../assets/BGAIcon-chevron-right.svg); background-repeat: no-repeat; background-size: 8px 12px; background-position: right 6px center; padding: 0 20px 0 6px; }
+
+.pagination .first .svg-container, .pagination .previous .svg-container { padding-right: 8px; }
+
+.pagination .last .svg-container, .pagination .next .svg-container { padding-left: 8px; }
+
+.pagination .previous .svg-container, .pagination .next .svg-container { width: 8px; height: 12px; }
+
+.pagination .last .svg-container, .pagination .first .svg-container { width: 12px; height: 12px; }
 
 /* SHORTLIST MODAL */
 .shortlist-wrapper { display: none; height: 80%; }

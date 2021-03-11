@@ -367,7 +367,7 @@
 
 /* GRANTS RESULTS SECTION */
 .results-section {
-    padding-top: 64px;
+    //padding-top: 64px;
     padding-bottom: 32px;
 
     .results-title {
@@ -667,7 +667,7 @@
             
             label {
                 display: inline-block;
-                width: 70px;
+                width: 60px;
                 text-align: right;
                 font-size: 14px;
                 @include font-format($font-family, $font-regular, normal);
@@ -686,13 +686,13 @@
         }
         .select-sort-results {
             right: 191px;
-            width: 235px;
+            width: 175px;
             
             label {
                 width: 50px;
             }
             select {
-                width: 180px;
+                width: 120px;
             }
         }
     }
@@ -868,6 +868,84 @@
                 
             }
         }
+    }
+}
+.pagination {
+    text-align: center;
+    margin-left: 25%;
+
+    a {
+        display: inline;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: #254f90;
+        box-shadow: none;
+        padding: 0 6px;
+        margin: 0 10px;
+        text-decoration: none;
+        border: 1px solid transparent;
+    }
+    a.active {
+        color: #000000;
+        background: #e5edf7;
+        padding: 0 6px;
+        border-radius: 2px;
+    }
+    a:focus {
+        border: 1px dotted #748fb8;
+        outline: none;
+    }
+    a:hover {
+        background-color: #e5edf7;
+        border-radius: 2px;
+        padding: 0 6px;
+    }
+    a:active {
+        color: #000;
+        background: #b3c2d8;
+        border: 1px dotted transparent;
+        border-radius: 2px;
+        border: 1px dotted #748fb8;
+    }
+    a:active .svg-container svg path {
+        fill: #000;
+    }
+    a.last {
+        background-image: url(../assets/BGAIcon-chevrondouble-right.svg);
+        background-repeat: no-repeat;
+        background-size: 12px 12px;
+        background-position: right 6px center;
+        padding: 0 24px 0 6px;
+    }
+    a.next {
+        background-image: url(../assets/BGAIcon-chevron-right.svg);
+        background-repeat: no-repeat;
+        background-size: 8px 12px;
+        background-position: right 6px center;
+        padding: 0 20px 0 6px;
+    }
+
+    .first .svg-container,
+    .previous .svg-container {
+        padding-right: 8px;
+    }
+
+    .last .svg-container,
+    .next .svg-container {
+        padding-left: 8px;
+    }
+
+    .previous .svg-container,
+    .next .svg-container {
+        width: 8px;
+        height: 12px;
+    }
+
+    .last .svg-container,
+    .first .svg-container {
+        width: 12px;
+        height: 12px;
     }
 }
 
