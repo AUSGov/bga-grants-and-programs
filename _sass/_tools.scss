@@ -110,12 +110,13 @@
         }
         
         .finder-question {
-            padding: 32px 0;
+            padding: 32px 0 32px 0;
             
             .section-title {
                 text-transform: uppercase;
                 font-size: 14px;
                 padding-bottom: 16px;
+                display: none;
             }
             h2 {
                 padding: 0 0 8px 0;
@@ -197,6 +198,21 @@
                     outline: none;
                 }
             }
+            
+            /*.toggle-question {
+                
+                padding-top: 32px;
+                
+                input {
+                    
+                }
+                label {
+                    &.toggle-label-small {
+                        //font-size: 21px;
+                        //@include font-format($font-family, $font-semibold, normal);
+                    }
+                }
+            }*/
         }
         
         form {

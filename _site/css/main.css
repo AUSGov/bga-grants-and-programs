@@ -3692,9 +3692,9 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .alt-link a:hover, .finder-main-section .finder-wrapper .alt-link a:focus { box-shadow: #fff 0px -30px 0px 0px inset; }
 
-.finder-main-section .finder-wrapper .finder-question { padding: 32px 0; }
+.finder-main-section .finder-wrapper .finder-question { padding: 32px 0 32px 0; /*.toggle-question { padding-top: 32px; input { } label { &.toggle-label-small { //font-size: 21px; //@include font-format($font-family, $font-semibold, normal); } } }*/ }
 
-.finder-main-section .finder-wrapper .finder-question .section-title { text-transform: uppercase; font-size: 14px; padding-bottom: 16px; }
+.finder-main-section .finder-wrapper .finder-question .section-title { text-transform: uppercase; font-size: 14px; padding-bottom: 16px; display: none; }
 
 .finder-main-section .finder-wrapper .finder-question h2 { padding: 0 0 8px 0; }
 
