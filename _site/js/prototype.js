@@ -526,45 +526,6 @@ $(document).ready(function () {
         
         var filter_option = $(this).attr('data-value');
     
-        /*if ( $(this).parents('filter-item').attr('id') == "audience" ) {
-            
-            if ($(this).hasClass('none-of-these')) {
-                
-                if ($(this).hasClass('selected')) {
-                    
-                    $(this).removeClass('selected');
-                    $('#question-audience .none-of-these').removeClass('selected');
-                    $('#audience #none-of-these').removeClass('selected');
-                    
-                } else if (!$(this).hasClass('selected')) {
-                    $('#audience .finder-question.multi-select li').removeClass('selected');
-                    $('#audience .finder-question.multi-select .none-of-these').addClass('selected');
-                    
-                    $('#audience .active-filters li').removeClass('selected');
-                    $(this).addClass('selected');
-                    
-                    $('#audience .checkbox-item').removeClass('selected');
-                    $('#audience .none-of-these').addClass('selected');
-                }
-                
-  
-            } 
-            else {
-                $('#question-audience .finder-question.multi-select li.none-of-these').removeClass('selected');
-                $('#question-audience .finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-                
-                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-                $('#audience .active-filters .none-of-these').removeClass('selected');
-                
-                $('#audience #' + filter_option).parents('.checkbox-item').toggleClass('selected');
-                $('#audience .none-of-these').removeClass('selected');
-                
-            }
-            
-        } 
-        
-        else {
-        */
         $(this).toggleClass('selected');
         
             $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
@@ -630,6 +591,44 @@ $(document).ready(function () {
                   
     }); 
     
+    // Toggle switch questions
+    $('.finder-question-toggle .custom-control-input').on('click', function(){
+        var filter_type = $(this).parents('.finder-question-toggle').attr('id');  
+        filter_type = filter_type.slice(9, filter_type.length);
+
+            if ($(this).is(":checked")) { 
+                $('li[data-value="' + filter_type + '"]').toggleClass('selected');
+                $('#filter-' + filter_type).prop('checked', true).toggleClass('selected');
+                
+            } else {
+                $('li[data-value="' + filter_type + '"]').toggleClass('selected');
+                $('#filter-' + filter_type).prop('checked', false).toggleClass('selected');
+            }
+    });
+    
+    $('.filter-item .custom-control-input').on('click', function(){
+        var filter_type = $(this).attr('id');
+        filter_type = filter_type.slice(7, filter_type.length);
+        
+        if ($(this).is(":checked")) { 
+            $(this).toggleClass('selected');
+            $('li[data-value="' + filter_type + '"]').toggleClass('selected');   
+            $('#'+ filter_type + '-switch').prop('checked', true).toggleClass('selected');
+            
+        } else {
+            $(this).toggleClass('selected');
+            $('li[data-value="' + filter_type + '"]').toggleClass('selected');
+            $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
+        }
+    });
+    $('.filter-item .filter-toggle-switch').on('click', function(){
+        var filter_type = $(this).attr('data-value');
+        console.log(filter_type);
+        $(this).removeClass('selected');
+        $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
+        $('#filter-' + filter_type).prop('checked', false).toggleClass('selected');
+    });
+    
     
     // SINGLE SELECT FILTERS
     // Select filter 'bubble' options -single select
@@ -666,12 +665,15 @@ $(document).ready(function () {
         $('.active-filters li.selected').removeClass('selected');
         $('.checkbox-item.selected').removeClass('selected');
         $('.finder-question li.selected').removeClass('selected');
+        $('.finder-question-toggle .custom-control-input').prop('checked', false).removeClass('selected');
+        
         
         $('.finder-question.single-select select').val('select-option');
         $('.filter-item-content select').val('select-option');
         
         $('.filter-item-title').removeClass('open');
         $('.filter-item-content').slideUp();
+        $('.filter-item .custom-control-input').prop('checked', false).removeClass('selected');
     });
     
     
