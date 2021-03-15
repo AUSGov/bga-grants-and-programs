@@ -240,6 +240,7 @@
                             <li data-value="tasmania">Tasmania</li>
                             <li data-value="victoria">Victoria</li>
                             <li data-value="western-australia">Western Australia</li>
+                            <li data-value="regional-or-rural-area" class="filter-toggle-switch">Regional or rural area</li>
                         </ul>
                     </div>                
                     <div class="filter-item-content">
@@ -286,6 +287,11 @@
                             </div>
                             
                         </form>
+                        
+                        <div class="custom-control custom-switch toggle-question">
+                            <input type="checkbox" class="custom-control-input" id="filter-regional-or-rural-area">
+                            <label class="custom-control-label" for="filter-regional-or-rural-area">Regional or rural area</label>
+                        </div>
 
                         </div>
                     </div>
@@ -435,7 +441,8 @@
               
    
     <!-- 8. I AM A -->
-                <div class="filter-item" id="audience">
+    <!--
+    <div class="filter-item" id="audience">
                     <div class="filter-item-title">
                          <p>Audience</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
@@ -516,10 +523,10 @@
 
                         </div>
                     </div>
-              
+      -->        
       
     
-     <!-- 9. GRANT / PROGRAM STATUS -->
+     <!-- 8. GRANT / PROGRAM STATUS -->
                 <div class="filter-item" id="status">
                     <div class="filter-item-title">
                          <p>Grant / program status</p>
@@ -561,7 +568,23 @@
                     </div>
               
       
-      
+    <!-- 9. ATSI -->
+
+                <div class="filter-item one-option" id="atsi">
+
+                    <div class="active-filters">
+                        <ul>
+                            <li data-value="atsi" class="filter-toggle-switch">Aboriginal or Torres Strait Islander origin</li>
+                        </ul>
+                    </div>  
+                    
+                    <div class="custom-control custom-switch toggle-question filter-toggle-question">
+                        <input type="checkbox" class="custom-control-input" id="filter-atsi">
+                        <label class="custom-control-label" for="filter-atsi">Aboriginal or Torres Strait Islander origin</label>
+                    </div>
+
+                </div>
+
                    
                  
     </div>

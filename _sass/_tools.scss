@@ -40,7 +40,7 @@
 #section_9 {
     display: none;
 }
-#section_0 {
+#section_9 {
     display: block;
 } 
 
@@ -156,6 +156,7 @@
                         color: $white;
                         background: $blue-primary-mid url(../assets/Icon-finder-tick-white.svg) no-repeat;
                         background-position: left 9px center;
+                        
                     }
                 }
             }
@@ -199,20 +200,74 @@
                 }
             }
             
-            /*.toggle-question {
+            .toggle-question {
                 
-                padding-top: 32px;
+                padding: 48px 0 0 0;
                 
                 input {
                     
                 }
+                h3 {
+                    display: inline;
+                    padding: 16px 8px 32px 0 !important;
+                }
                 label {
-                    &.toggle-label-small {
-                        //font-size: 21px;
-                        //@include font-format($font-family, $font-semibold, normal);
+                    font-size: 21px;
+                    padding: 0;
+                    display: inline-block;
+                    position: relative;
+                    
+                    &:before {
+                        width: 66px;
+                        height: 24px;
+                        background: $blue-primary-light;
+                        border: none;
+                        border-radius: 50px;
+                        left: 0;
+                    }
+                    &:after {
+                        background: $white;
+                        width: 40px;
+                        height: 40px;
+                        border: $blue-primary-mid solid 2px;
+                        border-radius: 50px;
+                        background: $white url(../assets/Icon-cross-blue.svg) no-repeat;
+                        background-position: center center;
+                        background-size: 14px 14px;  
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
+                        top: -4px;
+                        left: 0;
                     }
                 }
-            }*/
+                
+                &.heading-level {
+                    padding: 0 0 32px 0;
+                    
+                    h2 {
+                        display: inline;
+                        padding: 0 16px 8px 0 !important;
+                    }
+                    label {
+                        padding: 0;
+                        
+                        &:before {
+                            top: 10px;
+                        }
+                        &:after {
+                            top: 2px;
+                        }
+                    }
+                }
+                .custom-control-input:focus~.custom-control-label::before {
+                    box-shadow: none;
+                }
+                .custom-control-input:checked~.custom-control-label::after {
+                    background: url(../assets/icon-tick-white.svg) no-repeat $blue-primary-mid;
+                    background-position: center center;
+                    background-size: 18px 14px;
+                    left: 14px;
+                }
+            }
         }
         
         form {
@@ -383,7 +438,6 @@
 
 /* GRANTS RESULTS SECTION */
 .results-section {
-    //padding-top: 64px;
     padding-bottom: 32px;
 
     .results-title {
@@ -511,9 +565,7 @@
                             background: $tool-teal-mid url("../assets/Icon-cross-333333.svg") no-repeat;
                             background-size: 10px 10px;
                             background-position: left 12px center;
-                            display: inline-block;
-                            
-                            
+                            display: inline-block;  
                         }
                     }
                 }               
@@ -567,6 +619,7 @@
                             }
                         }
                     }
+                    
                 }
                 
                 select {
@@ -603,6 +656,54 @@
                         outline: none;
                     }
                 }
+                
+            }
+            .toggle-question {
+                    padding-top: 16px;
+                    
+                    label {
+                        font-size: 14px;
+                        @include font-format($font-family, $font-regular, normal);
+                        padding-left: 16px;
+
+                        &:before {
+                            width: 44px;
+                            height: 16px;
+                            background: $grey;
+                            border: none;
+                            margin-top: 4px;
+                            border-radius: 50px;
+                        }
+                        &:after {
+                            background: $white;
+                            width: 30px;
+                            height: 30px;
+                            border: $grey-dark solid 1px;
+                            border-radius: 50px;
+                            background: url(../assets/Icon-cross-grey.svg) no-repeat $white;
+                            background-position: center center;
+                            background-size: 14px 14px;  
+                            top: 2px;
+                            left: -37px;
+                        }
+                    }
+                    .custom-control-input:focus~.custom-control-label::before {
+                        box-shadow: none;
+                    }
+                    .custom-control-input:checked~.custom-control-label::after {
+                        background: url(../assets/Icon-tick-filters.svg) no-repeat $white;
+                        background-position: center center;
+                        border: solid 2px $black-light;
+                        background-size: 18px 14px;
+                        left: -34px;
+                    }
+                }
+            &.one-option {
+                padding-top: 0;
+                
+                li.selected {
+                    margin-top: 16px;
+                }
             }
         }
     }
@@ -632,8 +733,7 @@
         background: $grey-lighter;
         border-top: 4px solid $grey-light;
         padding: 24px;
-        //margin-top: 32px;
-        
+
         h4 {
             padding-top: 0px;
         }
