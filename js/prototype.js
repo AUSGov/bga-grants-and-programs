@@ -4,6 +4,11 @@
 
 $(document).ready(function () {
     
+    //set sessionStorage on page load - variables for results count.
+    sessionStorage.setItem('showing', '594'); 
+    $('span.number').text(sessionStorage.getItem('showing'));
+    
+    
     // Main navigation functionality
     $('.navbar-nav .nav-item.dropdown').on('click', function(){
         $(this).find('.navigation-first-level-menu').toggleClass('show');
@@ -676,6 +681,21 @@ $(document).ready(function () {
         $('.filter-item .custom-control-input').prop('checked', false).removeClass('selected');
     });
     
+    
+    //CREATE 'SHOWING' NUMBER
+    $('[filter-value]').on('click', function(){
+        var result_count = parseInt(sessionStorage.getItem('showing'));
+        var filter_change = parseInt($(this).attr('filter-value'));
+        
+        if ($(this).hasClass('selected')) {
+            $('span.number').text(result_count - filter_change);
+            sessionStorage.setItem('showing', result_count - filter_change);
+        } else {
+            $('span.number').text(result_count + filter_change);
+            sessionStorage.setItem('showing', result_count + filter_change);
+        }
+
+    });
     
 }); // END doc ready
 
