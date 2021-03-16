@@ -836,8 +836,7 @@ $(document).ready(function () {
         restore_count = max_min_count(restore_count);
         new_count_minus = max_min_count(new_count_minus);
         new_count_plus = max_min_count(new_count_plus);
-        
-        console.log(filter_value);
+
         
     });
     
