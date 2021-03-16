@@ -5,9 +5,19 @@
 $(document).ready(function () {
     
     //set sessionStorage on page load - variables for results count.
-    sessionStorage.setItem('showing', '594'); 
+    var max_showing = 587;
+    sessionStorage.setItem('showing', max_showing); 
     $('span.number').text(sessionStorage.getItem('showing'));
     
+    sessionStorage.setItem('location', 0);
+    sessionStorage.setItem('support', 0);
+    sessionStorage.setItem('business-type', 0);
+    sessionStorage.setItem('support-type', 0);
+    sessionStorage.setItem('objectives', 0);
+    sessionStorage.setItem('business-stage', 0);
+    sessionStorage.setItem('status', 0);
+    sessionStorage.setItem('atsi', 0);
+
     
     // Main navigation functionality
     $('.navbar-nav .nav-item.dropdown').on('click', function(){
@@ -636,7 +646,7 @@ $(document).ready(function () {
     
     
     // SINGLE SELECT FILTERS
-    // Select filter 'bubble' options -single select
+    // Select filter 'bubble' options-single select
      $('.active-filters.single-select li').on('click', function(){
          $(this).removeClass('selected');
          
@@ -683,19 +693,156 @@ $(document).ready(function () {
     
     
     //CREATE 'SHOWING' NUMBER
-    $('[filter-value]').on('click', function(){
-        var result_count = parseInt(sessionStorage.getItem('showing'));
-        var filter_change = parseInt($(this).attr('filter-value'));
+    $('[filter-type]').on('click', function(){
         
-        if ($(this).hasClass('selected')) {
-            $('span.number').text(result_count - filter_change);
-            sessionStorage.setItem('showing', result_count - filter_change);
-        } else {
-            $('span.number').text(result_count + filter_change);
-            sessionStorage.setItem('showing', result_count + filter_change);
+        var filter_type = $(this).attr('filter-type'),
+            result_count = parseInt(sessionStorage.getItem('showing')),
+            filter_value = parseInt($(this).attr('filter-value')),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
+            reduced_count = Math.round(result_count - 70),
+            restore_count = Math.round(result_count + 70),
+            new_count_minus = result_count - filter_value,
+            new_count_plus = result_count + filter_value;
+        
+        var max_min_count = function(number){
+            var count = number;
+            if (count > 587) {
+                count = 587;
+            } else if (count < 0) {
+                count = 0;
+            }
+            return count;  
+        };
+        
+        reduced_count = max_min_count(reduced_count);
+        restore_count = max_min_count(restore_count);
+        new_count_minus = max_min_count(new_count_minus);
+        new_count_plus = max_min_count(new_count_plus);
+        
+       
+        // FIRST USE OF A FILTER TYPE
+        if (filter_type_current_value === 0) {
+            
+            console.log('first use of the filter type');
+            
+            if ($(this).hasClass('selected')) {
+                
+                $('span.number').text(reduced_count);
+                sessionStorage.setItem('showing', reduced_count);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+            } else {
+                
+                // This is not a possible scenario
+                
+            }
+        
+        // CATCH THE LAST USE OF THE FILTER TYPE AND RESET
+        } else if (filter_type_current_value === 1) {
+            
+            console.log('only 1 filter selected');
+
+            if ($(this).hasClass('selected')) {
+                $('span.number').text(new_count_plus);
+                sessionStorage.setItem('showing', new_count_plus);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+                
+            } else {
+                $('span.number').text(restore_count);
+                sessionStorage.setItem('showing', restore_count);
+                sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                console.log('unselect last');
+            }
+            
         }
+        
+        // ALL OTHER CLICKS ON A FILTER TYPE
+        else {
+            
+            console.log('subsequent use of the filter type');   
+
+            if ($(this).hasClass('selected')) {
+                $('span.number').text(new_count_plus);
+                sessionStorage.setItem('showing', new_count_plus);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+            } else {  
+                $('span.number').text(new_count_minus);
+                sessionStorage.setItem('showing', new_count_minus);
+                sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                
+            }
+            
+        }
+        
+        /*if (filter_type_current_value == 0) {
+            
+            console.log('zero');
+            
+            if($(this).hasClass('selected')) {
+                $('span.number').text(result_count - (result_count * filter_value / 100));
+                sessionStorage.setItem('showing', result_count - (result_count * filter_value / 100));
+                sessionStorage.setItem(filter_type, filter_type_current_value+1);
+            } else {
+                $('span.number').text(result_count + (result_count * filter_value / 100));
+                sessionStorage.setItem('showing', result_count + (result_count * filter_value / 100));
+                sessionStorage.setItem(filter_type, filter_type_current_value-1);
+            }
+         
+            
+        } else if (filter_type_current_value > 0) {
+            console.log('to hero');
+            
+            if($(this).hasClass('selected')) {
+                $('span.number').text(result_count + filter_value);
+                sessionStorage.setItem('showing', result_count + filter_value);
+                sessionStorage.setItem(filter_type, filter_type_current_value+1);
+            } else {
+                $('span.number').text(result_count - filter_value);
+                sessionStorage.setItem('showing', result_count - filter_value);
+                sessionStorage.setItem(filter_type, filter_type_current_value-1);
+            }
+            
+            
+        }*/
 
     });
+    
+    
+    $('[select-filter-type]').change(function(){
+        console.log('changing');
+        
+        var filter_type = $(this).attr('select-filter-type'),
+            result_count = parseInt(sessionStorage.getItem('showing')),
+            filter_value = parseInt($(this).attr('filter-value')),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
+            reduced_count = Math.round(result_count - 70),
+            restore_count = Math.round(result_count + 70),
+            new_count_minus = result_count - filter_value,
+            new_count_plus = result_count + filter_value;
+        
+        var max_min_count = function(number){
+            var count = number;
+            if (count > 587) {
+                count = 587;
+            } else if (count < 0) {
+                count = 0;
+            }
+            return count; 
+        };
+        
+        reduced_count = max_min_count(reduced_count);
+        restore_count = max_min_count(restore_count);
+        new_count_minus = max_min_count(new_count_minus);
+        new_count_plus = max_min_count(new_count_plus);
+        
+        console.log(filter_value);
+        
+    });
+    
+    
+    
     
 }); // END doc ready
 

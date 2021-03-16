@@ -55,35 +55,48 @@
 
 
 
-<!-- SECTION 1 - BUSINESS TYPE -->
+<!-- SECTION 1 - LOCATION -->
 <div class="finder_section" data-value="1" id="section_1">
-<div class="finder-main-section main-section light" id="mainsection">  
-
+<div class="finder-main-section main-section light" id="mainsection">   
+    
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question single-select" id="question-business-type">
-                    <p class="section-title">Business type</p>
-                    <h2>My business is operating as a</h2>
-                    
-                       <select id="sel_business">
-                            <option value="select-option" selected="selected" disabled="">select business type</option>
-                            <option value="sole-trader" class="select-option">Sole trader</option>
-                            <option value="partnership" class="select-option">Partnership</option>
-                            <option value="company" class="select-option">Company</option>
-                            <option value="trust" class="select-option">Trust</option>
-                            <option value="not-for-profit" class="select-option">Not for profit</option>
-                        </select>
-         
-                    
+                <div class="finder-question multi-select">
+                    <p class="section-title">Location</p>
+                    <h2>My business is located in </h2>
+                    <p class="help-text">Select  one or more options</p>
+                    <ul>
+                        <li filter-type="location" filter-value="15" data-value="australian-capital-territory">Australian Capital Territory</li>
+                        <li filter-type="location" filter-value="15" data-value="new-south-wales">New South Wales</li>
+                        <li filter-type="location" filter-value="15" data-value="northern-territory">Northern Territory</li>
+                        <li filter-type="location" filter-value="15" data-value="queensland">Queensland</li>
+                        <li filter-type="location" filter-value="15" data-value="south-australia">South Australia</li>
+                        <li filter-type="location" filter-value="15" data-value="tasmania">Tasmania</li>
+                        <li filter-type="location" filter-value="15" data-value="victoria">Victoria</li>
+                        <li filter-type="location" filter-value="15" data-value="western-australia">Western Australia</li>
+                    </ul>
+
+               
+                <div class="finder-question-toggle" id="question-regional-or-rural-area">
+                    <div class="custom-control custom-switch toggle-question">
+                        <h3>Regional or rural area</h3>
+                        <input type="checkbox" class="custom-control-input" id="regional-or-rural-area-switch">
+                        <label class="custom-control-label" for="regional-or-rural-area-switch"></label>
+                    </div>
+                </div>
+                
                 </div>
                 
                 <form>
                     <div class="form-buttons">
-                       <a class="previous" data-value="section_0">Previous</a>
+                    
+                        
+                        <a class="previous" data-value="section_0">Previous</a>
                        
                         <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
                             <div>
+                                
                                 <a data-value="section_2" class="next theme-button theme-button-primary theme-button-small btn">
                                     <span>Next</span>
                                 </a>
@@ -104,26 +117,43 @@
 
 
 
-<!-- SECTION 2 - SUPPORT TYPE -->
+<!-- SECTION 2 - INDUSTRY -->
 <div class="finder_section" data-value="2" id="section_2">
 <div class="finder-main-section main-section light" id="mainsection">  
-
+    
+    
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question multi-select">
-                    <p class="section-title">Support type</p>
-                    <h2>I am interested in</h2>
-                    <p class="help-text">Select  one or more options</p>
-                    <ul>
-                        <li filter-value="10" data-value="funding">Funding</li>
-                        <li filter-value="10" data-value="subsidy">Subsidy</li>
-                        <li filter-value="10" data-value="concession">Concession</li>
-                        <li filter-value="10" data-value="scholarship">Scholarship</li>
-                        <li filter-value="10" data-value="tax-rebate">Tax rebate</li>
-                        <li filter-value="10" data-value="advice">Advice</li>
-                        <li filter-value="10" data-value="mentorship">Mentorship</li>
-                    </ul>
+                <div class="finder-question single-select"id="question-industry">
+                    <p class="section-title">Industry</p>
+                    <h2>My business is in the industry of</h2>
+                    
+                   <select id="sel_industry" select-filter-type="industry" filter-value="14">
+                        <option filter-value="14" value="select-option" selected="selected" disabled="">select industry</option>
+                        <option filter-value="14" value="accommodation-and-food-services" class="select-option">Accommodation and Food Services</option>
+                        <option filter-value="14" value="administrative-and-support-services" class="select-option">Administrative and Support Services</option>
+                        <option filter-value="14" value="agriculture-forestry-and-fishing" class="select-option">Agriculture, Forestry and Fishing</option>
+                        <option filter-value="14" value="arts-and-recreation-services" class="select-option">Arts and Recreation Services</option>
+                        <option filter-value="14" value="construction" class="select-option">Construction</option>
+                        <option filter-value="14" value="education-and-training" class="select-option">Education and Training</option>
+                        <option filter-value="14" value="electricity-gas-water-and-waste-services" class="select-option">Electricity, Gas, Water and Waste Services</option>
+                        <option filter-value="14" value="financial-and-insurance-services" class="select-option">Financial and Insurance Services</option>
+                        <option filter-value="14" value="health-care-and-social-assistance" class="select-option">Health Care and Social Assistance</option>
+                        <option filter-value="14" value="information-media-and-telecommunications" class="select-option">Information Media and Telecommunications</option>
+                        <option filter-value="14" value="manufacturing" class="select-option">Manufacturing</option>
+                        <option filter-value="14" value="mining" class="select-option">Mining</option>
+                        <option filter-value="14" value="professional-scientific-and-technical-services" class="select-option">Professional, Scientific and Technical Services</option>
+                        <option filter-value="14" value="public-administration-and-safety" class="select-option">Public Administration and Safety</option>
+                        <option filter-value="14" value="rental-hiring-and-real-estate-services" class="select-option">Rental, Hiring and Real Estate Services</option>
+                        <option filter-value="14" value="retail-trade" class="select-option">Retail Trade</option>
+                        <option filter-value="14" value="transport-postal-and-warehousing" class="select-option">Transport, Postal and Warehousing</option>
+                        <option filter-value="14" value="wholesale-trade" class="select-option">Wholesale Trade</option>
+                        <option filter-value="14" value="other-services" class="select-option">Other Services</option>
+                    </select>
+                    
+                    
+                    
                 </div>
                 
                 <form>
@@ -149,48 +179,41 @@
 
     </div>
 
+
 </div>
 </div>
 
 
 
 
-<!-- SECTION 3 - OBJECTIVES -->
+<!-- SECTION 3 - BUSINESS TYPE -->
 <div class="finder_section" data-value="3" id="section_3">
 <div class="finder-main-section main-section light" id="mainsection">  
-
+  
+    
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question multi-select">
-                    <p class="section-title">Objectives</p>
-                    <h2>I am looking for assistance to</h2>
-                    <p class="help-text">Select  one or more options</p>
-                    <ul>
-                        <li filter-value="10" data-value="build-or-improve-infrastructure-for-a-community">Build or improve infrastructure for a community</li>
-                        <li filter-value="10" data-value="employ-people">Employ people</li>
-                        <li filter-value="10" data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
-                        <li filter-value="10" data-value="import-or-export-products-or-services">Import or export products or services</li>
-                        <li filter-value="10" data-value="improve-or-grow-my-business">Improve or grow my business</li>
-                        <li filter-value="10" data-value="invest-money-in-other-businesses">Invest money in other businesses</li>
-                        <li filter-value="10" data-value="market-and-advertise-my-business">Market and advertise my business</li>
-
-
-                        <li filter-value="10" data-value="organise-a-community-event">Organise a community event</li>
-                        <li filter-value="10" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
-                        <li filter-value="10" data-value="purchase-or-upgrade-equipment-vehicles-or-tools">Purchase or upgrade equipment, vehicles or tools</li>
-                        <li filter-value="10" data-value="recycle-waste-or-reduce-my-energy-use">Recycle waste or reduce my energy use</li>
-                        <li filter-value="10" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
-                        <li filter-value="10" data-value="start-a-business">Start a business</li>
-                        <li filter-value="10" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
-                    </ul>
+                <div class="finder-question single-select" id="question-business-type">
+                    <p class="section-title">Business type</p>
+                    <h2>My business is operating as a</h2>
+                    
+                       <select id="sel_business">
+                            <option value="select-option" selected="selected" disabled="">select business type</option>
+                            <option value="sole-trader" class="select-option">Sole trader</option>
+                            <option value="partnership" class="select-option">Partnership</option>
+                            <option value="company" class="select-option">Company</option>
+                            <option value="trust" class="select-option">Trust</option>
+                            <option value="not-for-profit" class="select-option">Not for profit</option>
+                        </select>
+         
+                    
                 </div>
                 
                 <form>
                     <div class="form-buttons">
-                       
-                        <a class="start-again clear-all">Start again</a>
-
+                       <a class="start-again clear-all">Start again</a>
+                        
                         <a class="previous" data-value="section_2">Previous</a>
                        
                         <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
@@ -208,6 +231,7 @@
         </div>
 
     </div>
+   
 
 </div>
 </div>
@@ -215,48 +239,38 @@
 
 
 
-<!-- SECTION 4 - LOCATION -->
+<!-- SECTION 4 - SUPPORT TYPE -->
 <div class="finder_section" data-value="4" id="section_4">
 <div class="finder-main-section main-section light" id="mainsection">  
 
-    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+    
+        <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
                 <div class="finder-question multi-select">
-                    <p class="section-title">Location</p>
-                    <h2>My business is located in </h2>
+                    <p class="section-title">Support type</p>
+                    <h2>I am interested in</h2>
                     <p class="help-text">Select  one or more options</p>
                     <ul>
-                        <li filter-value="10" data-value="australian-capital-territory">Australian Capital Territory</li>
-                        <li filter-value="10" data-value="new-south-wales">New South Wales</li>
-                        <li filter-value="10" data-value="northern-territory">Northern Territory</li>
-                        <li filter-value="10" data-value="queensland">Queensland</li>
-                        <li filter-value="10" data-value="south-australia">South Australia</li>
-                        <li filter-value="10" data-value="tasmania">Tasmania</li>
-                        <li filter-value="10" data-value="victoria">Victoria</li>
-                        <li filter-value="10" data-value="western-australia">Western Australia</li>
+                        <li filter-type="support" filter-value="60" data-value="funding">Funding</li>
+                        <li filter-type="support" filter-value="30" data-value="subsidy">Subsidy</li>
+                        <li filter-type="support" filter-value="10" data-value="concession">Concession</li>
+                        <li filter-type="support" filter-value="10" data-value="scholarship">Scholarship</li>
+                        <li filter-type="support" filter-value="10" data-value="tax-rebate">Tax rebate</li>
+                        <li filter-type="support" filter-value="30" data-value="advice">Advice</li>
+                        <li filter-type="support" filter-value="10" data-value="mentorship">Mentorship</li>
                     </ul>
-
-               
-                <div class="finder-question-toggle" id="question-regional-or-rural-area">
-                    <div class="custom-control custom-switch toggle-question">
-                        <h3>Regional or rural area</h3>
-                        <input type="checkbox" class="custom-control-input" id="regional-or-rural-area-switch">
-                        <label class="custom-control-label" for="regional-or-rural-area-switch"></label>
-                    </div>
-                </div>
-                
                 </div>
                 
                 <form>
                     <div class="form-buttons">
-                       <a class="start-again clear-all">Start again</a>
+                       
+                        <a class="start-again clear-all">Start again</a>
                         
                         <a class="previous" data-value="section_3">Previous</a>
                        
                         <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
                             <div>
-                                
                                 <a data-value="section_5" class="next theme-button theme-button-primary theme-button-small btn">
                                     <span>Next</span>
                                 </a>
@@ -270,6 +284,10 @@
         </div>
 
     </div>
+    
+    
+    
+
 
 </div>
 </div>
@@ -277,49 +295,42 @@
 
 
 
-<!-- SECTION 5 - INDUSTRY -->
+<!-- SECTION 5 - OBJECTIVES -->
 <div class="finder_section" data-value="5" id="section_5">
 <div class="finder-main-section main-section light" id="mainsection">  
 
+ 
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question single-select"id="question-industry">
-                    <p class="section-title">Industry</p>
-                    <h2>My business is in the industry of</h2>
-                    
-                   <select id="sel_industry">
-                        <option value="select-option" selected="selected" disabled="">select industry</option>
-                        <option value="accommodation-and-food-services" class="select-option">Accommodation and Food Services</option>
-                        <option value="administrative-and-support-services" class="select-option">Administrative and Support Services</option>
-                        <option value="agriculture-forestry-and-fishing" class="select-option">Agriculture, Forestry and Fishing</option>
-                        <option value="arts-and-recreation-services" class="select-option">Arts and Recreation Services</option>
-                        <option value="construction" class="select-option">Construction</option>
-                        <option value="education-and-training" class="select-option">Education and Training</option>
-                        <option value="electricity-gas-water-and-waste-services" class="select-option">Electricity, Gas, Water and Waste Services</option>
-                        <option value="financial-and-insurance-services" class="select-option">Financial and Insurance Services</option>
-                        <option value="health-care-and-social-assistance" class="select-option">Health Care and Social Assistance</option>
-                        <option value="information-media-and-telecommunications" class="select-option">Information Media and Telecommunications</option>
-                        <option value="manufacturing" class="select-option">Manufacturing</option>
-                        <option value="mining" class="select-option">Mining</option>
-                        <option value="professional-scientific-and-technical-services" class="select-option">Professional, Scientific and Technical Services</option>
-                        <option value="public-administration-and-safety" class="select-option">Public Administration and Safety</option>
-                        <option value="rental-hiring-and-real-estate-services" class="select-option">Rental, Hiring and Real Estate Services</option>
-                        <option value="retail-trade" class="select-option">Retail Trade</option>
-                        <option value="transport-postal-and-warehousing" class="select-option">Transport, Postal and Warehousing</option>
-                        <option value="wholesale-trade" class="select-option">Wholesale Trade</option>
-                        <option value="other-services" class="select-option">Other Services</option>
-                    </select>
-                    
-                    
-                    
+                <div class="finder-question multi-select">
+                    <p class="section-title">Objectives</p>
+                    <h2>I am looking for assistance to</h2>
+                    <p class="help-text">Select  one or more options</p>
+                    <ul>
+                        <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure-for-a-community">Build or improve infrastructure for a community</li>
+                        <li filter-type="objectives" filter-value="13" data-value="employ-people">Employ people</li>
+                        <li filter-type="objectives" filter-value="13" data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
+                        <li filter-type="objectives" filter-value="13" data-value="import-or-export-products-or-services">Import or export products or services</li>
+                        <li filter-type="objectives" filter-value="13" data-value="improve-or-grow-my-business">Improve or grow my business</li>
+                        <li filter-type="objectives" filter-value="13" data-value="invest-money-in-other-businesses">Invest money in other businesses</li>
+                        <li filter-type="objectives" filter-value="13" data-value="market-and-advertise-my-business">Market and advertise my business</li>
+
+                        <li filter-type="objectives" filter-value="13" data-value="organise-a-community-event">Organise a community event</li>
+                        <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
+                        <li filter-type="objectives" filter-value="10" data-value="purchase-or-upgrade-equipment-vehicles-or-tools">Purchase or upgrade equipment, vehicles or tools</li>
+                        <li filter-type="objectives" filter-value="13" data-value="recycle-waste-or-reduce-my-energy-use">Recycle waste or reduce my energy use</li>
+                        <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
+                        <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
+                        <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
+                    </ul>
                 </div>
                 
                 <form>
                     <div class="form-buttons">
                        
                         <a class="start-again clear-all">Start again</a>
-                        
+
                         <a class="previous" data-value="section_4">Previous</a>
                        
                         <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
@@ -338,17 +349,182 @@
 
     </div>
 
+
 </div>
 </div>
 
 
 
 
-<!-- SECTION 6 - TURNOVER -->
+<!-- SECTION 6 - BUSINESS STAGE -->
 <div class="finder_section" data-value="6" id="section_6">
 <div class="finder-main-section main-section light" id="mainsection">  
 
+
     <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="finder-question single-select" id="question-business-stage">
+                    <p class="section-title">Business stage and turnover</p>
+                    <h2>My business has been in operation for</h2>
+                    
+                       <select id="sel_stage">
+                            <option value="select-option" selected="selected" disabled="">select stage</option>
+                            <option value="2-years-or-less" class="select-option">2 years or less</option>
+                            <option value="3-and-5-years" class="select-option">3 and 5 years</option>
+                            <option value="more-than-5-years" class="select-option">More than 5 years</option>
+                            
+                        </select>
+                    
+                </div>
+                
+                
+                
+                <form>
+                    <div class="form-buttons">
+                       
+                        <a class="start-again clear-all">Start again</a>
+                        
+                        <a class="previous" data-value="section_5">Previous</a>
+                       
+                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
+                            <div>
+                                <a data-value="section_7" class="next theme-button theme-button-primary theme-button-small btn">
+                                    <span>Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+             
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+<!-- SECTION 7 - GRANT /PROGRAM STATUS -->
+<div class="finder_section" data-value="7" id="section_7">
+<div class="finder-main-section main-section light" id="mainsection">  
+
+    
+        <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+            <div class="row">
+                <div class="col-12 col-lg-12 col-xl-12">
+
+
+                    <div class="finder-question multi-select">
+                        <p class="section-title">Grant / Program status</p>
+                        <h2>I want to see grants and programs that are</h2>
+                        <p class="help-text">Select one or more options</p>
+                        <ul>
+                            <li filter-type="status" filter-value="50" data-value="open">Open</li>
+                            <li filter-type="status" filter-value="10" data-value="coming-soon">Coming soon</li>
+                            <li filter-type="status" filter-value="50" data-value="closed">Closed</li>
+                        </ul>
+                    </div>
+
+                    <form>
+                        <div class="form-buttons">
+
+                            <a class="start-again clear-all">Start again</a>
+
+                            <a class="previous" data-value="section_6">Previous</a>
+
+                            <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
+                                <div>
+                                    <a data-value="section_8" class="next theme-button theme-button-primary theme-button-small btn">
+                                        <span>Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    
+</div>
+</div>
+
+
+
+
+<!-- SECTION 8 - ATSI-->
+
+<div class="finder_section" data-value="8" id="section_8">
+    <div class="finder-main-section main-section light" id="mainsection">
+
+        
+    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="finder-question finder-question-toggle" id="question-atsi">
+                    <div class="custom-control custom-switch toggle-question heading-level">
+                        <h2>I am of Aboriginal or Torres Strait Islander origin</h2>
+                        <input type="checkbox" class="custom-control-input" id="atsi-switch">
+                        <label class="custom-control-label" for="atsi-switch"></label>
+                    </div>
+                    
+                   
+                   
+                </div>
+                
+                <form>
+                    <div class="form-buttons">
+                       
+                        <a class="start-again clear-all">Start again</a>
+                        
+                        <a class="previous" data-value="section_7">Previous</a>
+                       
+                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
+                            <div>
+                                <a class="view-results theme-button theme-button-primary theme-button-small btn">
+                                    <span>View results</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+             
+            </div>
+        </div>
+
+    </div>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<!-- SECTION 9 - ATSI -->
+<!--<div class="finder_section" data-value="9" id="section_9">
+<div class="finder-main-section main-section light" id="mainsection">  
+
+</div>
+</div>-->
+
+
+
+
+<!-- TURNOVER CONTENT -->
+<!--<div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
         <div class="row">
             <div class="col-12 col-lg-12 col-xl-12">
                 <div class="finder-question single-select" id="question-turnover">
@@ -389,219 +565,7 @@
             </div>
         </div>
 
-    </div>
-
-</div>
-</div>
-
-
-
-
-<!-- SECTION 7 - BUSINESS STAGE  -->
-<div class="finder_section" data-value="7" id="section_7">
-<div class="finder-main-section main-section light" id="mainsection">  
-
-    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
-        <div class="row">
-            <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question single-select" id="question-business-stage">
-                    <p class="section-title">Business stage and turnover</p>
-                    <h2>My business has been in operation for</h2>
-                    
-                       <select id="sel_stage">
-                            <option value="select-option" selected="selected" disabled="">select stage</option>
-                            <option value="2-years-or-less" class="select-option">2 years or less</option>
-                            <option value="3-and-5-years" class="select-option">3 and 5 years</option>
-                            <option value="more-than-5-years" class="select-option">More than 5 years</option>
-                            
-                        </select>
-                    
-                </div>
-                
-                
-                
-                <form>
-                    <div class="form-buttons">
-                       
-                        <a class="start-again clear-all">Start again</a>
-                        
-                        <a class="previous" data-value="section_6">Previous</a>
-                       
-                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
-                            <div>
-                                <a data-value="section_8" class="next theme-button theme-button-primary theme-button-small btn">
-                                    <span>Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-             
-            </div>
-        </div>
-
-    </div>
-
-</div>
-</div>
-
-
-
-
-<!-- SECTION 8 - I AM A -->
-<!--
-<div class="finder_section" data-value="8" id="section_8">
-<div class="finder-main-section main-section light" id="mainsection">  
-
-    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
-        <div class="row">
-            <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question multi-select" id="question-audience">
-                    <p class="section-title">Audience</p>
-                    <h2>I am a</h2>
-                    <p class="help-text">Select  one or more options</p>
-                    <ul>
-                        <li data-value="aboriginal-or-torres-strait-islander-person">Aboriginal or Torres Strait Islander person</li>
-                        <li data-value="artist-or-filmmaker">Artist or filmmaker</li>
-                        <li data-value="farmer">Farmer</li>
-                        <li data-value="manufacturing">Manufacturing business</li>
-                        <li data-value="research-organisation">Research organisation</li>
-                        <li data-value="rural-or-regional-business">Rural or regional business</li>
-                        <li data-value="small-business">Small business</li>
-                        <li data-value="start-up">Start-up</li>
-                        <li data-value="tourism-business">Tourism business</li>
-                        <li data-value="none-of-these" class="none-of-these">None of these</li>
-                    </ul>
-                </div>
-                
-                <form>
-                    <div class="form-buttons">
-                       
-                        <a class="start-again clear-all">Start again</a>
-                        
-                        <a class="previous" data-value="section_7">Previous</a>
-                       
-                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
-                            <div>
-                                <a data-value="section_9" class="next theme-button theme-button-primary theme-button-small btn">
-                                    <span>Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-             
-            </div>
-        </div>
-
-    </div>
-
-</div>
-</div>
--->
-
-
-<!-- SECTION 8 - GRANT / PROGRAM STATUS-->
-
-<div class="finder_section" data-value="8" id="section_8">
-    <div class="finder-main-section main-section light" id="mainsection">
-
-        <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
-            <div class="row">
-                <div class="col-12 col-lg-12 col-xl-12">
-
-
-                    <div class="finder-question multi-select">
-                        <p class="section-title">Grant / Program status</p>
-                        <h2>I want to see grants and programs that are</h2>
-                        <p class="help-text">Select one or more options</p>
-                        <ul>
-                            <li filter-value="10" data-value="open">Open</li>
-                            <li filter-value="10" data-value="coming-soon">Coming soon</li>
-                            <li filter-value="10" data-value="closed">Closed</li>
-                        </ul>
-                    </div>
-
-                    <form>
-                        <div class="form-buttons">
-
-                            <a class="start-again clear-all">Start again</a>
-
-                            <a class="previous" data-value="section_7">Previous</a>
-
-                            <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
-                                <div>
-                                    <a data-value="section_9" class="next theme-button theme-button-primary theme-button-small btn">
-                                        <span>Next</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
-
-
-
-<!-- SECTION 9 - ATSI -->
-<div class="finder_section" data-value="9" id="section_9">
-<div class="finder-main-section main-section light" id="mainsection">  
-
-    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
-        <div class="row">
-            <div class="col-12 col-lg-12 col-xl-12">
-                <div class="finder-question finder-question-toggle" id="question-atsi">
-                    <div class="custom-control custom-switch toggle-question heading-level">
-                        <h2>I am of Aboriginal or Torres Strait Islander origin</h2>
-                        <input type="checkbox" class="custom-control-input" id="atsi-switch">
-                        <label class="custom-control-label" for="atsi-switch"></label>
-                    </div>
-                    
-                   
-                   
-                </div>
-                
-                <form>
-                    <div class="form-buttons">
-                       
-                        <a class="start-again clear-all">Start again</a>
-                        
-                        <a class="previous" data-value="section_8">Previous</a>
-                       
-                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
-                            <div>
-                                <a class="view-results theme-button theme-button-primary theme-button-small btn">
-                                    <span>View results</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-             
-            </div>
-        </div>
-
-    </div>
-
-</div>
-</div>
-
-
-
-
-
+    </div>-->
 
 
 
