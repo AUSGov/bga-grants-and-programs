@@ -4,6 +4,33 @@
 
 $(document).ready(function () {
     
+    //set sessionStorage on page load - variables for results count.
+    var max_showing = 587;
+    sessionStorage.setItem('showing', max_showing); 
+    $('span.number').text(sessionStorage.getItem('showing'));
+    
+    sessionStorage.setItem('location', 0);
+    sessionStorage.setItem('industry', 0); 
+    sessionStorage.setItem('support', 0);
+    sessionStorage.setItem('business-type', 0);
+    sessionStorage.setItem('support-type', 0);
+    sessionStorage.setItem('objectives', 0);
+    sessionStorage.setItem('business-stage', 0);
+    sessionStorage.setItem('status', 0);
+    sessionStorage.setItem('atsi', 0);
+    sessionStorage.setItem('rural', 0);
+    
+    var max_min_count = function(number){
+        var count = number;
+        if (count > 587) {
+            count = 587;
+        } else if (count < 10) {
+            count = 11;
+        }
+        return count; 
+    };
+
+    
     // Main navigation functionality
     $('.navbar-nav .nav-item.dropdown').on('click', function(){
         $(this).find('.navigation-first-level-menu').toggleClass('show');
@@ -209,86 +236,6 @@ $(document).ready(function () {
         $(".modal-background").addClass("active");
     });
      
-    
-    
-    // EXPORT TOOL TABS & NAV TILES FUNCTIONALITY
-    $('.nav-link').on('click', function(e){
-        e.preventDefault();
-        $('.tab-section').hide(); 
-        
-        var active_section = '#' + $(this).attr('href');
-        $(active_section).show();
-    });
-    
-    $('.export-nav-tile').on('click', function(){
-        $('.tab-section').hide(); 
-        var active_section = $(this).attr('data-attribute');
-        $('#' + active_section).show();
-        
-        $('.nav-link.active').removeClass('active');
-        $('.nav-link[href='+ active_section + ']').addClass('active');
-        
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
-    });
-    
-    
-    // GUIDE MINI-LIST
-    /*------------------- Open & close list items -------------------*/
-    $(".guide-mini-list-item-title").on("click", function () {
-        $(this).next('.content-wrapper').slideToggle(400);
-
-        if ($(this).closest('.guide-mini-list-item').hasClass('open')) {
-            
-            $(this).closest('.guide-mini-list-item').removeClass('open');
-
-            
-        } else {
-            $(this).closest('.guide-mini-list-item').addClass('open');
-        }
-         
-     });
-    
-    
-    //GUIDE TILES
-    /*------------------- Open & close items -------------------*/
-    $(".guide-title").on("click", function () {
-        $(this).next('.guide-content').slideToggle(200);
-
-        $(this).toggleClass("open");
-        $(this).parent(".guide-section").toggleClass('open');
-        
-        var sectionId = $(this).parent(".guide-section").attr("id");
-        if ($(this).parent(".guide-section").hasClass('open')) {
-            sessionStorage.setItem(sectionId, 'open');
-        } else {
-            sessionStorage.setItem(sectionId, '');
-        }
-            
-     });
-    
-    $(".guide-expand-all").on("click", function (){
-        
-        if($(this).hasClass('open')) {
-            $(this).removeClass('open');
-            $('.guide-content').slideUp(400);
-            $(".guide-title").removeClass('open');
-            $(".guide-section").removeClass('open');
-            
-            $(this).find('h5').text('Open all');
-            
-        } else { 
-            $(this).addClass('open');
-            $('.guide-content').slideDown(400);
-            $(".guide-title").addClass('open');
-            $(".guide-section").addClass('open');
-     
-            $(this).find('h5').text('Close all');
-        }
-        
-    });
-    
-    
 
     // FINDER ALT LINK and VIEW RESULTS - scroll to results      
     $('.alt-link').on('click', function(){
@@ -544,8 +491,6 @@ $(document).ready(function () {
             if ($(this).parents('.checkbox-item').hasClass('none-of-these')) {
                 
                 if ($(this).hasClass('selected')) {
-                    
-                    console.log('selecting none');
                    
                     $('#question-audience .none-of-these').removeClass('selected');
                     $('#audience .finder-question.multi-select .none-of-these').removeClass('selected');
@@ -631,7 +576,7 @@ $(document).ready(function () {
     
     
     // SINGLE SELECT FILTERS
-    // Select filter 'bubble' options -single select
+    // Select filter 'bubble' options-single select
      $('.active-filters.single-select li').on('click', function(){
          $(this).removeClass('selected');
          
@@ -674,7 +619,132 @@ $(document).ready(function () {
         $('.filter-item-title').removeClass('open');
         $('.filter-item-content').slideUp();
         $('.filter-item .custom-control-input').prop('checked', false).removeClass('selected');
+        
+        sessionStorage.setItem('showing', max_showing);
+        $('span.number').text(sessionStorage.getItem('showing'));
+        
+        sessionStorage.setItem('location', 0);
+        sessionStorage.setItem('industry', 0); 
+        sessionStorage.setItem('support', 0);
+        sessionStorage.setItem('business-type', 0);
+        sessionStorage.setItem('support-type', 0);
+        sessionStorage.setItem('objectives', 0);
+        sessionStorage.setItem('business-stage', 0);
+        sessionStorage.setItem('status', 0);
+        sessionStorage.setItem('atsi', 0);
+
     });
+    
+    
+    //CREATE 'SHOWING' NUMBER
+    $('[filter-type]').on('click', function(){
+        
+        var filter_type = $(this).attr('filter-type'),
+            select_filter_type = $(this).attr('select-filter-type'),
+            result_count = parseInt(sessionStorage.getItem('showing')),
+            filter_value = parseInt($(this).attr('filter-value')),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
+            reduced_count = Math.round(result_count - 70),
+            restore_count = Math.round(result_count + 70),
+            new_count_minus = result_count - filter_value,
+            new_count_plus = result_count + filter_value;
+           
+        reduced_count = max_min_count(reduced_count);
+        restore_count = max_min_count(restore_count);
+        new_count_minus = max_min_count(new_count_minus);
+        new_count_plus = max_min_count(new_count_plus);   
+          
+        // First use of a filter type
+        if (filter_type_current_value === 0) {
+            
+            if ($(this).hasClass('selected')) {
+                
+                $('span.number').text(reduced_count);
+                sessionStorage.setItem('showing', reduced_count);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+            } else {
+                // This is not a possible scenario  
+            }
+        
+            
+        // Catch the last use of a filter type and reset
+        } else if (filter_type_current_value === 1) {  
+
+            if ($(this).hasClass('selected')) {
+                $('span.number').text(new_count_plus);
+                sessionStorage.setItem('showing', new_count_plus);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+                
+            } else {
+                $('span.number').text(restore_count);
+                sessionStorage.setItem('showing', restore_count);
+                sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+            }
+            
+        }
+        
+        // All other clicks on a filter type
+        else {
+            
+            if ($(this).hasClass('selected')) {
+                $('span.number').text(new_count_plus);
+                sessionStorage.setItem('showing', new_count_plus);
+                sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                
+            } else {  
+                $('span.number').text(new_count_minus);
+                sessionStorage.setItem('showing', new_count_minus);
+                sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                
+            }
+        }
+
+    });
+    
+    $('[select-filter-type]').change(function(){
+        
+        var filter_type = $(this).attr('select-filter-type'),
+            result_count = parseInt(sessionStorage.getItem('showing')),
+            filter_value = parseInt($(this).attr('filter-value')),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
+            reduced_count = Math.round(result_count - 93),
+            new_count_plus = result_count + filter_value;
+
+        reduced_count = max_min_count(reduced_count);
+        new_count_plus = max_min_count(new_count_plus);  
+ 
+        $('span.number').text(reduced_count);
+        sessionStorage.setItem('showing', reduced_count);
+        sessionStorage.setItem(filter_type, 1);
+
+    });
+    
+    $('[toggle-filter-type]').change(function(){
+        
+        var filter_type = $(this).attr('toggle-filter-type'),
+        result_count = parseInt(sessionStorage.getItem('showing')),
+        filter_value = parseInt($(this).attr('filter-value')),
+        filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
+        reduced_count = Math.round(result_count - 51),
+        restore_count = Math.round(result_count + 51);
+
+        reduced_count = max_min_count(reduced_count);
+        restore_count = max_min_count(restore_count);  
+ 
+        if (!$(this).is(":checked")) {
+            $('span.number').text(restore_count);
+            sessionStorage.setItem('showing', restore_count);
+            sessionStorage.setItem(filter_type, 0);
+        } else {
+            $('span.number').text(reduced_count);
+            sessionStorage.setItem('showing', reduced_count);
+            sessionStorage.setItem(filter_type, 1);
+        }
+    });
+    
+ 
     
     
 }); // END doc ready
