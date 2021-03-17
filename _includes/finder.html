@@ -81,7 +81,7 @@
                 <div class="finder-question-toggle" id="question-regional-or-rural-area">
                     <div class="custom-control custom-switch toggle-question">
                         <h3>Regional or rural area</h3>
-                        <input type="checkbox" class="custom-control-input" id="regional-or-rural-area-switch">
+                        <input type="checkbox" class="custom-control-input" id="regional-or-rural-area-switch" toggle-filter-type="rural" filter-value="51">
                         <label class="custom-control-label" for="regional-or-rural-area-switch"></label>
                     </div>
                 </div>
@@ -129,27 +129,27 @@
                     <p class="section-title">Industry</p>
                     <h2>My business is in the industry of</h2>
                     
-                   <select id="sel_industry" select-filter-type="industry" filter-value="14">
-                        <option filter-value="14" value="select-option" selected="selected" disabled="">select industry</option>
-                        <option filter-value="14" value="accommodation-and-food-services" class="select-option">Accommodation and Food Services</option>
-                        <option filter-value="14" value="administrative-and-support-services" class="select-option">Administrative and Support Services</option>
-                        <option filter-value="14" value="agriculture-forestry-and-fishing" class="select-option">Agriculture, Forestry and Fishing</option>
-                        <option filter-value="14" value="arts-and-recreation-services" class="select-option">Arts and Recreation Services</option>
-                        <option filter-value="14" value="construction" class="select-option">Construction</option>
-                        <option filter-value="14" value="education-and-training" class="select-option">Education and Training</option>
-                        <option filter-value="14" value="electricity-gas-water-and-waste-services" class="select-option">Electricity, Gas, Water and Waste Services</option>
-                        <option filter-value="14" value="financial-and-insurance-services" class="select-option">Financial and Insurance Services</option>
-                        <option filter-value="14" value="health-care-and-social-assistance" class="select-option">Health Care and Social Assistance</option>
-                        <option filter-value="14" value="information-media-and-telecommunications" class="select-option">Information Media and Telecommunications</option>
-                        <option filter-value="14" value="manufacturing" class="select-option">Manufacturing</option>
-                        <option filter-value="14" value="mining" class="select-option">Mining</option>
-                        <option filter-value="14" value="professional-scientific-and-technical-services" class="select-option">Professional, Scientific and Technical Services</option>
-                        <option filter-value="14" value="public-administration-and-safety" class="select-option">Public Administration and Safety</option>
-                        <option filter-value="14" value="rental-hiring-and-real-estate-services" class="select-option">Rental, Hiring and Real Estate Services</option>
-                        <option filter-value="14" value="retail-trade" class="select-option">Retail Trade</option>
-                        <option filter-value="14" value="transport-postal-and-warehousing" class="select-option">Transport, Postal and Warehousing</option>
-                        <option filter-value="14" value="wholesale-trade" class="select-option">Wholesale Trade</option>
-                        <option filter-value="14" value="other-services" class="select-option">Other Services</option>
+                   <select id="sel_industry" select-filter-type="industry" filter-value="27">
+                        <option value="select-option" selected="selected" disabled="">select industry</option>
+                        <option value="accommodation-and-food-services" class="select-option">Accommodation and Food Services</option>
+                        <option value="administrative-and-support-services" class="select-option">Administrative and Support Services</option>
+                        <option value="agriculture-forestry-and-fishing" class="select-option">Agriculture, Forestry and Fishing</option>
+                        <option value="arts-and-recreation-services" class="select-option">Arts and Recreation Services</option>
+                        <option value="construction" class="select-option">Construction</option>
+                        <option value="education-and-training" class="select-option">Education and Training</option>
+                        <option value="electricity-gas-water-and-waste-services" class="select-option">Electricity, Gas, Water and Waste Services</option>
+                        <option value="financial-and-insurance-services" class="select-option">Financial and Insurance Services</option>
+                        <option value="health-care-and-social-assistance" class="select-option">Health Care and Social Assistance</option>
+                        <option value="information-media-and-telecommunications" class="select-option">Information Media and Telecommunications</option>
+                        <option value="manufacturing" class="select-option">Manufacturing</option>
+                        <option value="mining" class="select-option">Mining</option>
+                        <option value="professional-scientific-and-technical-services" class="select-option">Professional, Scientific and Technical Services</option>
+                        <option value="public-administration-and-safety" class="select-option">Public Administration and Safety</option>
+                        <option value="rental-hiring-and-real-estate-services" class="select-option">Rental, Hiring and Real Estate Services</option>
+                        <option value="retail-trade" class="select-option">Retail Trade</option>
+                        <option value="transport-postal-and-warehousing" class="select-option">Transport, Postal and Warehousing</option>
+                        <option value="wholesale-trade" class="select-option">Wholesale Trade</option>
+                        <option value="other-services" class="select-option">Other Services</option>
                     </select>
                     
                     
@@ -198,7 +198,7 @@
                     <p class="section-title">Business type</p>
                     <h2>My business is operating as a</h2>
                     
-                       <select id="sel_business">
+                       <select id="sel_business" select-filter-type="business-type" filter-value="27">
                             <option value="select-option" selected="selected" disabled="">select business type</option>
                             <option value="sole-trader" class="select-option">Sole trader</option>
                             <option value="partnership" class="select-option">Partnership</option>
@@ -368,7 +368,7 @@
                     <p class="section-title">Business stage and turnover</p>
                     <h2>My business has been in operation for</h2>
                     
-                       <select id="sel_stage">
+                       <select id="sel_stage" select-filter-type="business-stage" filter-value="27">
                             <option value="select-option" selected="selected" disabled="">select stage</option>
                             <option value="2-years-or-less" class="select-option">2 years or less</option>
                             <option value="3-and-5-years" class="select-option">3 and 5 years</option>
@@ -473,7 +473,7 @@
                 <div class="finder-question finder-question-toggle" id="question-atsi">
                     <div class="custom-control custom-switch toggle-question heading-level">
                         <h2>I am of Aboriginal or Torres Strait Islander origin</h2>
-                        <input type="checkbox" class="custom-control-input" id="atsi-switch">
+                        <input type="checkbox" class="custom-control-input" id="atsi-switch" toggle-filter-type="atsi" filter-value="51">
                         <label class="custom-control-label" for="atsi-switch"></label>
                     </div>
                     
