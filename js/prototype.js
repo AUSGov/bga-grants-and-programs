@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
         return count; 
     };
-
+    
     
     // Main navigation functionality
     $('.navbar-nav .nav-item.dropdown').on('click', function(){
@@ -297,6 +297,7 @@ $(document).ready(function () {
             }
         } 
     });
+    
     
     // Remove items from shortlist (in the shortlist modal)  
     $(document).on('click', '.shortlist-links li span', function(){
@@ -741,6 +742,39 @@ $(document).ready(function () {
             $('span.number').text(reduced_count);
             sessionStorage.setItem('showing', reduced_count);
             sessionStorage.setItem(filter_type, 1);
+        }
+    });
+    
+    
+    // VARY SEARCH RESULT CARDS ON DISPLAY
+    // Get total numbner of search results
+    var search_card_number = $('.search-card-result').length;
+    var card_ids = [];
+
+    for(var i = 0; i < search_card_number; i++){
+        card_ids.push("#search-result-" + (i+1));
+    }
+    // console.log(card_ids);
+    
+    var search_cards = {};
+    $('.search-card-result').each(function(){
+        search_cards['#' + $(this).attr('id')] = $(this).html();
+    });
+    //console.log(search_cards);
+    
+    function Shuffle(o) {
+        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+    
+    $('[filter-type]').on('click', function(){
+
+        $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
         }
     });
     
