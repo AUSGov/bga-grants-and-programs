@@ -909,6 +909,34 @@
                 padding-bottom: 16px;
             }
             .search-card-footer {
+                display: flex;
+                padding: 8px 0;
+                
+                .status {
+                    height: 32px;
+                    padding: 0 16px 0 38px;
+                    border-radius: 50px;
+                    display: none;
+                    
+                    &.open {
+                        background: url(../assets/Icon-status-tick.svg) no-repeat  $green-positive-lightest;
+                        background-position: left 12px center;
+                    }
+                    &.coming-soon {
+                        background: #FFF1C5;
+                        background: url(../assets/Icon-status-calendar.svg) no-repeat #FFF1C5;
+                        background-position: left 14px center;
+                    }
+                    &.closed {
+                        background: url(../assets/Icon-status-closed.svg) no-repeat $red-negative-lightest;
+                        background-position: left 12px center;
+                    }
+                }
+                .deadline {
+                    padding: 0 0 0 12px;
+                    display: none;
+                    
+                }
                 svg {
                     display: inline-block;
                     margin-right: 4px;
@@ -916,11 +944,31 @@
                 p {
                     font-size: 12px;
                     letter-spacing: normal;
-                    color: $grey-darker;
-                    overflow-wrap: break-word;
-                    word-break: break-word;
+                    color: $black-light;
                     display: inline-block;
                     padding: 5px 0 0 0;
+                }
+                
+                &.open {
+                    .status.open {
+                        display: inline-block;
+                    }
+                    .deadline.open {
+                        display: inline-block;
+                    }
+                }
+                &.coming-soon {
+                    .status.coming-soon {
+                        display: inline-block;
+                    }
+                    .deadline.coming-soon {
+                        display: inline-block;
+                    }
+                }
+                &.closed {
+                    .status.closed {
+                        display: block;
+                    }
                 }
             }
         }

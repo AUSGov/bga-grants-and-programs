@@ -3934,9 +3934,31 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .results-wrapper .search-card-content .search-card-body { font-size: 14px; line-height: 1.71; color: #333; padding-bottom: 16px; }
 
+.results-section .results-wrapper .search-card-content .search-card-footer { display: flex; padding: 8px 0; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer .status { height: 32px; padding: 0 16px 0 38px; border-radius: 50px; display: none; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer .status.open { background: url(../assets/Icon-status-tick.svg) no-repeat #E8F4E8; background-position: left 12px center; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer .status.coming-soon { background: #FFF1C5; background: url(../assets/Icon-status-calendar.svg) no-repeat #FFF1C5; background-position: left 14px center; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer .status.closed { background: url(../assets/Icon-status-closed.svg) no-repeat #FCE9E9; background-position: left 12px center; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer .deadline { padding: 0 0 0 12px; display: none; }
+
 .results-section .results-wrapper .search-card-content .search-card-footer svg { display: inline-block; margin-right: 4px; }
 
-.results-section .results-wrapper .search-card-content .search-card-footer p { font-size: 12px; letter-spacing: normal; color: #666666; overflow-wrap: break-word; word-break: break-word; display: inline-block; padding: 5px 0 0 0; }
+.results-section .results-wrapper .search-card-content .search-card-footer p { font-size: 12px; letter-spacing: normal; color: #333333; display: inline-block; padding: 5px 0 0 0; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer.open .status.open { display: inline-block; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer.open .deadline.open { display: inline-block; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer.coming-soon .status.coming-soon { display: inline-block; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer.coming-soon .deadline.coming-soon { display: inline-block; }
+
+.results-section .results-wrapper .search-card-content .search-card-footer.closed .status.closed { display: block; }
 
 .results-section .results-wrapper .search-accordion-expand-wrapper .grant-expand-title { width: 100%; padding: 0; border: none; }
 
