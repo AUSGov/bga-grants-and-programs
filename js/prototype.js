@@ -599,6 +599,16 @@ $(document).ready(function () {
         $('#question-' + filter_type + ' select').val(filter_option);
     });
     
+    // MOBILE FILTERS
+    $('.view-filters').on('click', function(){
+        $('.filter-wrapper').addClass('active');
+        $('.modal-background').addClass('active');
+    });
+    $('.filter-wrapper .modal-close').on('click', function(){
+        $('.filter-wrapper').removeClass('active');
+        $('.modal-background').removeClass('active');
+    });
+    
     
     // FINDER RESULTS CARDS
     $(document).on('click', '.accordion-title', function(){
