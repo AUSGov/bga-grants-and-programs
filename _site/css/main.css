@@ -3267,6 +3267,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .search-bar-search button { width: 43px !important; height: 43px !important; box-sizing: border-box; padding: 0 !important; }
 
+@media (max-width: 767px) { .search-bar-search { display: none !important; } }
+
 /* MODAL */
 .modal-wrapper { display: none; }
 
@@ -3659,6 +3661,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 @media (max-width: 768px) { .page-header-theme-tool .header-image-wrapper img { display: none; } }
 
+@media (max-width: 576px) { .page-header-theme-tool { padding: 32px 15px 32px !important; } }
+
 .top-of-page { padding-top: 0; }
 
 /* FINDER SECTION */
@@ -3702,7 +3706,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .finder-question ul { margin: 0; padding: 0; justify-content: center !important; text-align: center; }
 
-.finder-main-section .finder-wrapper .finder-question ul li { list-style: none; font-size: 15px; padding: 6px 16px 6px 32px; background: url(../assets/Icon-finder-plus.svg) no-repeat #ffffff; background-position: left 12px center; border: 2px solid #4569A0; border-radius: 30px; margin: 16px 16px 0 0; line-height: 1.5; cursor: pointer; display: inline-block; height: 40px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px; }
+.finder-main-section .finder-wrapper .finder-question ul li { list-style: none; font-size: 15px; padding: 6px 16px 6px 32px; background: url(../assets/Icon-finder-plus.svg) no-repeat #ffffff; background-position: left 12px center; border: 2px solid #4569A0; border-radius: 30px; margin: 16px 16px 0 0; line-height: 1.5; cursor: pointer; display: inline-block; min-height: 40px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px; }
 
 .finder-main-section .finder-wrapper .finder-question ul li::before { content: none !important; }
 
@@ -3774,8 +3778,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper .theme-button-secondary:hover { color: #ffffff; background: #254F90; }
 
-@media (max-width: 576px) { .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper { width: 60%; }
-  .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper .theme-button-secondary { padding: 14px 8px 6px; }
+@media (max-width: 576px) { .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper .theme-button-secondary { padding: 14px 8px 6px; }
   .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper .standardcta-button-wrapper:last-of-type { margin: 0; } }
 
 @media (max-width: 767px) { .finder-main-section .finder-wrapper .start-button-wrapper .tool-start { width: 100%; }
@@ -3784,10 +3787,21 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 @media (max-width: 576px) { .finder-main-section .finder-wrapper { padding: 0; border: none; margin: 0; }
   .finder-main-section .finder-wrapper > *:last-child { padding-bottom: 32px; margin-bottom: 0; }
-  .finder-main-section .finder-wrapper form { width: 100%; margin: 0px 32px 32px 32px; }
-  .finder-main-section .finder-wrapper form .standardcta-button-wrapper { width: 100%; } }
+  .finder-main-section .finder-wrapper .alt-link { font-size: 18px; padding-bottom: 0; }
+  .finder-main-section .finder-wrapper form { width: 100%; margin: 0px; text-align: right; }
+  .finder-main-section .finder-wrapper form .form-buttons { padding: 0 15px; }
+  .finder-main-section .finder-wrapper form .form-buttons .previous { margin-left: 16px; }
+  .finder-main-section .finder-wrapper form .form-buttons .start-again { margin-right: 20px; }
+  .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper { margin-top: 24px !important; }
+  .finder-main-section .finder-wrapper form .form-buttons .standardcta-button-wrapper .theme-button-primary { margin-left: 16px; width: auto; }
+  .finder-main-section .finder-wrapper .start-button-wrapper form .form-buttons { padding: 0 15px 32px 15px; }
+  .finder-main-section .finder-wrapper .finder-question { padding: 32px 15px 32px 15px; }
+  .finder-main-section .finder-wrapper .finder-question select { width: 100%; }
+  .finder-main-section .finder-wrapper .finder-question ul li { font-size: 13px; min-height: 32px; } }
 
 @media (max-width: 576px) { .finder-main-section form .form-buttons .standardcta-button-wrapper:last-of-type { margin: 0; } }
+
+@media (max-width: 576px) { .finder-main-section { padding-top: 0; } }
 
 /* GRANTS RESULTS SECTION */
 .results-section { padding-bottom: 32px; }
@@ -4032,6 +4046,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .pagination .previous .svg-container, .pagination .next .svg-container { width: 8px; height: 12px; }
 
 .pagination .last .svg-container, .pagination .first .svg-container { width: 12px; height: 12px; }
+
+@media (max-width: 576px) { .pagination { margin-left: 5%; } }
 
 /* SHORTLIST MODAL */
 .shortlist-wrapper { display: none; height: 80%; }
