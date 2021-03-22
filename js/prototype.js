@@ -253,7 +253,7 @@ $(document).ready(function () {
     // SHORTLIST
     
     // Add or remove items from the checklist (using link on results cards)
-    $('.shortlist').on('click', function(){
+     $(document).on('click', ".shortlist", function(){
         
         var parent_card = $(this).parents('.search-card-standard-content'),
             grant = parent_card.find('.search-card-content-type').text(),
@@ -308,6 +308,7 @@ $(document).ready(function () {
         $('.search-card-content-type').each(function(){
             if ( $(this).text() == grant ){
                 $(this).parents('.search-card-standard-content').find('.shortlist').removeClass('shortlisted'); 
+                $(this).parents('.search-card-standard-content').find('.toggle-shortlist').text('Add to shortlist');
             }
         });
         
@@ -600,7 +601,7 @@ $(document).ready(function () {
     
     
     // FINDER RESULTS CARDS
-    $(".accordion-title").on('click', function(){
+    $(document).on('click', '.accordion-title', function(){
         $(this).parents('.search-accordion-expand-wrapper').find(".collapse").slideToggle();
         $(this).parents('.grant-expand-title').toggleClass('collapsed');
     });
@@ -777,6 +778,32 @@ $(document).ready(function () {
             $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
         }
     });
+    
+    $('[select-filter-type]').change(function(){
+        
+        $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
+        }
+
+    });
+    
+    $('[toggle-filter-type]').change(function(){
+        
+       $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
+        }
+        
+    });
+    
+    
     
  
     
