@@ -22,6 +22,9 @@
             }
         }
     }
+    @media(max-width: 576px){
+        padding: 32px 15px 32px !important;
+    }
 }
 .top-of-page {
     padding-top: 0;
@@ -144,7 +147,7 @@
                     line-height: 1.5;
                     cursor: pointer;
                     display: inline-block;
-                    height: 40px;
+                    min-height: 40px;
                     box-sizing: border-box;
                     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
                     
@@ -167,7 +170,6 @@
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
-                
                 padding: 8px 56px 8px 16px;
                 border-radius: 0;
                 margin-top: 16px;
@@ -364,8 +366,6 @@
                     }
 
                     @media (max-width: 576px) {
-                        width: 60%;
-
                         .theme-button-secondary {
                             padding: 14px 8px 6px;
                         }
@@ -409,12 +409,54 @@
                 margin-bottom: 0; 
             }
             
+            .alt-link {
+                font-size: 18px;
+                padding-bottom: 0;
+            }
+            
             form {
                 width: 100%; 
-                margin: 0px 32px 32px 32px;
+                margin: 0px;
+                text-align: right;
                 
-                .standardcta-button-wrapper {
+                .form-buttons {
+                    padding: 0 15px;
+                    
+                    .previous {
+                        margin-left: 16px;
+                    }
+                    .start-again {
+                        margin-right: 20px;
+                    }
+                    .standardcta-button-wrapper {
+                        margin-top: 24px !important;
+                        
+                        .theme-button-primary {
+                            margin-left: 16px;
+                            width: auto;
+                        }
+                    }
+                }
+            }
+            .start-button-wrapper {
+                form {
+                    .form-buttons {
+                        padding: 0 15px 32px 15px;
+                    }
+                }
+            }
+            
+            .finder-question {
+                padding: 32px 15px 32px 15px;
+                
+                select {
                     width: 100%;
+                }
+                ul {
+                    li {
+                        font-size: 13px;
+                        min-height: 32px;
+                    }
                 }
             }
         }
@@ -432,6 +474,10 @@
                 }
             }
         }
+    }
+    
+    @media(max-width: 576px){
+        padding-top: 0;
     }
 
 }
@@ -1288,6 +1334,10 @@
     .first .svg-container {
         width: 12px;
         height: 12px;
+    }
+    
+    @media(max-width: 576px) {
+        margin-left: 5%;
     }
 }
 
