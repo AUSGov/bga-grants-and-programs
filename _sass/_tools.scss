@@ -40,7 +40,7 @@
 #section_9 {
     display: none;
 }
-#section_1 {
+#section_0 {
     display: block;
 } 
 
@@ -456,7 +456,6 @@
         .view-shortlist {
             background: none;
             padding: 0;
-            margin: -10px 0 0 0;
             border: 0;
             width: 20%;
             text-align: right;
@@ -464,17 +463,25 @@
             &:focus {
                 outline: none;
             }
+            .mobile-button-wrapper {
+                position: relative;
+                display: inline-block;
+            }
             
             a {
                 display: inline-block;
                 width: 180px;
-                position: relative;
+                position: absolute;
+                right: 15px;
+                top: 24px;
+                padding: 0;
+                
                 
                 svg {
-                    position: absolute;
                     left: 8px;
                     top: 8px;
                     fill: $blue-primary;
+                    position: absolute;
                 }
                 p {
                     display: block;
@@ -482,6 +489,8 @@
                     width: 140px;
                     padding: 2px 8px;
                     left: 36px;
+                    top: 6px;
+                    color: $blue-primary;
                     
                     span {
                         background: #2F70BF;
@@ -506,204 +515,346 @@
                 }
             }
         }
+        .view-filters {
+            &.mobile-show {
+                display: none;
+            }
+        }
+        
+        @media(max-width: 767px){
+            display: block;
+            
+            .showing-results {
+                font-size: 18px;
+                padding: 32px 0 16px 0;
+                margin: 0;
+            } 
+            .mobile-button-wrapper {   
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 24px;
+                
+            }
+            .mobile-display.mobile-show {
+                width: 49%;
+                display: block;
+                border: none;
+                border-radius: none;
+                background: none;
+                padding: 0;
+                border: 0;
+                
+                &:focus {
+                    outline: 1px dotted;
+                }
+                                
+                a {
+                    display: inline-block;
+                    background: $grey-light;
+                    border: none;
+                    border-radius: 0 !important;
+                    outline: none;
+                    box-shadow: none;
+                    transform: none;
+                    width: 100%;
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                    height: 48px;
+                    text-align: center;
+                    padding: 10px;
+                    
+                    &:hover {
+                        border: none !important;
+                        box-shadow: none !important;
+                    }
+                    &:active {
+                        background: $grey-light !important;
+                        border: none !important;
+                    }
+                    
+                    p {
+                        position: relative;
+                        text-align: center;
+                        top: auto;
+                        left: auto;
+                        right: auto;
+                        width: auto;
+                        color: $black-light;
+                        text-transform: uppercase;
+                        @include font-format($font-family, $font-regular, normal);
+                        padding: 2px 0;
+                        font-size: 14px;
+                        
+                        span {
+                            position: relative;
+                            top: auto;
+                            right: auto;
+                            background: #2F70BF;
+                            margin-left: 4px;
+                            display: inline-block;
+                            width: 24px;
+                            border-radius: 25px;
+                            color: $white;
+                            text-align: center;
+                            font-size: 14px;
+                        }
+                    }
+                    
+                    svg {
+                        display: none;
+                    }
+                    
+                }
+            }
+            /*.view-filters.mobile-show {
+                width: 50%;
+                display: inline-block;
+                
+                a {
+                    display: inline-block;
+                    background: $grey-light;
+                    width: 100%;
+                    
+                }
+            }*/
+        }
+        
     }
     
-    .filters {    
-        margin-bottom: 16px;
-        
-        .filter-item {
-            border-bottom: solid 1px $grey-light;
-            padding: 16px 0;
-            
-            &:first-of-type {
-                padding-top: 0;
-            }
-            
-            .filter-item-title {
-                position: relative;
-                padding: 0;
-                cursor: pointer;
-    
-                p {
-                    text-transform: uppercase;
-                    font-size: 16px;
+    .filter-wrapper {
+        .modal-close {
+            display: none;
+        }
+        .filters {    
+            margin-bottom: 16px;
+
+            .filter-item {
+                border-bottom: solid 1px $grey-light;
+                padding: 16px 0;
+
+                &:first-of-type {
+                    padding-top: 0;
+                }
+
+                .filter-item-title {
+                    position: relative;
                     padding: 0;
-                    display: inline-block;
-                }
-                svg {
-                    position: absolute;
-                    top: calc(50% - 6px);
-                    right: 0;
-                }
-                &.open {
-                    svg {
-                        transform: rotate(180deg);
-                    }
-                }
-            }
-            
-            .active-filters {
-                padding: 0 0 0 0;
-                ul {
-                    margin: 0;
-                    padding: 0;
-                    
-                    li {
-                        list-style: none;
-                        font-size: 13px;
-                        padding: 6px 16px 6px 32px;
-                        background: $tool-teal-mid;
-                        border: 1px solid $tool-teal;
-                        border-radius: 30px;
-                        margin: 8px 8px 0 0;
-                        line-height: 1;
-                        cursor: pointer;
+                    cursor: pointer;
+
+                    p {
+                        text-transform: uppercase;
+                        font-size: 16px;
+                        padding: 0;
                         display: inline-block;
-                        display: none;
-                        
-                        &.selected {
-                            background: $tool-teal-mid url("../assets/Icon-cross-333333.svg") no-repeat;
-                            background-size: 10px 10px;
-                            background-position: left 12px center;
-                            display: inline-block;  
-                        }
                     }
-                }               
-            }
-            
-            .filter-item-content {
-                padding: 16px 0 0 0;
-                display: none;
-                
-                .checkbox-item {
-                    line-height: 28px;
-                    display: block;
-                    margin-bottom: 16px;
-        
-                    input {
-                        opacity: 1;
-                        width: 0;
-                        height: 24px;
-                        display: block;
+                    svg {
                         position: absolute;
-                    }    
-                    label {
-                        font-size: 14px;
-                        line-height: 1.5;
-                        @include font-format($font-family, $font-regular, normal);
-                        position: relative;
-                        padding-left: 42px;
-                        cursor: pointer;
-                        display: block;
-                        padding: 0 0 0 32px;
-                        margin-bottom: 0;
-                        
-                        &::before {
-                            height: 24px;
-                            width: 24px;
-                            content: " ";
-                            border: solid 1px $black-light;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
+                        top: calc(50% - 6px);
+                        right: 0;
+                    }
+                    &.open {
+                        svg {
+                            transform: rotate(180deg);
                         }
                     }
-                
-                    &.selected {
-                        label {
-                            &::before {
-                                position: absolute;
-                                border: solid 2px $black-light;
-                                background: url(../assets/Icon-tick-filters.svg) no-repeat;
-                                background-position: center center;
+                }
+
+                .active-filters {
+                    padding: 0 0 0 0;
+                    ul {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            list-style: none;
+                            font-size: 13px;
+                            padding: 6px 16px 6px 32px;
+                            background: $tool-teal-mid;
+                            border: 1px solid $tool-teal;
+                            border-radius: 30px;
+                            margin: 8px 8px 0 0;
+                            line-height: 1;
+                            cursor: pointer;
+                            display: inline-block;
+                            display: none;
+
+                            &.selected {
+                                background: $tool-teal-mid url("../assets/Icon-cross-333333.svg") no-repeat;
+                                background-size: 10px 10px;
+                                background-position: left 12px center;
+                                display: inline-block;  
                             }
                         }
-                    }
-                    
+                    }               
                 }
-                
-                select {
-                    -o-appearance: none;
-                    -ms-appearance: none;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance: none;
-                    
-                    width: calc(100% - 24px);
-                    padding: 6px 28px 6px 6px;
-                    border-radius: 0;
-                    font-size: 14px;
-                    border: solid 1px $black-light;
-                    background: url(../assets/Icon-chevron-down-333333.svg) no-repeat;
-                    background-position: right 6px center;
-                    background-size: 16px 10px;
 
-                    &:focus {
-                        outline: none;
+                .filter-item-content {
+                    padding: 16px 0 0 0;
+                    display: none;
+
+                    .checkbox-item {
+                        line-height: 28px;
+                        display: block;
+                        margin-bottom: 16px;
+
+                        input {
+                            opacity: 1;
+                            width: 0;
+                            height: 24px;
+                            display: block;
+                            position: absolute;
+                        }    
+                        label {
+                            font-size: 14px;
+                            line-height: 1.5;
+                            @include font-format($font-family, $font-regular, normal);
+                            position: relative;
+                            padding-left: 42px;
+                            cursor: pointer;
+                            display: block;
+                            padding: 0 0 0 32px;
+                            margin-bottom: 0;
+
+                            &::before {
+                                height: 24px;
+                                width: 24px;
+                                content: " ";
+                                border: solid 1px $black-light;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+
+                        &.selected {
+                            label {
+                                &::before {
+                                    position: absolute;
+                                    border: solid 2px $black-light;
+                                    background: url(../assets/Icon-tick-filters.svg) no-repeat;
+                                    background-position: center center;
+                                }
+                            }
+                        }
+
                     }
 
-                }
-                
-                input {
-                    width: 100%;
-                    max-width: 100%;
-                    padding: 6px;
-                    border-radius: 0;
-                    font-size: 14px;
-                    border: solid 1px $black-light;
-                    
-                    &:focus {
-                        outline: none;
-                    }
-                }
-                
-            }
-            .toggle-question {
-                    padding-top: 16px;
-                    
-                    label {
+                    select {
+                        -o-appearance: none;
+                        -ms-appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+
+                        width: calc(100% - 24px);
+                        padding: 6px 28px 6px 6px;
+                        border-radius: 0;
                         font-size: 14px;
-                        @include font-format($font-family, $font-regular, normal);
-                        padding-left: 16px;
+                        border: solid 1px $black-light;
+                        background: url(../assets/Icon-chevron-down-333333.svg) no-repeat;
+                        background-position: right 6px center;
+                        background-size: 16px 10px;
 
-                        &:before {
-                            width: 44px;
-                            height: 16px;
-                            background: $grey;
-                            border: none;
-                            margin-top: 4px;
-                            border-radius: 50px;
+                        &:focus {
+                            outline: none;
                         }
-                        &:after {
-                            background: $white;
-                            width: 30px;
-                            height: 30px;
-                            border: $grey-dark solid 1px;
-                            border-radius: 50px;
-                            background: url(../assets/Icon-cross-grey.svg) no-repeat $white;
+
+                    }
+
+                    input {
+                        width: 100%;
+                        max-width: 100%;
+                        padding: 6px;
+                        border-radius: 0;
+                        font-size: 14px;
+                        border: solid 1px $black-light;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                }
+                .toggle-question {
+                        padding-top: 16px;
+
+                        label {
+                            font-size: 14px;
+                            @include font-format($font-family, $font-regular, normal);
+                            padding-left: 16px;
+
+                            &:before {
+                                width: 44px;
+                                height: 16px;
+                                background: $grey;
+                                border: none;
+                                margin-top: 4px;
+                                border-radius: 50px;
+                            }
+                            &:after {
+                                background: $white;
+                                width: 30px;
+                                height: 30px;
+                                border: $grey-dark solid 1px;
+                                border-radius: 50px;
+                                background: url(../assets/Icon-cross-grey.svg) no-repeat $white;
+                                background-position: center center;
+                                background-size: 14px 14px;  
+                                top: 2px;
+                                left: -37px;
+                            }
+                        }
+                        .custom-control-input:focus~.custom-control-label::before {
+                            box-shadow: none;
+                        }
+                        .custom-control-input:checked~.custom-control-label::after {
+                            background: url(../assets/Icon-tick-filters.svg) no-repeat $white;
                             background-position: center center;
-                            background-size: 14px 14px;  
-                            top: 2px;
-                            left: -37px;
+                            border: solid 2px $black-light;
+                            background-size: 18px 14px;
+                            left: -34px;
                         }
                     }
-                    .custom-control-input:focus~.custom-control-label::before {
-                        box-shadow: none;
-                    }
-                    .custom-control-input:checked~.custom-control-label::after {
-                        background: url(../assets/Icon-tick-filters.svg) no-repeat $white;
-                        background-position: center center;
-                        border: solid 2px $black-light;
-                        background-size: 18px 14px;
-                        left: -34px;
+                &.one-option {
+                    padding-top: 0;
+
+                    li.selected {
+                        margin-top: 16px;
                     }
                 }
-            &.one-option {
-                padding-top: 0;
-                
-                li.selected {
-                    margin-top: 16px;
-                }
+            }
+           
+        }
+        @media(max-width: 767px) {
+            display: none;
+            
+            .modal-close {
+                display: block;
+                text-indent: -9999px;
+                height: 24px;
+                width: 24px;
+                background: url(../assets/Icon-cross-blue.svg) no-repeat;
+                position: absolute;
+                right: 32px;
+                top: 32px;
+                cursor: pointer;
+            }
+
+            &.active {
+                display: block;
+                position: fixed;
+                width: calc(100% - 30px);
+                height: calc(100% - 30px);
+                left: 15px;
+                top: 15px;
+                padding: 64px 32px 32px 32px;
+                background: $white;
+                z-index: 7000;
+                box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
+                border-top: solid $blue-primary-mid 4px;
             }
         }
     }
@@ -811,6 +962,17 @@
                 width: 120px;
             }
         }
+        @media(max-width: 767px) {
+            margin-bottom: 16px;
+            
+            .select-number-results {
+                display: none;
+            }
+            .select-sort-results {
+                right: 0;
+                position: relative;
+            }
+        }
     }
         
     .results-wrapper {
@@ -840,6 +1002,7 @@
             .top-row {
                 display: flex;
                 padding: 0 0 32px 0;
+                position: relative;
                 
                 .search-card-content-type {
                     font-size: 12px;
@@ -1032,6 +1195,21 @@
                 
             }
         }
+        
+        @media(max-width: 767px) {
+            .search-card-content .top-row {
+                .search-card-content-type {
+                    margin-top: 32px;
+                    width: 100%;
+                    position: relative;
+                }
+                .shortlist {
+                    position: absolute;
+                    top: 0;
+                    righT: 0;
+                }
+            }
+        }
     }
 }
 .pagination {
@@ -1118,6 +1296,10 @@
 .shortlist-wrapper {
     display: none;
     height: 80%;
+    
+    @media(max-width: 767px){
+        height: calc(100% - 30px);
+    }
 }
 .shortlist-wrapper.active {
     display: block;
@@ -1307,6 +1489,16 @@
             }
         }
 
+    }
+
+    @media(max-width: 992px) {
+        width: 760px;
+        left:calc(50% - 380px)
+    }
+    @media (max-width: 767px) {
+        width: calc(100% - 30px);
+        left: 15px;
+        top: 15px;
     }
 }
 .modal-background {
