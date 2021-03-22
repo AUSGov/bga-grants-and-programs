@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
         return count; 
     };
-
+    
     
     // Main navigation functionality
     $('.navbar-nav .nav-item.dropdown').on('click', function(){
@@ -253,7 +253,7 @@ $(document).ready(function () {
     // SHORTLIST
     
     // Add or remove items from the checklist (using link on results cards)
-    $('.shortlist').on('click', function(){
+     $(document).on('click', ".shortlist", function(){
         
         var parent_card = $(this).parents('.search-card-standard-content'),
             grant = parent_card.find('.search-card-content-type').text(),
@@ -298,6 +298,7 @@ $(document).ready(function () {
         } 
     });
     
+    
     // Remove items from shortlist (in the shortlist modal)  
     $(document).on('click', '.shortlist-links li span', function(){
         var count = parseInt($('.shortlist-btn-counter').text()),
@@ -307,6 +308,7 @@ $(document).ready(function () {
         $('.search-card-content-type').each(function(){
             if ( $(this).text() == grant ){
                 $(this).parents('.search-card-standard-content').find('.shortlist').removeClass('shortlisted'); 
+                $(this).parents('.search-card-standard-content').find('.toggle-shortlist').text('Add to shortlist');
             }
         });
         
@@ -599,7 +601,7 @@ $(document).ready(function () {
     
     
     // FINDER RESULTS CARDS
-    $(".accordion-title").on('click', function(){
+    $(document).on('click', '.accordion-title', function(){
         $(this).parents('.search-accordion-expand-wrapper').find(".collapse").slideToggle();
         $(this).parents('.grant-expand-title').toggleClass('collapsed');
     });
@@ -743,6 +745,65 @@ $(document).ready(function () {
             sessionStorage.setItem(filter_type, 1);
         }
     });
+    
+    
+    // VARY SEARCH RESULT CARDS ON DISPLAY
+    // Get total numbner of search results
+    var search_card_number = $('.search-card-result').length;
+    var card_ids = [];
+
+    for(var i = 0; i < search_card_number; i++){
+        card_ids.push("#search-result-" + (i+1));
+    }
+    // console.log(card_ids);
+    
+    var search_cards = {};
+    $('.search-card-result').each(function(){
+        search_cards['#' + $(this).attr('id')] = $(this).html();
+    });
+    //console.log(search_cards);
+    
+    function Shuffle(o) {
+        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+    
+    $('[filter-type]').on('click', function(){
+
+        $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
+        }
+    });
+    
+    $('[select-filter-type]').change(function(){
+        
+        $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
+        }
+
+    });
+    
+    $('[toggle-filter-type]').change(function(){
+        
+       $('.results-wrapper').empty();
+        
+        var shuffled_cards = Shuffle(card_ids);
+        
+        for (var id = 0; id < 9; id++) {
+            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
+        }
+        
+    });
+    
+    
     
  
     
