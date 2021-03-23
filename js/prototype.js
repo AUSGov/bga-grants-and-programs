@@ -4,22 +4,8 @@
 
 $(document).ready(function () {
     
-    //set sessionStorage on page load - variables for results count.
+    // Max amount for grants 'showing. and function to keep number between 0 and max_showing.
     var max_showing = 587;
-    sessionStorage.setItem('showing', max_showing); 
-    $('span.number').text(sessionStorage.getItem('showing'));
-    
-    sessionStorage.setItem('location', 0);
-    sessionStorage.setItem('industry', 0); 
-    sessionStorage.setItem('support', 0);
-    sessionStorage.setItem('business-type', 0);
-    sessionStorage.setItem('support-type', 0);
-    sessionStorage.setItem('objectives', 0);
-    sessionStorage.setItem('business-stage', 0);
-    sessionStorage.setItem('status', 0);
-    sessionStorage.setItem('atsi', 0);
-    sessionStorage.setItem('rural', 0);
-    
     var max_min_count = function(number){
         var count = number;
         if (count > 587) {
@@ -379,60 +365,28 @@ $(document).ready(function () {
     });*/
     
 
+
+    
     
     // FINDER QUESTIONS
     // Multiple selects
     $('.finder-question.multi-select li').on('click', function(){
         
         var filter_option = $(this).attr('data-value');
-        var filter_type = $(this).parents('.finder-question').attr('id');
+        var filter_type = $(this).attr('filter-type');
+        //console.log(filter_type);
         
-        // IF audience question - manage 'none of these' response
-        if ($(this).parents('.finder-question').attr('id') == 'question-audience') {
-        
-            if ($(this).hasClass('none-of-these')) {
-                
-                if ($(this).hasClass('selected')) {
-                    
-                    $(this).removeClass('selected');
-                    $('#audience .active-filters li.none-of-these').removeClass('selected');
-                    $('#audience .none-of-these').removeClass('selected');
-                    
-                } else if (!$(this).hasClass('selected')) {
-                    $('.finder-question.multi-select li').removeClass('selected');
-                    $(this).addClass('selected');
-                    
-                    $('#audience .active-filters li').removeClass('selected');
-                    $('#audience .active-filters .none-of-these').addClass('selected');
-                    
-                    $('#audience .checkbox-item').removeClass('selected');
-                    $('#audience .none-of-these').addClass('selected');
-                }
-                
-  
-            } 
-            else {
-                $('.finder-question.multi-select li.none-of-these').removeClass('selected');
-                $(this).toggleClass('selected');
-                
-                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-                $('#audience .active-filters .none-of-these').removeClass('selected');
-                
-                $('#audience #' + filter_option).parents('.checkbox-item').toggleClass('selected');
-                $('#audience .none-of-these').removeClass('selected');
-                
-            }
-                
-        } 
-        
-        // Else logic for all other multi-selects    
-        else {
-            $(this).toggleClass('selected');
-
-            $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-            $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        if ($(this).hasClass('selected')) {
+            sessionStorage.setItem(filter_option, false);
+        } else {
+            sessionStorage.setItem(filter_option, true);
         }
         
+        $(this).toggleClass('selected');
+        $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
+        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        
+        //filter_count(filter_type);
         
     });
     
@@ -474,13 +428,15 @@ $(document).ready(function () {
     $('.active-filters li').on('click', function(){
         
         var filter_option = $(this).attr('data-value');
+        sessionStorage.setItem(filter_option, false);
     
         $(this).toggleClass('selected');
+        $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected'); 
         
-            $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
-            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected'); 
-            
-        //}
+        total_active_filters();
+        
+
     });
     
     // Select filter checkbox options
@@ -488,7 +444,11 @@ $(document).ready(function () {
         
         var filter_option = $(this).parents('.checkbox-item').find('input').attr('id');
         
-        if ( $(this).parents('.filter-item').attr('id') == "audience" ) {
+        $(this).parents('.checkbox-item').toggleClass('selected');
+            $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
+            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+        
+        /* if ( $(this).parents('.filter-item').attr('id') == "audience" ) {
         
             if ($(this).parents('.checkbox-item').hasClass('none-of-these')) {
                 
@@ -534,7 +494,7 @@ $(document).ready(function () {
             $(this).parents('.checkbox-item').toggleClass('selected');
             $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
             $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-        } 
+        } */
                   
     }); 
     
@@ -570,7 +530,7 @@ $(document).ready(function () {
     });
     $('.filter-item .filter-toggle-switch').on('click', function(){
         var filter_type = $(this).attr('data-value');
-        console.log(filter_type);
+        //console.log(filter_type);
         $(this).removeClass('selected');
         $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
         $('#filter-' + filter_type).prop('checked', false).toggleClass('selected');
@@ -635,45 +595,79 @@ $(document).ready(function () {
         sessionStorage.setItem('showing', max_showing);
         $('span.number').text(sessionStorage.getItem('showing'));
         
-        sessionStorage.setItem('location', 0);
-        sessionStorage.setItem('industry', 0); 
-        sessionStorage.setItem('support', 0);
-        sessionStorage.setItem('business-type', 0);
-        sessionStorage.setItem('support-type', 0);
-        sessionStorage.setItem('objectives', 0);
-        sessionStorage.setItem('business-stage', 0);
-        sessionStorage.setItem('status', 0);
-        sessionStorage.setItem('atsi', 0);
+        sessionStorage.clear();
+        
+        $('.mobile-counter').each(function(){
+            $(this).removeClass('active').text(0);
+        });
+        $('.filter-counter').text(0);
 
     });
     
     
+    // FILTER COUNTER (for mobile filter button)
+    /*$('.filter-item').each(function(){
+        var filter_type = $(this).attr('id');
+        //console.log(filter_type);
+        var filter_count = sessionStorage.getItem(filter_type);
+        //console.log(filter_count);
+
+        if(filter_count) {
+            $(this).find('.mobile-counter').text(filter_count).addClass('active');
+        } else {
+            $(this).find('.mobile-counter').text(0).removeClass('active');
+        }
+    });*/
+    var total_active_filters = function(){
+        var total_active = 0;
+        $('.filter-item').each(function(){
+            var filter_type = $(this).attr('id');
+            var filter_count = parseInt(sessionStorage.getItem(filter_type));
+            
+            if(isNaN(filter_count)) {
+                filter_count = 0;
+            }
+            total_active = total_active + filter_count;
+            
+        });
+        $('.filter-counter').text(total_active);
+    };
+    
     //CREATE 'SHOWING' NUMBER
+    
     $('[filter-type]').on('click', function(){
-        
+
         var filter_type = $(this).attr('filter-type'),
             select_filter_type = $(this).attr('select-filter-type'),
             result_count = parseInt(sessionStorage.getItem('showing')),
             filter_value = parseInt($(this).attr('filter-value')),
-            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
-            reduced_count = Math.round(result_count - 70),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type));
+        
+        if (isNaN(filter_type_current_value)){
+            filter_type_current_value = 0;
+        }
+        if (isNaN(result_count)){
+            result_count = parseInt(max_showing);
+        }
+        
+        var reduced_count = Math.round(result_count - 70),
             restore_count = Math.round(result_count + 70),
             new_count_minus = result_count - filter_value,
             new_count_plus = result_count + filter_value;
-           
+        
         reduced_count = max_min_count(reduced_count);
         restore_count = max_min_count(restore_count);
         new_count_minus = max_min_count(new_count_minus);
-        new_count_plus = max_min_count(new_count_plus);   
-          
+        new_count_plus = max_min_count(new_count_plus); 
+
         // First use of a filter type
         if (filter_type_current_value === 0) {
-            
+
             if ($(this).hasClass('selected')) {
-                
                 $('span.number').text(reduced_count);
                 sessionStorage.setItem('showing', reduced_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
             } else {
                 // This is not a possible scenario  
@@ -682,36 +676,41 @@ $(document).ready(function () {
             
         // Catch the last use of a filter type and reset
         } else if (filter_type_current_value === 1) {  
-
             if ($(this).hasClass('selected')) {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
                 
             } else {
                 $('span.number').text(restore_count);
                 sessionStorage.setItem('showing', restore_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).removeClass('active');
             }
             
         }
         
         // All other clicks on a filter type
         else {
-            
             if ($(this).hasClass('selected')) {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
             } else {  
                 $('span.number').text(new_count_minus);
                 sessionStorage.setItem('showing', new_count_minus);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).addClass('active');
                 
             }
         }
+        
+        //Set total filter count
+        total_active_filters();
 
     });
     
@@ -720,8 +719,16 @@ $(document).ready(function () {
         var filter_type = $(this).attr('select-filter-type'),
             result_count = parseInt(sessionStorage.getItem('showing')),
             filter_value = parseInt($(this).attr('filter-value')),
-            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
-            reduced_count = Math.round(result_count - 93),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type));
+        
+        if (isNaN(filter_type_current_value)){
+            filter_type_current_value = 0;
+        }
+        if (isNaN(result_count)){
+            result_count = parseInt(max_showing);
+        }
+        
+        var reduced_count = Math.round(result_count - 93),
             new_count_plus = result_count + filter_value;
 
         reduced_count = max_min_count(reduced_count);
@@ -730,31 +737,51 @@ $(document).ready(function () {
         $('span.number').text(reduced_count);
         sessionStorage.setItem('showing', reduced_count);
         sessionStorage.setItem(filter_type, 1);
+        
+        $('.filter-item#' + filter_type).find('.mobile-counter').text(1).addClass('active');
+        
+        //Set total filter count
+        total_active_filters();
 
     });
     
     $('[toggle-filter-type]').change(function(){
         
         var filter_type = $(this).attr('toggle-filter-type'),
-        result_count = parseInt(sessionStorage.getItem('showing')),
-        filter_value = parseInt($(this).attr('filter-value')),
-        filter_type_current_value = parseInt(sessionStorage.getItem(filter_type)),
-        reduced_count = Math.round(result_count - 51),
-        restore_count = Math.round(result_count + 51);
+            result_count = parseInt(sessionStorage.getItem('showing')),
+            filter_value = parseInt($(this).attr('filter-value')),
+            filter_type_current_value = parseInt(sessionStorage.getItem(filter_type));
+        
+        if (isNaN(filter_type_current_value)){
+            filter_type_current_value = 0;
+        }
+        if (isNaN(result_count)){
+            result_count = parseInt(max_showing);
+        }
+        
+        var reduced_count = Math.round(result_count - 51),
+            restore_count = Math.round(result_count + 51);
 
         reduced_count = max_min_count(reduced_count);
         restore_count = max_min_count(restore_count);  
- 
+
         if (!$(this).is(":checked")) {
             $('span.number').text(restore_count);
             sessionStorage.setItem('showing', restore_count);
             sessionStorage.setItem(filter_type, 0);
+            
+            $('.filter-item#' + filter_type).find('.mobile-counter').text(0).removeClass('active');
         } else {
             $('span.number').text(reduced_count);
             sessionStorage.setItem('showing', reduced_count);
             sessionStorage.setItem(filter_type, 1);
         }
+        
+        //Set total filter count
+        total_active_filters();
     });
+    
+    
     
     
     // VARY SEARCH RESULT CARDS ON DISPLAY
@@ -765,13 +792,11 @@ $(document).ready(function () {
     for(var i = 0; i < search_card_number; i++){
         card_ids.push("#search-result-" + (i+1));
     }
-    // console.log(card_ids);
     
     var search_cards = {};
     $('.search-card-result').each(function(){
         search_cards['#' + $(this).attr('id')] = $(this).html();
     });
-    //console.log(search_cards);
     
     function Shuffle(o) {
         for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);

@@ -932,13 +932,13 @@
                     <h2>I am interested in</h2>
                     <p class="help-text">Select  one or more options</p>
                     <ul>
-                        <li filter-type="support" filter-value="60" data-value="funding">Funding</li>
-                        <li filter-type="support" filter-value="30" data-value="subsidy">Subsidy</li>
-                        <li filter-type="support" filter-value="10" data-value="concession">Concession</li>
-                        <li filter-type="support" filter-value="10" data-value="scholarship">Scholarship</li>
-                        <li filter-type="support" filter-value="10" data-value="tax-rebate">Tax rebate</li>
-                        <li filter-type="support" filter-value="30" data-value="advice">Advice</li>
-                        <li filter-type="support" filter-value="10" data-value="mentorship">Mentorship</li>
+                        <li filter-type="support-type" filter-value="60" data-value="funding">Funding</li>
+                        <li filter-type="support-type" filter-value="30" data-value="subsidy">Subsidy</li>
+                        <li filter-type="support-type" filter-value="10" data-value="concession">Concession</li>
+                        <li filter-type="support-type" filter-value="10" data-value="scholarship">Scholarship</li>
+                        <li filter-type="support-type" filter-value="10" data-value="tax-rebate">Tax rebate</li>
+                        <li filter-type="support-type" filter-value="30" data-value="advice">Advice</li>
+                        <li filter-type="support-type" filter-value="10" data-value="mentorship">Mentorship</li>
                     </ul>
                 </div>
                 
@@ -1003,6 +1003,7 @@
                         <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
                         <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
                         <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
+                        <!--<li filter-type="objectives" filter-value="13" data-value="none-of-these">None of these</li>-->
                     </ul>
                 </div>
                 
@@ -1260,7 +1261,7 @@
     <div class="row">
         <div class="col-12 col-lg-12 col-xl-12">
             <div class="results-title">
-                <h2 class="showing-results">Showing <span class="number">508</span> grants and programs</h2>
+                <h2 class="showing-results">Showing <span class="number">587</span> grants and programs</h2>
                 
                 <div class="mobile-button-wrapper">
                 
@@ -1329,12 +1330,12 @@
            <div class="filter-wrapper">
             <p class="modal-close desktop-hide">Close</p>
             <div class="filters">
-                
+    <h3 class="mobile-show">Filter grants and programs</h3>            
     
     <!-- 1. LOCATION -->
             <div class="filter-item" id="location">
                     <div class="filter-item-title">
-                         <p>Location</p>
+                         <p>Location <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1413,7 +1414,7 @@
     <!-- 2. INDUSTRY -->
                 <div class="filter-item" id="industry">
                     <div class="filter-item-title">
-                         <p>Industry</p>
+                         <p>Industry <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1481,7 +1482,7 @@
     <!-- 3. BUSINESS TYPE -->
                 <div class="filter-item" id="business-type">
                     <div class="filter-item-title">
-                         <p>Business type</p>
+                         <p>Business type <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1520,7 +1521,7 @@
     <!-- 4. SUPPORT TYPE -->
                 <div class="filter-item" id="support-type">
                     <div class="filter-item-title">
-                         <p>Support type</p>
+                         <p>Support type <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1530,49 +1531,49 @@
                          </div>
                     <div class="active-filters">
                         <ul>
-                            <li filter-type="support" filter-value="60" data-value="funding">Funding</li>
-                            <li filter-type="support" filter-value="30" data-value="subsidy">Subsidy</li>
-                            <li filter-type="support" filter-value="10" data-value="concession">Concession</li>
-                            <li filter-type="support" filter-value="10" data-value="scholarship">Scholarship</li>
-                            <li filter-type="support" filter-value="10" data-value="tax-rebate">Tax rebate</li>
-                            <li filter-type="support" filter-value="30" data-value="advice">Advice</li>
-                            <li filter-type="support" filter-value="10" data-value="mentorship">Mentorship</li>
+                            <li filter-type="support-type" filter-value="60" data-value="funding">Funding</li>
+                            <li filter-type="support-type" filter-value="30" data-value="subsidy">Subsidy</li>
+                            <li filter-type="support-type" filter-value="10" data-value="concession">Concession</li>
+                            <li filter-type="support-type" filter-value="10" data-value="scholarship">Scholarship</li>
+                            <li filter-type="support-type" filter-value="10" data-value="tax-rebate">Tax rebate</li>
+                            <li filter-type="support-type" filter-value="30" data-value="advice">Advice</li>
+                            <li filter-type="support-type" filter-value="10" data-value="mentorship">Mentorship</li>
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
                         <form>
-                            <div class="checkbox-item" filter-value="60" filter-type="support">
+                            <div class="checkbox-item" filter-value="60" filter-type="support-type">
                             <input type="checkbox" id="funding">
                             <label for="funding">Funding</label>
                             </div>
                             
-                            <div class="checkbox-item" filter-value="30" filter-type="support">
+                            <div class="checkbox-item" filter-value="30" filter-type="support-type">
                             <input type="checkbox" id="subsidy">
                             <label for="subsidy">Subsidy</label>
                             </div>  
                             
-                            <div class="checkbox-item" filter-value="10" filter-type="support">
+                            <div class="checkbox-item" filter-value="10" filter-type="support-type">
                             <input type="checkbox" id="concession">
                             <label for="concession">Concession</label>
                             </div>
                             
-                            <div class="checkbox-item" filter-value="10" filter-type="support">
+                            <div class="checkbox-item" filter-value="10" filter-type="support-type">
                             <input type="checkbox" id="tax-rebate">
                             <label for="tax-rebate">Tax rebate</label>
                             </div>
                             
-                            <div class="checkbox-item" filter-value="10" filter-type="support">
+                            <div class="checkbox-item" filter-value="10" filter-type="support-type">
                             <input type="checkbox" id="scholarship">
                             <label for="scholarship">Scholarship</label>
                             </div>
                             
-                            <div class="checkbox-item" filter-value="30" filter-type="support">
+                            <div class="checkbox-item" filter-value="30" filter-type="support-type">
                             <input type="checkbox" id="advice">
                             <label for="advice">Advice</label>
                             </div>
                             
-                            <div class="checkbox-item" filter-value="10" filter-type="support">
+                            <div class="checkbox-item" filter-value="10" filter-type="support-type">
                             <input type="checkbox" id="mentorship">
                             <label for="tax-mentorship">Mentorship</label>
                             </div>
@@ -1587,7 +1588,7 @@
     <!-- 5. OBJECTIVES -->
                 <div class="filter-item" id="objectives">
                     <div class="filter-item-title">
-                         <p>Objectives</p>
+                         <p>Objectives <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1611,6 +1612,7 @@
                             <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
                             <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
                             <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
+                            <!--<li filter-type="objectives" filter-value="13" data-value="none-of-these">None of these</li>-->
                         </ul>
                     </div>                
                     <div class="filter-item-content">
@@ -1686,6 +1688,11 @@
                             <label>Upgrade, restore or fit out a building</label>
                             </div>
                             
+                            <!--<div class="checkbox-item none-of-these" filter-value="13" filter-type="objectives">
+                            <input type="checkbox" id="none-of-these">
+                            <label>None of these</label>
+                            </div>-->
+                            
                         </form>
 
                         </div>
@@ -1696,7 +1703,7 @@
     <!-- 6. BUSINESS STAGE -->
                 <div class="filter-item" id="business-stage">
                     <div class="filter-item-title">
-                         <p>Business stage</p>
+                         <p>Business stage <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1732,7 +1739,7 @@
     <!-- 7. GRANT / PROGRAM STATUS -->
                 <div class="filter-item" id="status">
                     <div class="filter-item-title">
-                         <p>Grant / program status</p>
+                         <p>Grant status <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />

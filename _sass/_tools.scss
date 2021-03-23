@@ -43,7 +43,7 @@
 #section_9 {
     display: none;
 }
-#section_0 {
+#section_1 {
     display: block;
 } 
 
@@ -684,6 +684,9 @@
                 &:first-of-type {
                     padding-top: 0;
                 }
+                .mobile-counter {
+                    display: none;
+                }
 
                 .filter-item-title {
                     position: relative;
@@ -879,14 +882,16 @@
             
             .modal-close {
                 display: block;
-                text-indent: -9999px;
-                height: 24px;
-                width: 24px;
+                height: 18px;
+                width: 66px;
                 background: url(../assets/Icon-cross-blue.svg) no-repeat;
+                background-size: 18px 18px;
+                background-position: right center;
                 position: absolute;
                 right: 32px;
-                top: 32px;
+                top: 24px;
                 cursor: pointer;
+                line-height: 30px;
             }
 
             &.active {
@@ -900,7 +905,34 @@
                 background: $white;
                 z-index: 7000;
                 box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
-                border-top: solid $blue-primary-mid 4px;
+                border-top: none;
+            }
+            
+            overflow-y: scroll;
+            height: 90%;
+            
+            .filters {
+                
+                .mobile-counter {
+                    display: none;
+                    
+                    &.active {
+                        display: inline-block;
+                        background: #2F70BF;
+                        border-radius: 25px;
+                        color: $white;
+                        text-align: center;
+                        font-size: 13px;
+                        height: 20px;
+                        width: 20px;
+                        line-height: 20px;
+                        margin-left: 4px;
+                }
+                }
+                
+                .active-filters {
+                    display: none;
+                }
             }
         }
     }
