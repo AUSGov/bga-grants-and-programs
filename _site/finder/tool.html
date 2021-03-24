@@ -755,6 +755,7 @@
                         <li filter-type="location" filter-value="15" data-value="tasmania">Tasmania</li>
                         <li filter-type="location" filter-value="15" data-value="victoria">Victoria</li>
                         <li filter-type="location" filter-value="15" data-value="western-australia">Western Australia</li>
+                        <li filter-type="location" filter-value="15" data-value="other-australian-territory">Other Australian territory</li>
                     </ul>
 
                
@@ -988,21 +989,22 @@
                     <h2>I am looking for assistance to</h2>
                     <p class="help-text">Select  one or more options</p>
                     <ul>
-                        <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure-for-a-community">Build or improve infrastructure for a community</li>
+                        <li filter-type="objectives" filter-value="25" data-value="covid-19-related-support">Covid-19 related support</li>
+                        <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
+                        <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure">Build or improve infrastructure</li>
                         <li filter-type="objectives" filter-value="13" data-value="employ-people">Employ people</li>
                         <li filter-type="objectives" filter-value="13" data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
                         <li filter-type="objectives" filter-value="13" data-value="import-or-export-products-or-services">Import or export products or services</li>
                         <li filter-type="objectives" filter-value="13" data-value="improve-or-grow-my-business">Improve or grow my business</li>
                         <li filter-type="objectives" filter-value="13" data-value="invest-money-in-other-businesses">Invest money in other businesses</li>
                         <li filter-type="objectives" filter-value="13" data-value="market-and-advertise-my-business">Market and advertise my business</li>
-
-                        <li filter-type="objectives" filter-value="13" data-value="organise-a-community-event">Organise a community event</li>
-                        <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
+                        <li filter-type="objectives" filter-value="13" data-value="organise-an-event">Organise an event</li>
                         <li filter-type="objectives" filter-value="10" data-value="purchase-or-upgrade-equipment-vehicles-or-tools">Purchase or upgrade equipment, vehicles or tools</li>
                         <li filter-type="objectives" filter-value="13" data-value="recycle-waste-or-reduce-my-energy-use">Recycle waste or reduce my energy use</li>
                         <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
                         <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
                         <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
+                        <!--<li filter-type="objectives" filter-value="13" data-value="none-of-these">None of these</li>-->
                     </ul>
                 </div>
                 
@@ -1260,7 +1262,7 @@
     <div class="row">
         <div class="col-12 col-lg-12 col-xl-12">
             <div class="results-title">
-                <h2 class="showing-results">Showing <span class="number">508</span> grants and programs</h2>
+                <h2 class="showing-results">Showing <span class="number">587</span> grants and programs</h2>
                 
                 <div class="mobile-button-wrapper">
                 
@@ -1329,12 +1331,12 @@
            <div class="filter-wrapper">
             <p class="modal-close desktop-hide">Close</p>
             <div class="filters">
-                
+    <h3 class="mobile-show">Filter grants and programs</h3>            
     
     <!-- 1. LOCATION -->
             <div class="filter-item" id="location">
                     <div class="filter-item-title">
-                         <p>Location</p>
+                         <p>Location <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1352,6 +1354,7 @@
                             <li filter-type="location" filter-value="15" data-value="tasmania">Tasmania</li>
                             <li filter-type="location" filter-value="15" data-value="victoria">Victoria</li>
                             <li filter-type="location" filter-value="15" data-value="western-australia">Western Australia</li>
+                            <li filter-type="location" filter-value="15" data-value="other-australian-territory">Other Australian territory</li>
                             <li filter-type="rural" filter-value="51" data-value="regional-or-rural-area" class="filter-toggle-switch">Regional or rural area</li>
                         </ul>
                     </div>                
@@ -1398,6 +1401,11 @@
                             <label >Western Australia</label>
                             </div>
                             
+                            <div class="checkbox-item" filter-type="location" filter-value="15">
+                            <input type="checkbox" id="other-australian-territory">
+                            <label >Other Australian territory</label>
+                            </div>
+                            
                         </form>
                         
                         <div class="custom-control custom-switch toggle-question ">
@@ -1413,7 +1421,7 @@
     <!-- 2. INDUSTRY -->
                 <div class="filter-item" id="industry">
                     <div class="filter-item-title">
-                         <p>Industry</p>
+                         <p>Industry <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1481,7 +1489,7 @@
     <!-- 3. BUSINESS TYPE -->
                 <div class="filter-item" id="business-type">
                     <div class="filter-item-title">
-                         <p>Business type</p>
+                         <p>Business type <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1518,9 +1526,9 @@
               
 
     <!-- 4. SUPPORT TYPE -->
-                <div class="filter-item" id="support-type">
+                <div class="filter-item" id="support">
                     <div class="filter-item-title">
-                         <p>Support type</p>
+                         <p>Support type <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1587,7 +1595,7 @@
     <!-- 5. OBJECTIVES -->
                 <div class="filter-item" id="objectives">
                     <div class="filter-item-title">
-                         <p>Objectives</p>
+                         <p>Objectives <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1597,28 +1605,40 @@
                          </div>
                     <div class="active-filters">
                         <ul>
-                            <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure-for-a-community">Build or improve infrastructure for a community</li>
+                            <li filter-type="objectives" filter-value="25" data-value="covid-19-related-support">Covid-19 related support</li>
+                            <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
+                            <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure">Build or improve infrastructure</li>
                             <li filter-type="objectives" filter-value="13" data-value="employ-people">Employ people</li>
                             <li filter-type="objectives" filter-value="13" data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
                             <li filter-type="objectives" filter-value="13" data-value="import-or-export-products-or-services">Import or export products or services</li>
                             <li filter-type="objectives" filter-value="13" data-value="improve-or-grow-my-business">Improve or grow my business</li>
                             <li filter-type="objectives" filter-value="13" data-value="invest-money-in-other-businesses">Invest money in other businesses</li>
                             <li filter-type="objectives" filter-value="13" data-value="market-and-advertise-my-business">Market and advertise my business</li>
-                            <li filter-type="objectives" filter-value="13" data-value="organise-a-community-event">Organise a community event</li>
-                            <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
+                            <li filter-type="objectives" filter-value="13" data-value="organise-an-event">Organise an event</li>
                             <li filter-type="objectives" filter-value="13" data-value="purchase-or-upgrade-equipment-vehicles-or-tools">Purchase or upgrade equipment, vehicles or tools</li>
                             <li filter-type="objectives" filter-value="13" data-value="recycle-waste-or-reduce-my-energy-use">Recycle waste or reduce my energy use</li>
                             <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
                             <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
                             <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
+                            <!--<li filter-type="objectives" filter-value="13" data-value="none-of-these">None of these</li>-->
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
                         <form>
+                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
+                            <input type="checkbox" id="covid-19-related-support">
+                            <label>Covid-19 related support</label>
+                            </div>  
+                            
+                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
+                            <input type="checkbox" id="prevent-or-recover-from-a-natural-disaster">
+                            <label>Prevent or recover from a natural disaster</label>
+                            </div>  
+                            
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
-                            <input type="checkbox" fid="build-or-improve-infrastructure-for-a-community">
-                            <label>Build or improve infrastructure for a community</label>
+                            <input type="checkbox" id="build-or-improve-infrastructure">
+                            <label>Build or improve infrastructure</label>
                             </div>
                             
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
@@ -1652,14 +1672,9 @@
                             </div> 
                             
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
-                            <input type="checkbox" id="organise-a-community-event">
-                            <label>Organise a community event</label>
+                            <input type="checkbox" id="organise-an-event">
+                            <label>Organise an event</label>
                             </div>
-                            
-                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
-                            <input type="checkbox" id="prevent-or-recover-from-a-natural-disaster">
-                            <label>Prevent or recover from a natural disaster</label>
-                            </div>  
                             
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
                             <input type="checkbox" id="purchase-or-upgrade-equipment-vehicles-or-tools">
@@ -1686,6 +1701,11 @@
                             <label>Upgrade, restore or fit out a building</label>
                             </div>
                             
+                            <!--<div class="checkbox-item none-of-these" filter-value="13" filter-type="objectives">
+                            <input type="checkbox" id="none-of-these">
+                            <label>None of these</label>
+                            </div>-->
+                            
                         </form>
 
                         </div>
@@ -1696,7 +1716,7 @@
     <!-- 6. BUSINESS STAGE -->
                 <div class="filter-item" id="business-stage">
                     <div class="filter-item-title">
-                         <p>Business stage</p>
+                         <p>Business stage <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
@@ -1732,7 +1752,7 @@
     <!-- 7. GRANT / PROGRAM STATUS -->
                 <div class="filter-item" id="status">
                     <div class="filter-item-title">
-                         <p>Grant / program status</p>
+                         <p>Grant status <span class="mobile-counter"></span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
                             <g transform="translate(20 12.5) rotate(180)">
                                 <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
