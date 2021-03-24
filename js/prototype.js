@@ -366,6 +366,23 @@ $(document).ready(function () {
     
 
 
+    // FINDER FILTERS
+    // Open filter accordions
+    $('.filter-item-title').on('click', function(){
+        
+        if ( $(this).hasClass('open') ) {
+            $(this).parents('.filter-item').find('.filter-item-content').slideUp();
+            $(this).removeClass('open');
+        } else { 
+            $('.filter-item-content').slideUp();
+            $('.filter-item-title').removeClass('open');
+            
+            $(this).parents('.filter-item').find('.filter-item-content').slideDown();
+            $(this).addClass('open');
+        }
+        
+    });
+ 
     
     
     // FINDER QUESTIONS
@@ -376,6 +393,7 @@ $(document).ready(function () {
         var filter_type = $(this).attr('filter-type');
         //console.log(filter_type);
         
+        
         if ($(this).hasClass('selected')) {
             sessionStorage.setItem(filter_option, false);
         } else {
@@ -385,8 +403,6 @@ $(document).ready(function () {
         $(this).toggleClass('selected');
         $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
         $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
-        
-        //filter_count(filter_type);
         
     });
     
@@ -405,24 +421,7 @@ $(document).ready(function () {
         $('#' + filter_type + ' .filter-item-content select').val(filter_option);
     });
     
-    
-    // FINDER FILTERS
-    // Open filter accordions
-    $('.filter-item-title').on('click', function(){
-        
-        if ( $(this).hasClass('open') ) {
-            $(this).parents('.filter-item').find('.filter-item-content').slideUp();
-            $(this).removeClass('open');
-        } else { 
-            $('.filter-item-content').slideUp();
-            $('.filter-item-title').removeClass('open');
-            
-            $(this).parents('.filter-item').find('.filter-item-content').slideDown();
-            $(this).addClass('open');
-        }
-        
-    });
-    
+       
     // MULTIPLE SELECT FILTERS
     // Select filter 'bubble' options - multiple select
     $('.active-filters li').on('click', function(){
@@ -434,7 +433,7 @@ $(document).ready(function () {
         $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
         $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected'); 
         
-        total_active_filters();
+        //------------------------------ total_active_filters();
         
 
     });
@@ -448,54 +447,8 @@ $(document).ready(function () {
             $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
             $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
         
-        /* if ( $(this).parents('.filter-item').attr('id') == "audience" ) {
-        
-            if ($(this).parents('.checkbox-item').hasClass('none-of-these')) {
-                
-                if ($(this).hasClass('selected')) {
-                   
-                    $('#question-audience .none-of-these').removeClass('selected');
-                    $('#audience .finder-question.multi-select .none-of-these').removeClass('selected');
-                    $(this).removeClass('selected');
-                    
-                } else if (!$(this).hasClass('selected')) {
-                    
-                    
-                    $('#question-audience li').removeClass('selected');
-                    $('#question-audience .none-of-these').addClass('selected');
-                    
-                    $('#audience .active-filters li').removeClass('selected');
-                    $('#audience .active-filters .none-of-these').addClass('selected');
-                    
-                    $('#audience .checkbox-item').removeClass('selected');
-                    $(this).parents('.checkbox-item').addClass('selected');
-                }
-                
-  
-            } 
-            
-            else {
-                
-                $('#question-audience .none-of-these').removeClass('selected');
-                $('#question-audience li[data-value="' + filter_option + '"]').toggleClass('selected');
-                
-                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-                $('#audience .active-filters .none-of-these').removeClass('selected');
-                
-                $(this).parents('.checkbox-item').toggleClass('selected');
-                $('#audience .none-of-these').removeClass('selected');
-                
-            }
-
-
-        } // end if audience
-        
-        else {       
-            $(this).parents('.checkbox-item').toggleClass('selected');
-            $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
-            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-        } */
-                  
+        //------------------------------ total_active_filters();
+         
     }); 
     
     // Toggle switch questions
@@ -570,7 +523,7 @@ $(document).ready(function () {
     });
     
     
-    // FINDER RESULTS CARDS
+    // FINDER RESULTS CARDS ACCORDION
     $(document).on('click', '.accordion-title', function(){
         $(this).parents('.search-accordion-expand-wrapper').find(".collapse").slideToggle();
         $(this).parents('.grant-expand-title').toggleClass('collapsed');
@@ -606,18 +559,6 @@ $(document).ready(function () {
     
     
     // FILTER COUNTER (for mobile filter button)
-    /*$('.filter-item').each(function(){
-        var filter_type = $(this).attr('id');
-        //console.log(filter_type);
-        var filter_count = sessionStorage.getItem(filter_type);
-        //console.log(filter_count);
-
-        if(filter_count) {
-            $(this).find('.mobile-counter').text(filter_count).addClass('active');
-        } else {
-            $(this).find('.mobile-counter').text(0).removeClass('active');
-        }
-    });*/
     var total_active_filters = function(){
         var total_active = 0;
         $('.filter-item').each(function(){
@@ -628,7 +569,8 @@ $(document).ready(function () {
                 filter_count = 0;
             }
             total_active = total_active + filter_count;
-            
+            //console.log(filter_type);
+            //console.log(filter_count);
         });
         $('.filter-counter').text(total_active);
     };
@@ -662,12 +604,15 @@ $(document).ready(function () {
 
         // First use of a filter type
         if (filter_type_current_value === 0) {
-
+            //console.log('current value = 0');
+            
             if ($(this).hasClass('selected')) {
                 $('span.number').text(reduced_count);
                 sessionStorage.setItem('showing', reduced_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
+                
+                
                 
             } else {
                 // This is not a possible scenario  
@@ -676,6 +621,8 @@ $(document).ready(function () {
             
         // Catch the last use of a filter type and reset
         } else if (filter_type_current_value === 1) {  
+            //console.log('current value = 1');
+            
             if ($(this).hasClass('selected')) {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
@@ -694,6 +641,7 @@ $(document).ready(function () {
         
         // All other clicks on a filter type
         else {
+            //console.log('current value = not 0 or 1');
             if ($(this).hasClass('selected')) {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
@@ -704,13 +652,12 @@ $(document).ready(function () {
                 $('span.number').text(new_count_minus);
                 sessionStorage.setItem('showing', new_count_minus);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
-                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).addClass('active');
-                
+                $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).addClass('active');  
             }
         }
         
         //Set total filter count
-        total_active_filters();
+        //------------------------------ total_active_filters();
 
     });
     
@@ -741,7 +688,7 @@ $(document).ready(function () {
         $('.filter-item#' + filter_type).find('.mobile-counter').text(1).addClass('active');
         
         //Set total filter count
-        total_active_filters();
+        //------------------------------ total_active_filters();
 
     });
     
@@ -778,7 +725,7 @@ $(document).ready(function () {
         }
         
         //Set total filter count
-        total_active_filters();
+        //------------------------------ total_active_filters();
     });
     
     
