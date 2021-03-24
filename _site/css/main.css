@@ -3848,6 +3848,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .filter-wrapper .modal-close { display: none; }
 
+.results-section .filter-wrapper .mobile-apply-filters-button { display: none; }
+
 .results-section .filter-wrapper .filters { margin-bottom: 16px; }
 
 .results-section .filter-wrapper .filters .mobile-show { display: none; }
@@ -3911,10 +3913,27 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .results-section .filter-wrapper .filters .filter-item.one-option li.selected { margin-top: 16px; }
 
 @media (max-width: 767px) { .results-section .filter-wrapper { display: none; overflow-y: scroll; height: 90%; }
-  .results-section .filter-wrapper .modal-close { display: block; height: 18px; width: 66px; background: url(../assets/Icon-cross-blue.svg) no-repeat; background-size: 18px 18px; background-position: right center; position: absolute; right: 32px; top: 24px; cursor: pointer; line-height: 30px; }
-  .results-section .filter-wrapper.active { display: block; position: fixed; width: calc(100% - 30px); height: calc(100% - 30px); left: 15px; top: 15px; padding: 64px 32px 32px 32px; background: #ffffff; z-index: 7000; box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.5); border-top: none; }
+  .results-section .filter-wrapper .modal-close { display: block; height: 16px; width: 60px; background: url(../assets/Icon-cross-blue.svg) no-repeat; background-size: 16px 16px; background-position: right center; position: absolute; right: 24px; top: 16px; cursor: pointer; line-height: 30px; font-size: 14px; }
+  .results-section .filter-wrapper.active { display: block; position: fixed; width: calc(100% - 30px); height: calc(100% - 30px); left: 15px; top: 15px; padding: 56px 24px 24px 24px; background: #ffffff; z-index: 7000; box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.5); border-top: none; }
+  .results-section .filter-wrapper .filter-inner-wrapper { position: relative; }
+  .results-section .filter-wrapper .filter-inner-wrapper .name-search { position: absolute; top: 0; background: #ffffff; border: none; padding: 0; width: 100%; }
+  .results-section .filter-wrapper .filter-inner-wrapper .name-search h5 { padding-bottom: 8px; }
+  .results-section .filter-wrapper .filter-inner-wrapper .name-search h5 span { display: none; }
+  .results-section .filter-wrapper .filter-inner-wrapper .name-search input { border: solid 1px #495C74; border-right: none; height: 40px; font-size: 12px; width: calc(100% - 40px); }
+  .results-section .filter-wrapper .filter-inner-wrapper .name-search button { height: 40px; width: 40px; border: solid 1px #495C74; }
+  .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button { display: block; padding: 8px 0; }
+  .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button .standardcta-button-wrapper a { color: #ffffff; width: 180px; padding: 6px 24px; }
+  .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button .standardcta-button-wrapper a:hover { box-shadow: none !important; transform: none !important; }
+  .results-section .filter-wrapper .filter-inner-wrapper .clear-filters .clear-all { margin-top: 8px; display: inline-block; font-size: 14px; }
+  .results-section .filter-wrapper .filters { padding-top: 100px; }
   .results-section .filter-wrapper .filters .mobile-counter { display: none; }
-  .results-section .filter-wrapper .filters .mobile-counter.active { display: inline-block; background: #2F70BF; border-radius: 25px; color: #ffffff; text-align: center; font-size: 13px; height: 20px; width: 20px; line-height: 20px; margin-left: 4px; }
+  .results-section .filter-wrapper .filters .mobile-counter.active { display: inline-block; background: #2F70BF; border-radius: 50px; color: #ffffff; text-align: center; font-size: 12px; height: 19px; min-width: 19px; padding: 0 6px; line-height: 20px; margin-left: 4px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; }
+  .results-section .filter-wrapper .filters .filter-item { padding: 8px 0; }
+  .results-section .filter-wrapper .filters .filter-item .filter-item-title p { font-size: 14px; }
+  .results-section .filter-wrapper .filters .filter-item .filter-item-title svg { width: 16px; height: 10px; }
+  .results-section .filter-wrapper .filters .filter-item .toggle-question { padding-top: 8px; }
+  .results-section .filter-wrapper .filters .filter-item .toggle-question label:before { width: 32px; height: 14px; margin-top: 6px; }
+  .results-section .filter-wrapper .filters .filter-item .toggle-question label:after { background-size: 14px 10px !important; width: 24px; height: 24px; top: 6px; }
   .results-section .filter-wrapper .filters .active-filters { display: none; } }
 
 .results-section .clear-filters { margin-bottom: 32px; }

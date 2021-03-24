@@ -382,7 +382,6 @@ $(document).ready(function () {
         }
         
     });
- 
     
     
     // FINDER QUESTIONS
@@ -521,6 +520,11 @@ $(document).ready(function () {
         $('.filter-wrapper').removeClass('active');
         $('.modal-background').removeClass('active');
     });
+    $('.mobile-apply-filters-button').on('click', function(){
+        $('.filter-wrapper').removeClass('active');
+        $('.modal-background').removeClass('active');
+    });
+ 
     
     
     // FINDER RESULTS CARDS ACCORDION
