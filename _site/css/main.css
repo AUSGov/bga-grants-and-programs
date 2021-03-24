@@ -4075,7 +4075,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .pagination .last .svg-container, .pagination .first .svg-container { width: 12px; height: 12px; }
 
-@media (max-width: 576px) { .pagination { margin-left: 5%; } }
+@media (max-width: 576px) { .pagination { margin-left: 0; } }
 
 /* SHORTLIST MODAL */
 .shortlist-wrapper { display: none; height: 80%; }

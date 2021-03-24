@@ -35,6 +35,10 @@ $(document).ready(function () {
         }
     });
     
+    $('#navbar-close').on('click', function(){
+        $('.navbar-collapse').removeClass('show');
+    });
+    
     // Main nav - top level links
     $('#navbarDropdownMenuLink_0').on('click', function(e){
         e.preventDefault();
