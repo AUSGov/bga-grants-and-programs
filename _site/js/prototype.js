@@ -568,6 +568,8 @@ $(document).ready(function () {
     
     // FILTER COUNTER (for mobile filter button)
     var total_active_filters = function(){
+        //console.log("total active filters IS GO");
+        
         var total_active = 0;
         $('.filter-item').each(function(){
             var filter_type = $(this).attr('id');
@@ -618,9 +620,11 @@ $(document).ready(function () {
                 $('span.number').text(reduced_count);
                 sessionStorage.setItem('showing', reduced_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
+                
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
-                
+                return false;
                 
             } else {
                 // This is not a possible scenario  
@@ -635,14 +639,25 @@ $(document).ready(function () {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
+                
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
+                total_active_filters();
+                
+                return false;  
                 
             } else {
                 $('span.number').text(restore_count);
                 sessionStorage.setItem('showing', restore_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
+                
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).removeClass('active');
+                
+                total_active_filters();
+                
+                return false;
             }
             
         }
@@ -654,18 +669,27 @@ $(document).ready(function () {
                 $('span.number').text(new_count_plus);
                 sessionStorage.setItem('showing', new_count_plus);
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
+                console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
+                
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
+                
+                total_active_filters();
+                
+                return false;
                 
             } else {  
                 $('span.number').text(new_count_minus);
                 sessionStorage.setItem('showing', new_count_minus);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
+                console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
+                
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).addClass('active');  
+                
+                total_active_filters();
+                
+                return false;
             }
-        }
-        
-        //Set total filter count
-        //------------------------------ total_active_filters();
+        } 
 
     });
     
@@ -692,12 +716,15 @@ $(document).ready(function () {
         $('span.number').text(reduced_count);
         sessionStorage.setItem('showing', reduced_count);
         sessionStorage.setItem(filter_type, 1);
+        console.log(filter_type + ": " + sessionStorage.getItem(filter_type));
         
         $('.filter-item#' + filter_type).find('.mobile-counter').text(1).addClass('active');
         
         //Set total filter count
-        //------------------------------ total_active_filters();
-
+        total_active_filters();
+        
+        return false;
+        
     });
     
     $('[toggle-filter-type]').change(function(){
@@ -733,7 +760,7 @@ $(document).ready(function () {
         }
         
         //Set total filter count
-        //------------------------------ total_active_filters();
+        total_active_filters();
     });
     
     
