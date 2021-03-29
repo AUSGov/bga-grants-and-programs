@@ -325,17 +325,14 @@ $(document).ready(function () {
         $(".shortlist-wrapper").removeClass("active");
         $(".modal-background").removeClass("active");
     });
-
     
     
     
     // FINDER CHANGE SECTION
-    
+
     // Change section on prev / next click
     var setSection = function(element){   
-        //$('.finder_section').hide(); 
         var new_section = element.attr('data-value');
-        //$('#' + new_section).show();  
         sessionStorage.setItem('finder section', new_section);
     };
     $('.finder-wrapper .form-buttons .previous').on('click', function(){         
@@ -361,16 +358,6 @@ $(document).ready(function () {
         $('#section_0').show();
     });
     
-
-
-    // Change sections on url fragment change (to catch browser back button clicks)
-    /*$(window).on('popstate', function(e) {
-        var new_section = window.location.hash; 
-        $('.finder_section').hide();
-        $(new_section).show();
-    });*/
-    
-
 
     // FILTER ACCORDIONS
     // Open filter accordions
@@ -537,14 +524,32 @@ $(document).ready(function () {
     
  
 
+    // FUNCTION TO COUNT and SET active filter counts
+    var all_filter_types = ['location', 'rural', 'industry', 'business-type', 'support-type', 'objectives', 'business-stage', 'status', 'atsi'];
+    
+    
     // MOBILE FILTER VISIBILITY
     $('.view-filters').on('click', function(){
         $('.filter-wrapper').addClass('active');
         $('.modal-background').addClass('active');
+
+        //add active state to mobile filter counters
+        for (var m = 0; m < all_filter_types.length; m++) {
+            var filter_type = sessionStorage.getItem(all_filter_types[m]);
+            if (filter_type !== null) {           
+                $('#' + all_filter_types[m] + ' .mobile-counter').text(filter_type).addClass('active');
+            }
+        }
+        
+        //Close open filter accordions
+        $('.filter-item-content').hide();
+         $('.filter-item-title').removeClass('open');
+        
     });
     $('.filter-wrapper .modal-close').on('click', function(){
         $('.filter-wrapper').removeClass('active');
         $('.modal-background').removeClass('active');
+        
     });
     $('.mobile-apply-filters-button').on('click', function(){
         $('.filter-wrapper').removeClass('active');
@@ -586,12 +591,10 @@ $(document).ready(function () {
 
     });
     
-    
 
     
-    // FUNCTION TO COUNT and SET active filter counts
-    var all_filter_types = ['location', 'rural', 'industry', 'business-type', 'support-type', 'objectives', 'business-stage', 'status', 'atsi'];
     
+    // FUNCTION COUNT TOTAL NUMBER OF ACTIVE FILTERS
     var total_active_filters = function(){
         var total_active = 0;
 
@@ -608,8 +611,6 @@ $(document).ready(function () {
         
         $('.filter-counter').text(total_active);
     };
-    
-    
 
         
     // SET ACTIVE FILTERS ON PAGE LOAD - MULTIPLE SELECT
