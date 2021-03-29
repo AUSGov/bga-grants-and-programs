@@ -43,7 +43,7 @@
 #section_9 {
     display: none;
 }
-#section_1 {
+#section_0 {
     display: block;
 } 
 
@@ -641,11 +641,11 @@
                             background: #2F70BF;
                             margin-left: 4px;
                             display: inline-block;
-                            width: 24px;
+                            width: 20px;
                             border-radius: 25px;
                             color: $white;
                             text-align: center;
-                            font-size: 14px;
+                            font-size: 12px;
                         }
                     }
                     
@@ -655,7 +655,7 @@
                     
                 }
             }
-            /*.view-filters.mobile-show {
+            .view-filters.mobile-show {
                 width: 50%;
                 display: inline-block;
                 
@@ -665,7 +665,7 @@
                     width: 100%;
                     
                 }
-            }*/
+            }
         }
         
     }
@@ -674,8 +674,15 @@
         .modal-close {
             display: none;
         }
+        .mobile-apply-filters-button {
+            display: none;
+        }
         .filters {    
             margin-bottom: 16px;
+            
+            .mobile-show {
+                display: none;
+            }
 
             .filter-item {
                 border-bottom: solid 1px $grey-light;
@@ -882,16 +889,17 @@
             
             .modal-close {
                 display: block;
-                height: 18px;
-                width: 66px;
+                height: 16px;
+                width: 60px;
                 background: url(../assets/Icon-cross-blue.svg) no-repeat;
-                background-size: 18px 18px;
+                background-size: 16px 16px;
                 background-position: right center;
                 position: absolute;
-                right: 32px;
-                top: 24px;
+                right: 24px;
+                top: 16px;
                 cursor: pointer;
                 line-height: 30px;
+                font-size: 14px;
             }
 
             &.active {
@@ -901,7 +909,7 @@
                 height: calc(100% - 30px);
                 left: 15px;
                 top: 15px;
-                padding: 64px 32px 32px 32px;
+                padding: 56px 24px 24px 24px;
                 background: $white;
                 z-index: 7000;
                 box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
@@ -911,28 +919,122 @@
             overflow-y: scroll;
             height: 90%;
             
+            .filter-inner-wrapper {
+                position: relative;
+                
+                .name-search {
+                        position: absolute;
+                        top: 0;
+                        background: $white;
+                        border: none;
+                        padding: 0;
+                        width: 100%;
+                        
+                        h5 {
+                            padding-bottom: 8px;    
+                            span {
+                                display: none;
+                            } 
+                        }
+                        
+                        input {
+                            border: solid 1px $darkblue-mid;
+                            border-right: none;
+                            height: 40px;
+                            font-size: 12px;
+                            width: calc(100% - 40px);
+                        }
+                        button {
+                            height: 40px;
+                            width: 40px;
+                            border: solid 1px $darkblue-mid;
+                        }
+                    }
+                
+                .mobile-apply-filters-button {
+                    display: block;
+                    padding: 8px 0;
+                    
+                    .standardcta-button-wrapper {
+                        a {
+                            color: $white;
+                            width: 180px;
+                            padding: 6px 24px;
+                            
+                            &:hover  {
+                                box-shadow: none !important;
+                                transform: none !important;
+                            }
+                        }
+                    }
+                }
+                
+                .clear-filters {
+                    .clear-all {
+                        margin-top: 8px;
+                        display: inline-block;
+                        font-size: 14px;
+                    }
+                }
+            }
             .filters {
+                
+                padding-top: 100px;
                 
                 .mobile-counter {
                     display: none;
-                    
+
                     &.active {
                         display: inline-block;
                         background: #2F70BF;
-                        border-radius: 25px;
+                        border-radius: 50px;
                         color: $white;
                         text-align: center;
-                        font-size: 13px;
-                        height: 20px;
-                        width: 20px;
+                        font-size: 12px;
+                        height: 19px;
+                        min-width: 19px;
+                        padding: 0 6px;
                         line-height: 20px;
                         margin-left: 4px;
-                }
+                        @include font-format($font-family, $font-semibold, normal); 
+                    }
                 }
                 
+                .filter-item {
+                    padding: 8px 0;
+                    
+                    .filter-item-title {
+                        p {
+                            font-size: 14px;
+                        } 
+                        svg {
+                            width: 16px;
+                            height: 10px;
+                        }
+                    }
+                    .toggle-question {
+                        
+                        padding-top: 8px;
+                        
+                        label {
+                            &:before {
+                                width: 32px;
+                                height: 14px;
+                                margin-top: 6px;
+                            }
+                            &:after {
+                                background-size: 14px 10px !important;
+                                width: 24px;
+                                height: 24px;
+                                top: 6px;
+                            }
+                        }
+                    }
+                }
                 .active-filters {
                     display: none;
                 }
+                
             }
         }
     }
@@ -1369,7 +1471,7 @@
     }
     
     @media(max-width: 576px) {
-        margin-left: 5%;
+        margin-left: 0;
     }
 }
 

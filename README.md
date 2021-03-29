@@ -1,4 +1,4 @@
-# Major projects help tool 
+# Grants and programs finder tool
 
-[Major projects help tool demo pages](https://ausgov.github.io/bga-major-projects-help/tool-get-started.html)
+[Finder tool demo](https://ausgov.github.io/bga-grants-and-programs/finder/tool.html)
     
