@@ -471,8 +471,14 @@ $(document).ready(function () {
         var filter_option = $(this).parents('.checkbox-item').find('input').attr('id');
         
         $(this).parents('.checkbox-item').toggleClass('selected');
-            $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
-            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+        $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
+        $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
+        
+        if ($(this).parents('.checkbox-item').hasClass('selected')) {
+            sessionStorage.setItem(filter_option, true);
+        } else {
+            sessionStorage.setItem(filter_option, false);
+        }
                    
     }); 
     
