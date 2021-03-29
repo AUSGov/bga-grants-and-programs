@@ -329,35 +329,42 @@ $(document).ready(function () {
     
     
     // FINDER CHANGE SECTION
-
-    // Change section on prev / next click
-    var setSection = function(element){   
-        var new_section = element.attr('data-value');
-        sessionStorage.setItem('finder section', new_section);
-    };
-    $('.finder-wrapper .form-buttons .previous').on('click', function(){         
-        setSection($(this));
-    });    
-    $('.finder-wrapper .form-buttons .next').on('click', function(){
-         setSection($(this));
-    });
-    
-    // SET SECTION ON PAGE LOAD
-    var current_section = sessionStorage.getItem('finder section');  
-    if (current_section === null){
-        current_section = 'section_0';
-    }
+    // Get current path, put in an array and split out to determine the section number
+    var pathArray = window.location.pathname.split('/');
+    var current_section = pathArray[3];   
+    current_section = current_section[5];
 
     $('.finder_section').hide(); 
-    $('#' + current_section).show();
     
-    
-    
-    $('.finder-wrapper .form-buttons .start-again').on('click', function(){
-        $('.finder_section').hide();
-        $('#section_0').show();
-    });
-    
+    switch (current_section) {
+        case "1":
+            $('#section_1').show();
+            break;
+        case "2":
+            $('#section_2').show();
+            break;
+        case "3":
+            $('#section_3').show();
+            break;
+        case "4":
+            $('#section_4').show();
+            break;
+        case "5":
+            $('#section_5').show();
+            break;
+        case "6":
+            $('#section_6').show();
+            break;
+        case "7":
+            $('#section_7').show();
+            break;
+        case "8":
+            $('#section_8').show();
+            break;
+        default:
+            $('#section_0').show();
+    }
+
 
     // FILTER ACCORDIONS
     // Open filter accordions
@@ -685,8 +692,6 @@ $(document).ready(function () {
     total_active_filters();
     
 
-    
-    
     //CREATE 'SHOWING' NUMBER
     
     $('[filter-type]').on('click', function(){
@@ -909,9 +914,7 @@ $(document).ready(function () {
     });
     
     
-    
- 
-    
+
     
 }); // END doc ready
 

@@ -4011,7 +4011,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
   .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button { display: block; padding: 8px 0; }
   .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button .standardcta-button-wrapper a { color: #ffffff; width: 180px; padding: 6px 24px; }
   .results-section .filter-wrapper .filter-inner-wrapper .mobile-apply-filters-button .standardcta-button-wrapper a:hover { box-shadow: none !important; transform: none !important; }
-  .results-section .filter-wrapper .filter-inner-wrapper .clear-filters .clear-all { margin-top: 8px; display: inline-block; font-size: 14px; }
+  .results-section .filter-wrapper .filter-inner-wrapper .clear-filters .clear-all { margin-top: 8px; display: inline-block; font-size: 14px; cursor: pointer; }
   .results-section .filter-wrapper .filters { padding-top: 100px; }
   .results-section .filter-wrapper .filters .mobile-counter { display: none; }
   .results-section .filter-wrapper .filters .mobile-counter.active { display: inline-block; background: #2F70BF; border-radius: 50px; color: #ffffff; text-align: center; font-size: 12px; height: 19px; min-width: 19px; padding: 0 6px; line-height: 20px; margin-left: 4px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; }
