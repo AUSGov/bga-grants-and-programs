@@ -331,13 +331,6 @@ $(document).ready(function () {
     
     // FINDER CHANGE SECTION
     
-    /*if ($('#section_0').length) {
-        console.log('section 0');
-        window.location.hash = "0";
-    } else {
-        console.log('not section 0');
-    }*/
-
     // Change section on prev / next click
     var setSection = function(element){   
         $('.finder_section').hide(); 
@@ -366,7 +359,25 @@ $(document).ready(function () {
     
 
 
+    // FILTER ACCORDIONS
+    // Open filter accordions
+    $('.filter-item-title').on('click', function(){
+        
+        if ( $(this).hasClass('open') ) {
+            $(this).parents('.filter-item').find('.filter-item-content').slideUp();
+            $(this).removeClass('open');
+        } else { 
+            $('.filter-item-content').slideUp();
+            $('.filter-item-title').removeClass('open');
+            
+            $(this).parents('.filter-item').find('.filter-item-content').slideDown();
+            $(this).addClass('open');
+        }
+        
+    });
+   
     
+ 
     
     // FINDER QUESTIONS
     // Multiple selects
@@ -385,9 +396,7 @@ $(document).ready(function () {
         $(this).toggleClass('selected');
         $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
         $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
-        
-        //filter_count(filter_type);
-        
+ 
     });
     
     // Single selects
@@ -403,29 +412,17 @@ $(document).ready(function () {
         
         // Change select in the filters
         $('#' + filter_type + ' .filter-item-content select').val(filter_option);
-    });
-    
-    
-    // FINDER FILTERS
-    // Open filter accordions
-    $('.filter-item-title').on('click', function(){
         
-        if ( $(this).hasClass('open') ) {
-            $(this).parents('.filter-item').find('.filter-item-content').slideUp();
-            $(this).removeClass('open');
-        } else { 
-            $('.filter-item-content').slideUp();
-            $('.filter-item-title').removeClass('open');
-            
-            $(this).parents('.filter-item').find('.filter-item-content').slideDown();
-            $(this).addClass('open');
-        }
+        // Add to sessionStorage 
+        sessionStorage.setItem(filter_type + " selection", filter_option);
         
     });
     
-    // MULTIPLE SELECT FILTERS
+    
+
+    // FILTER SELECTONS
     // Select filter 'bubble' options - multiple select
-    $('.active-filters li').on('click', function(){
+    $('.active-filters.multi-select li').on('click', function(){
         
         var filter_option = $(this).attr('data-value');
         sessionStorage.setItem(filter_option, false);
@@ -439,6 +436,35 @@ $(document).ready(function () {
 
     });
     
+    
+    // Select filter 'bubble' options-single select
+     $('.active-filters.single-select li').on('click', function(){
+         $(this).removeClass('selected');
+         
+         var filter_type = $(this).parents('.filter-item').attr('id');
+         
+         $('#question-' + filter_type + ' select').val('select-option');     
+         $('#' + filter_type + ' .filter-item-content select').val('select-option');
+         
+         // Add to sessionStorage 
+         sessionStorage.setItem(filter_type + " selection", 'select-option');
+    });
+    
+    // Select single select options
+    $('.filter-item-content select').change(function(){
+        
+        var filter_type = $(this).parents('.filter-item').attr('id');
+        var filter_option = $(this).val();
+
+        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
+        $('#' + filter_type + ' .active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');   
+        $('#question-' + filter_type + ' select').val(filter_option);
+        
+        // Add to sessionStorage 
+        sessionStorage.setItem(filter_type + " selection", filter_option);
+        
+    });
+    
     // Select filter checkbox options
     $('.checkbox-item label').on('click', function(){
         
@@ -447,55 +473,7 @@ $(document).ready(function () {
         $(this).parents('.checkbox-item').toggleClass('selected');
             $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
             $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-        
-        /* if ( $(this).parents('.filter-item').attr('id') == "audience" ) {
-        
-            if ($(this).parents('.checkbox-item').hasClass('none-of-these')) {
-                
-                if ($(this).hasClass('selected')) {
                    
-                    $('#question-audience .none-of-these').removeClass('selected');
-                    $('#audience .finder-question.multi-select .none-of-these').removeClass('selected');
-                    $(this).removeClass('selected');
-                    
-                } else if (!$(this).hasClass('selected')) {
-                    
-                    
-                    $('#question-audience li').removeClass('selected');
-                    $('#question-audience .none-of-these').addClass('selected');
-                    
-                    $('#audience .active-filters li').removeClass('selected');
-                    $('#audience .active-filters .none-of-these').addClass('selected');
-                    
-                    $('#audience .checkbox-item').removeClass('selected');
-                    $(this).parents('.checkbox-item').addClass('selected');
-                }
-                
-  
-            } 
-            
-            else {
-                
-                $('#question-audience .none-of-these').removeClass('selected');
-                $('#question-audience li[data-value="' + filter_option + '"]').toggleClass('selected');
-                
-                $('#audience .active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
-                $('#audience .active-filters .none-of-these').removeClass('selected');
-                
-                $(this).parents('.checkbox-item').toggleClass('selected');
-                $('#audience .none-of-these').removeClass('selected');
-                
-            }
-
-
-        } // end if audience
-        
-        else {       
-            $(this).parents('.checkbox-item').toggleClass('selected');
-            $(this).parents('.filter-item').find('.active-filters li[data-value="' + filter_option +'"]').toggleClass('selected ');
-            $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');
-        } */
-                  
     }); 
     
     // Toggle switch questions
@@ -528,6 +506,7 @@ $(document).ready(function () {
             $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
         }
     });
+   
     $('.filter-item .filter-toggle-switch').on('click', function(){
         var filter_type = $(this).attr('data-value');
         //console.log(filter_type);
@@ -537,29 +516,9 @@ $(document).ready(function () {
     });
     
     
-    // SINGLE SELECT FILTERS
-    // Select filter 'bubble' options-single select
-     $('.active-filters.single-select li').on('click', function(){
-         $(this).removeClass('selected');
-         
-         var filter_type = $(this).parents('.filter-item').attr('id');
-         
-         $('#question-' + filter_type + ' select').val('select-option');     
-         $('#' + filter_type + ' .filter-item-content select').val('select-option');
-    });
-    
-    // Select single select options
-    $('.filter-item-content select').change(function(){
-        
-        var filter_type = $(this).parents('.filter-item').attr('id');
-        var filter_option = $(this).val();
+ 
 
-        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
-        $('#' + filter_type + ' .active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');   
-        $('#question-' + filter_type + ' select').val(filter_option);
-    });
-    
-    // MOBILE FILTERS
+    // MOBILE FILTER VISIBILITY
     $('.view-filters').on('click', function(){
         $('.filter-wrapper').addClass('active');
         $('.modal-background').addClass('active');
@@ -605,23 +564,28 @@ $(document).ready(function () {
     });
     
     
-    // FILTER COUNTER (for mobile filter button)
-    /*$('.filter-item').each(function(){
-        var filter_type = $(this).attr('id');
-        //console.log(filter_type);
-        var filter_count = sessionStorage.getItem(filter_type);
-        //console.log(filter_count);
 
-        if(filter_count) {
-            $(this).find('.mobile-counter').text(filter_count).addClass('active');
-        } else {
-            $(this).find('.mobile-counter').text(0).removeClass('active');
-        }
-    });*/
+    
+    // FUNCTION TO COUNT and SET active filter counts
+    var all_filter_types = ['location', 'rural', 'industry', 'business-type', 'support-type', 'objectives', 'business-stage', 'status', 'atsi'];
+    
     var total_active_filters = function(){
         var total_active = 0;
-        $('.filter-item').each(function(){
+
+        for ( var k = 0; k < all_filter_types.length; k++){ 
+            
+            var filter_type = all_filter_types[k];
+            var filter_count = parseInt(sessionStorage.getItem(filter_type));
+            
+            if(isNaN(filter_count)) {
+                filter_count = 0;
+            }
+            total_active = total_active + filter_count;
+        } 
+        
+        /*$('.filter-item').each(function(){
             var filter_type = $(this).attr('id');
+            
             var filter_count = parseInt(sessionStorage.getItem(filter_type));
             
             if(isNaN(filter_count)) {
@@ -629,9 +593,87 @@ $(document).ready(function () {
             }
             total_active = total_active + filter_count;
             
-        });
+        });*/
         $('.filter-counter').text(total_active);
     };
+    
+    
+ 
+    
+        
+    // SET ACTIVE FILTERS ON PAGE LOAD - MULTIPLE SELECT
+    var filter_set_multiple = ['australian-capital-territory', 'new-south-wales', 'northern-territory', 'queensland', 'south-australia', 'tasmania', 'victoria', 'western-australia','funding', 'subsidy', 'concession', 'scholarship', 'tax-rebate', 'advice', 'mentorship', 'build-or-improve-infrastructure-for-a-community', 'employ-people', 'funding-for-training-and-skills-development', 'import-or-export-products-or-services', 'improve-or-grow-my-business', 'invest-money-in-other-businesses', 'market-and-advertise-my-business', 'organise-a-community-event', 'prevent-or-recover-from-a-natural-disaster', 'purchase-or-upgrade-equipment-vehicles-or-tools', 'recycle-waste-or-reduce-my-energy-use', 'research-and-develop-innovative-new-products-or-services', 'start-a-business', 'upgrade-restore-or-fit-out-a-building', 'open', 'coming-soon', 'closed'];
+    
+    for ( var filter = 0; filter < filter_set_multiple.length; filter++) {
+        
+        var filter_option = filter_set_multiple[filter];
+            
+            if (sessionStorage.getItem(filter_option) === "true") {  
+
+                // Select filters on the page
+                $('.finder-question.multi-select li[data-value="' + filter_option + '"]').toggleClass('selected');       
+                $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');    
+                $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+
+            }
+    }
+    
+    
+    
+    // SET ACTIVE FILTERS ON PAGE LOAD - SINGLE SELECT   
+    // function for reset each filter set
+    var set_single_filters = function(filter_type, filter_set){
+        
+        var filter_option = sessionStorage.getItem(filter_type + ' selection');
+        if (filter_option === null) {
+            filter_option = 'select-option';
+        }
+        
+        $('select[select-filter-type="' + filter_type + '"]').val(filter_option);     
+
+        $('#' + filter_type + ' select').val(filter_option); 
+
+        $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
+        $('#' + filter_type + ' .active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
+ 
+     };
+    
+    // Filter sets
+    var filter_set_industry = ['select-option', 'accommodation-and-food-services', 'administrative-and-support-services', 'agriculture-forestry-and-fishing', 'arts-and-recreation-services', 'construction', 'education-and-training', 'electricity-gas-water-and-waste-services', 'financial-and-insurance-services', 'health-care-and-social-assistance', 'information-media-and-telecommunications', 'manufacturing', 'mining', 'professional-scientific-and-technical-services', 'public-administration-and-safety', 'rental-hiring-and-real-estate-services', 'retail-trade', 'transport-postal-and-warehousing', 'wholesale-trade', 'other-services'];
+    
+    var filter_set_business_type = ['select-option','sole-trader', 'partnership', 'company', 'trust', 'not-for-profit'];
+   
+    var filter_set_business_stage = ['select-option', '2-years-or-less', '3-and-5-years', 'more-than-5-years'];
+    
+    set_single_filters('industry', filter_set_industry);
+    set_single_filters('business-type', filter_set_business_type);
+    set_single_filters('business-stage', filter_set_business_stage);
+    
+    
+    
+    // SET TOGGLE SWITCH QUESTIONS ON PAGE LOAD.
+    var filter_set_toggles = ['rural', 'atsi'];
+    
+    for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
+        var toggle_option = filter_set_toggles[toggle];
+
+        if (sessionStorage.getItem(toggle_option) === '1') {  
+            
+            $('.custom-control-input').addClass('selected');
+            $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', true).toggleClass('selected');
+            
+            $('.active-filters li[filter-type="' + toggle_option + '"]').toggleClass('selected');
+    
+        }       
+    }
+ 
+    
+    
+    // SET FILTER COUNT ON PAGE LOAD
+    total_active_filters();
+    
+
+    
     
     //CREATE 'SHOWING' NUMBER
     
@@ -669,9 +711,12 @@ $(document).ready(function () {
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
+                return false;
+                
             } else {
                 // This is not a possible scenario  
             }
+            
         
             
         // Catch the last use of a filter type and reset
@@ -682,13 +727,21 @@ $(document).ready(function () {
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
+                return false;
+                total_active_filters();
+                
                 
             } else {
                 $('span.number').text(restore_count);
                 sessionStorage.setItem('showing', restore_count);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).removeClass('active');
+                
+                return false;
+                total_active_filters();
             }
+            
+            
             
         }
         
@@ -700,17 +753,21 @@ $(document).ready(function () {
                 sessionStorage.setItem(filter_type, filter_type_current_value + 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value + 1).addClass('active');
                 
+                return false;
+                total_active_filters();
+                
             } else {  
                 $('span.number').text(new_count_minus);
                 sessionStorage.setItem('showing', new_count_minus);
                 sessionStorage.setItem(filter_type, filter_type_current_value - 1);
                 $('.filter-item#' + filter_type).find('.mobile-counter').text(filter_type_current_value - 1).addClass('active');
                 
+                return false;
+                total_active_filters();
+                
             }
         }
-        
-        //Set total filter count
-        total_active_filters();
+
 
     });
     
