@@ -333,10 +333,10 @@ $(document).ready(function () {
     
     // Change section on prev / next click
     var setSection = function(element){   
-        $('.finder_section').hide(); 
+        //$('.finder_section').hide(); 
         var new_section = element.attr('data-value');
-        $('#' + new_section).show();    
-        //window.location.hash = '#' + new_section;
+        //$('#' + new_section).show();  
+        sessionStorage.setItem('finder section', new_section);
     };
     $('.finder-wrapper .form-buttons .previous').on('click', function(){         
         setSection($(this));
@@ -344,10 +344,23 @@ $(document).ready(function () {
     $('.finder-wrapper .form-buttons .next').on('click', function(){
          setSection($(this));
     });
+    
+    // SET SECTION ON PAGE LOAD
+    var current_section = sessionStorage.getItem('finder section');  
+    if (current_section === null){
+        current_section = 'section_0';
+    }
+
+    $('.finder_section').hide(); 
+    $('#' + current_section).show();
+    
+    
+    
     $('.finder-wrapper .form-buttons .start-again').on('click', function(){
         $('.finder_section').hide();
         $('#section_0').show();
     });
+    
 
 
     // Change sections on url fragment change (to catch browser back button clicks)
@@ -597,8 +610,7 @@ $(document).ready(function () {
     };
     
     
- 
-    
+
         
     // SET ACTIVE FILTERS ON PAGE LOAD - MULTIPLE SELECT
     var filter_set_multiple = ['australian-capital-territory', 'new-south-wales', 'northern-territory', 'queensland', 'south-australia', 'tasmania', 'victoria', 'western-australia','other-australian-territory', 'funding', 'subsidy', 'concession', 'scholarship', 'tax-rebate', 'advice', 'mentorship', 'build-or-improve-infrastructure', 'covid-19-related-support', 'employ-people', 'funding-for-training-and-skills-development', 'import-or-export-products-or-services', 'improve-or-grow-my-business', 'invest-money-in-other-businesses', 'market-and-advertise-my-business', 'organise-an-event', 'prevent-or-recover-from-a-natural-disaster', 'purchase-or-upgrade-equipment-vehicles-or-tools', 'recycle-waste-or-reduce-my-energy-use', 'research-and-develop-innovative-new-products-or-services', 'start-a-business', 'upgrade-restore-or-fit-out-a-building', 'open', 'coming-soon', 'closed'];
