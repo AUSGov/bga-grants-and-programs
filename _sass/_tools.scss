@@ -1163,6 +1163,13 @@
         
     .results-wrapper {
         
+        .result-task-1 {
+            display: block;
+        }
+        .result-task-2 {
+            display: none !important;
+        }
+        
         .search-card-button {
             &:hover {
                 text-decoration: none;

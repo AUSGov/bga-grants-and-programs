@@ -392,7 +392,6 @@ $(document).ready(function () {
         
         var filter_option = $(this).attr('data-value');
         var filter_type = $(this).attr('filter-type');
-        //console.log(filter_type);
         
         if ($(this).hasClass('selected')) {
             sessionStorage.setItem(filter_option, false);
@@ -403,6 +402,7 @@ $(document).ready(function () {
         $(this).toggleClass('selected');
         $('.active-filters li[data-value="' + filter_option + '"]').toggleClass('selected');
         $('#' + filter_option).parent('.checkbox-item').toggleClass('selected');
+        
  
     });
     
@@ -858,62 +858,66 @@ $(document).ready(function () {
     
     
     
-    
     // VARY SEARCH RESULT CARDS ON DISPLAY
-    // Get total number of search results
-    var search_card_number = $('.search-card-result').length;
-    var card_ids = [];
+    
+    // Create variables for storing search card ids 
+    var card_ids_task_1 = ["#search-result-1", "#search-result-2", "#search-result-3", "#search-result-4", "#search-result-5", "#search-result-6", "#search-result-7", "#search-result-8", "#search-result-9", "#search-result-10"];
+    var card_ids_task_2 = ["#search-result-11", "#search-result-12", "#search-result-13", "#search-result-14", "#search-result-15", "#search-result-16", "#search-result-17", "#search-result-18", "#search-result-19", "#search-result-20"];
+    
+    // Create sets of card HTML
+    var search_cards_task_1 = {};
+    var search_cards_task_2 = {};
 
-    for(var i = 0; i < search_card_number; i++){
-        card_ids.push("#search-result-" + (i+1));
-    }
+    var create_card_set = function(card_identifiers, card_set, cards){
+        $(card_identifiers).each(function(){
+            cards['#' + $(this).attr('id')] = $(this).html();
+        });  
+    };
     
-    var search_cards = {};
-    $('.search-card-result').each(function(){
-        search_cards['#' + $(this).attr('id')] = $(this).html();
-    });
+    create_card_set('.result-task-1', card_ids_task_1, search_cards_task_1);  
+    create_card_set('.result-task-2', card_ids_task_2, search_cards_task_2);  
     
+    // Function to shuffle the id order in their array
     function Shuffle(o) {
         for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
     }
     
-    $('[filter-type]').on('click', function(){
-
+    // Function to rearrange cards on display. Uses presence sessionStorage('purchase-or-upgrade-equipment-vehicles-or-tools') to determine whether cards are from the Task_1 or Task_2 set.
+    function rearrange_cards(){
+    
         $('.results-wrapper').empty();
+        var task2 = sessionStorage.getItem('purchase-or-upgrade-equipment-vehicles-or-tools');
         
-        var shuffled_cards = Shuffle(card_ids);
-        
-        for (var id = 0; id < 9; id++) {
-            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
-        }
+        if (task2 === 'true') {
+            var shuffled_cards_2 = Shuffle(card_ids_task_2);
+            for (var id_1 = 0; id_1 < 9; id_1++) {
+                $('.results-wrapper').append('<div class="search-card-result">' + search_cards_task_2[shuffled_cards_2[id_1]] + '</div>');
+            }
+        } else {
+            var shuffled_cards_1 = Shuffle(card_ids_task_1);
+            for (var id_2 = 0; id_2 < 9; id_2++) {
+                $('.results-wrapper').append('<div class="search-card-result">' + search_cards_task_1[shuffled_cards_1[id_2]] + '</div>');
+            }
+        }  
+    }
+    
+    // Rearrange cards on filter click
+    $('[filter-type]').on('click', function(){
+        rearrange_cards();
     });
     
     $('[select-filter-type]').change(function(){
-        
-        $('.results-wrapper').empty();
-        
-        var shuffled_cards = Shuffle(card_ids);
-        
-        for (var id = 0; id < 9; id++) {
-            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
-        }
-
+        rearrange_cards();
     });
     
     $('[toggle-filter-type]').change(function(){
-        
-       $('.results-wrapper').empty();
-        
-        var shuffled_cards = Shuffle(card_ids);
-        
-        for (var id = 0; id < 9; id++) {
-            $('.results-wrapper').append('<div class="search-card-result">' + search_cards[shuffled_cards[id]] + '</div>');
-        }
-        
+        rearrange_cards();
     });
     
-    
+    // Rearrange cards on page load (so the task remains consistent across tool sections once it is selected).
+    rearrange_cards();
+
 
     
 }); // END doc ready
