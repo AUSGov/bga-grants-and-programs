@@ -4061,6 +4061,10 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
   .results-section .sort-wrapper .select-number-results { display: none; }
   .results-section .sort-wrapper .select-sort-results { right: 0; position: relative; } }
 
+.results-section .results-wrapper .result-task-1 { display: block; }
+
+.results-section .results-wrapper .result-task-2 { display: none !important; }
+
 .results-section .results-wrapper .search-card-button:hover { text-decoration: none; }
 
 .results-section .results-wrapper .search-card-result { border-top: 4px solid #4569A0; padding: 0px; background-color: #ffffff; margin-bottom: 24px; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 0px; box-sizing: border-box; display: block; transition-delay: 0s; transition-duration: 0.2s; transition-property: transform; transition-timing-function: ease-in; }
