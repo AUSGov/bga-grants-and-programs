@@ -218,6 +218,7 @@
                     padding: 0;
                     display: inline-block;
                     position: relative;
+                    cursor: pointer;
                     
                     &:before {
                         width: 66px;
@@ -226,6 +227,7 @@
                         border: none;
                         border-radius: 50px;
                         left: 0;
+                        cursor: pointer;
                     }
                     &:after {
                         background: $white;
@@ -239,6 +241,7 @@
                         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
                         top: -4px;
                         left: 0;
+                        cursor: pointer;
                     }
                 }
                 
@@ -849,6 +852,7 @@
                                 border: none;
                                 margin-top: 4px;
                                 border-radius: 50px;
+                                cursor: pointer;
                             }
                             &:after {
                                 background: $white;
@@ -861,6 +865,7 @@
                                 background-size: 14px 14px;  
                                 top: 2px;
                                 left: -37px;
+                                cursor: pointer;
                             }
                         }
                         .custom-control-input:focus~.custom-control-label::before {
@@ -974,7 +979,6 @@
                         margin-top: 8px;
                         display: inline-block;
                         font-size: 14px;
-                        cursor: pointer;
                     }
                 }
             }
@@ -1048,6 +1052,7 @@
             text-decoration: underline;
             display: inline;
             position: relative;
+            cursor: pointer;
             
             &:hover, &:focus {
                 text-decoration: underline;
