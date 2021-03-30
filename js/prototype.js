@@ -48,15 +48,15 @@ $(document).ready(function () {
     });
     $('#navbarDropdownMenuLink_3').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-grants-and-programs/Expertise-and-advice.html";
+        window.location.pathname = "/bga-grants-and-programs/expertise-and-advice.html";
     });
     $('#navbarDropdownMenuLink_4').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-grants-and-programs/Events-and-training.html";
+        window.location.pathname = "/bga-grants-and-programs/events-and-training.html";
     });
     $('#navbarDropdownMenuLink_5').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-grants-and-programs/News.html";
+        window.location.pathname = "/bga-grants-and-programs/news.html";
     }); 
 
     
