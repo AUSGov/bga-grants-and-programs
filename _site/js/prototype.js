@@ -59,6 +59,23 @@ $(document).ready(function () {
         window.location.pathname = "/bga-grants-and-programs/news.html";
     }); 
 
+    // Mobile nav (for the moble test version only)
+    $('.mobile-test .collapse').css('display', 'none');
+    
+    $('#ChangeToggle').on('click', function(){
+        $('.mobile-test .collapse').toggleClass('open');
+    });
+    
+    $('.mobile-test #navbarDropdownMenuLink_0').on('click', function(e){
+        e.preventDefault();
+        window.location.pathname = "/bga-grants-and-programs/registrations";
+        
+    });
+    $('.mobile-test #navbarDropdownMenuLink_1').on('click', function(e){
+        e.preventDefault();
+        window.location.pathname = "/bga-grants-and-programs/planning";
+    });
+    
     
     
     // Prevent click empty 'a' tag from causing scrolling
