@@ -888,7 +888,7 @@ $(document).ready(function () {
     var create_card_set = function(card_identifiers, card_set, cards){
         $(card_identifiers).each(function(){
             cards['#' + $(this).attr('id')] = $(this).html();
-        });  
+        }); 
     };
     
     create_card_set('.result-task-1', card_ids_task_1, search_cards_task_1);  
@@ -908,12 +908,12 @@ $(document).ready(function () {
         
         if (task2 === 'true') {
             var shuffled_cards_2 = Shuffle(card_ids_task_2);
-            for (var id_1 = 0; id_1 < 9; id_1++) {
+            for (var id_1 = 0; id_1 < shuffled_cards_2.length; id_1++) {
                 $('.results-wrapper').append('<div class="search-card-result">' + search_cards_task_2[shuffled_cards_2[id_1]] + '</div>');
             }
         } else {
             var shuffled_cards_1 = Shuffle(card_ids_task_1);
-            for (var id_2 = 0; id_2 < 9; id_2++) {
+            for (var id_2 = 0; id_2 < shuffled_cards_1.length; id_2++) {
                 $('.results-wrapper').append('<div class="search-card-result">' + search_cards_task_1[shuffled_cards_1[id_2]] + '</div>');
             }
         }  

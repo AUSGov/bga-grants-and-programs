@@ -4177,7 +4177,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .shortlist-wrapper.active { display: block; position: fixed; width: 900px; padding: 64px 32px 32px 32px; top: 10%; left: calc(50% - 450px); background: #ffffff; z-index: 7000; box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.5); border-top: solid #4569A0 4px; }
 
-.shortlist-wrapper.active .modal-close { text-indent: -9999px; height: 24px; width: 24px; background: url(../assets/Icon-cross-blue.svg) no-repeat; position: absolute; right: 32px; top: 32px; cursor: pointer; }
+.shortlist-wrapper.active .modal-close { height: 16px; width: 60px; background: url(../assets/Icon-cross-blue.svg) no-repeat; position: absolute; background-size: 16px 16px; background-position: right center; position: absolute; right: 24px; top: 16px; cursor: pointer; line-height: 30px; font-size: 14px; display: block; }
 
 .shortlist-wrapper.active .shortlist-links { height: auto; max-height: calc(100% - 260px); overflow-y: scroll; padding: 16px; background: #EBEBEB; }
 
@@ -4197,9 +4197,9 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .shortlist-wrapper.active p.last { margin-bottom: 0; }
 
-.shortlist-wrapper.active ul { margin: 0; padding: 0; }
+.shortlist-wrapper.active ul { margin: 0 0 0 26px; padding: 0; }
 
-.shortlist-wrapper.active ul li { list-style-type: none; padding: 0; }
+.shortlist-wrapper.active ul li { list-style-type: none; padding: 0; text-indent: -26px; }
 
 .shortlist-wrapper.active ul li a { color: #4569A0; text-decoration: underline; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; font-size: 18px; }
 
@@ -4227,7 +4227,13 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 @media (max-width: 992px) { .shortlist-wrapper.active { width: 760px; left: calc(50% - 380px); } }
 
-@media (max-width: 767px) { .shortlist-wrapper.active { width: calc(100% - 30px); left: 15px; top: 15px; } }
+@media (max-width: 767px) { .shortlist-wrapper.active { width: calc(100% - 30px); left: 15px; top: 15px; padding: 58px 24px 24px 24px; }
+  .shortlist-wrapper.active h2 { font-size: 21px; padding: 0 35px 32px 0; }
+  .shortlist-wrapper.active h2 span { width: 24px; height: 24px; font-size: 14px; top: 2px; } }
+
+@media (max-width: 576px) { .shortlist-wrapper.active .text-box-button-combo-example { display: block; text-align: right; }
+  .shortlist-wrapper.active .text-box-button-combo-example input { width: 100%; margin: 0 0 24px 0; display: block; max-width: 100%; }
+  .shortlist-wrapper.active .text-box-button-combo-example .combo-button-wrapper .combo-button { display: inline-block; border-radius: 6px; } }
 
 .modal-background { display: none; }
 
