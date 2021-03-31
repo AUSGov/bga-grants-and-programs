@@ -1,3 +1,7 @@
+.mobile-frame {
+    display: none;
+}
+
 .page-header-theme-tool {
     background: $tool-teal-mid;
     padding: 48px 15px !important;
@@ -1511,22 +1515,26 @@
     border-top: solid $blue-primary-mid 4px;
     
     .modal-close {
-        text-indent: -9999px;
-        height: 24px;
-        width: 24px;
+        height: 16px;
+        width: 60px;
         background: url(../assets/Icon-cross-blue.svg) no-repeat;
         position: absolute;
-        right: 32px;
-        top: 32px;
+        background-size: 16px 16px;
+        background-position: right center;
+        position: absolute;
+        right: 24px;
+        top: 16px;
         cursor: pointer;
+        line-height: 30px;
+        font-size: 14px;
+        display: block;
     }
-    
+     
     .shortlist-links {
         height: auto;
         max-height: calc(100% - 260px);
         overflow-y: scroll;
         padding: 16px;
-        //box-shadow: inset 0 0 5px $grey;
         background: $grey-lighter;
         
         .empty-shortlist {
@@ -1564,7 +1572,6 @@
     h3 {
         margin-bottom: 0;
     }
-    
     p {
         font-size: 16px;
         margin-bottom: 32px;
@@ -1574,12 +1581,13 @@
         }   
     }
     ul {
-        margin: 0;
+        margin: 0 0 0 26px;
         padding: 0;
         
         li {
             list-style-type: none;
             padding: 0;
+            text-indent: -26px;
             
             a {
                 color: $blue-primary-mid;
@@ -1612,7 +1620,6 @@
         padding-top: 16px;
     }
     
-
     .text-box-button-combo-wrapper {
         input:focus, input:active {
             border: solid 3px $blue-primary;
@@ -1696,6 +1703,37 @@
         width: calc(100% - 30px);
         left: 15px;
         top: 15px;
+        padding: 58px 24px 24px 24px;
+        
+        h2 {
+            font-size: 21px;
+            padding: 0 35px 32px 0;
+            
+            span {
+                width: 24px;
+                height: 24px;
+                font-size: 14px;
+                top: 2px;
+            }
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .text-box-button-combo-example {
+            display: block;
+            text-align: right;
+            
+            input {
+                width: 100%;
+                margin: 0 0 24px 0;
+                display: block;
+                max-width: 100%;
+            }
+            .combo-button-wrapper .combo-button {
+                display: inline-block;
+                border-radius: 6px;
+            }
+        }
     }
 }
 .modal-background {
