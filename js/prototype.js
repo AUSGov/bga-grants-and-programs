@@ -251,9 +251,46 @@ $(document).ready(function () {
             scrollTop: $('.showing-results').offset().top
         }, 500);
     });
+    // Mobile test only
+    $('.mobile-test .alt-link').on('click', function(){
+        $( ".mobile-test" ).scrollTop( 1080 );
+    });
+    $('.mobile-test .view-results').on('click', function(){
+        $( ".mobile-test" ).scrollTop( 580 );
+    });
+
+    
+    // SHORTLIST 
+    // on page load add existing shortlisted items saved on sessionStorage
+    var current_shortlist = sessionStorage.getItem('shortlist');
+    var shortlist_count = sessionStorage.getItem('shortlist count');
+    
+    if(shortlist_count === null) {
+        shortlist_count = '0';
+    }
+    
+    $('.shortlist-links ul').prepend(current_shortlist);
+    $('.shortlist-counter').text(shortlist_count);
+    $('.shortlist-btn-counter').text(shortlist_count);
     
     
-    // SHORTLIST
+    if (shortlist_count != "0") {
+        $('.empty-shortlist').addClass('inactive');
+    } else {
+        $('.empty-shortlist').removeClass('inactive');
+    }
+    
+    var shortlist_items = ['shortlist-1', 'shortlist-2', 'shortlist-3', 'shortlist-4','shortlist-5', 'shortlist-6', 'shortlist-7', 'shortlist-8', 'shortlist-9', 'shortlist-10', 'shortlist-11', 'shortlist-12', 'shortlist-13', 'shortlist-14', 'shortlist-15', 'shortlist-16', 'shortlist-17', 'shortlist-18', 'shortlist-19', 'shortlist-20'];
+    
+    for( var item = 0; item < shortlist_items.length; item++){
+        var item_state = sessionStorage.getItem(shortlist_items[item]);
+        
+        if (item_state === "shortlisted") {
+            $('#' + shortlist_items[item] + ' .shortlist').addClass('shortlisted');
+        }   
+    } 
+       
+    
     
     // Add or remove items from the checklist (using link on results cards)
      $(document).on('click', ".shortlist", function(){
@@ -263,10 +300,13 @@ $(document).ready(function () {
             description = parent_card.find('h5').text(),
             shortlist_li = '<li><span></span><a href="">'+grant+"</a><p>"+description+"</p></li>",
             shortlist_li_text = grant + description,
-            count = parseInt($('.shortlist-btn-counter').text());
-
+            count = parseInt($('.shortlist-btn-counter').text()),
+            shortlist_number = $(this).parents('.search-result-card').attr('id');
         
         if ( $(this).hasClass('shortlisted')) {
+            
+            sessionStorage.setItem(shortlist_number, '');
+            
             $(this).find('p').text('Add to shortlist');
             $(this).removeClass('shortlisted');
             
@@ -288,6 +328,8 @@ $(document).ready(function () {
             $(this).find('p').text('Remove from shortlist');
             $(this).addClass('shortlisted'); 
             
+            sessionStorage.setItem(shortlist_number, 'shortlisted');
+            
             $('.shortlist-links ul').prepend(shortlist_li);
             
             $('.shortlist-counter').text(count + 1);
@@ -298,7 +340,13 @@ $(document).ready(function () {
             } else {
                 $('.empty-shortlist').addClass('inactive');
             }
-        } 
+        }
+        
+        var current_shortlist = $('.shortlist-links ul').html();
+        sessionStorage.setItem('shortlist', current_shortlist );
+         
+        var shortlist_count = $('.shortlist-counter').text();
+        sessionStorage.setItem('shortlist count', shortlist_count);
     });
     
     
@@ -324,6 +372,21 @@ $(document).ready(function () {
             $('.empty-shortlist').addClass('inactive');
         }
         
+        var current_shortlist = $('.shortlist-links ul').html();
+        sessionStorage.setItem('shortlist', current_shortlist );
+        
+        var shortlist_count = $('.shortlist-counter').text();
+        sessionStorage.setItem('shortlist count', shortlist_count);
+        
+        $('.shortlist').each(function(){
+            var shortlist_id = $(this).parents('.search-result-card').attr('id');
+            
+            if ($(this).hasClass('shortlisted')) {
+                sessionStorage.setItem(shortlist_id, 'shortlisted');
+            } else {
+                sessionStorage.setItem(shortlist_id, '');
+            }
+        });
     });
     
     // Shortlist modal
@@ -400,7 +463,6 @@ $(document).ready(function () {
         
     });
    
-    
  
     
     // FINDER QUESTIONS
@@ -710,6 +772,12 @@ $(document).ready(function () {
     
 
     //CREATE 'SHOWING' NUMBER
+    var showing = sessionStorage.getItem('showing');
+    
+    if (showing === null) {
+        showing = 587;
+    }
+    $('span.number').text(showing);
     
     $('[filter-type]').on('click', function(){
 
