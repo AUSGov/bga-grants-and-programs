@@ -3260,6 +3260,12 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .breadcrumb-wrapper .breadcrumb-location { line-height: 2.2; padding: 0; }
 
+@media (max-width: 768px) { .breadcrumbs-wrapper .right-arrow { display: none; }
+  .breadcrumb-location { display: none !important; }
+  .breadcrumb-link { display: none !important; }
+  .breadcrumb-home-wrapper .breadcrumb-link { display: block !important; }
+  .breadcrumbs-wrapper .arrow { display: none !important; } }
+
 /* HEADER SEARCH - MOCK */
 .search-bar-search { display: flex; text-align: right; width: 233px !important; }
 
