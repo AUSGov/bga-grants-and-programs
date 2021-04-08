@@ -76,6 +76,18 @@ $(document).ready(function () {
         window.location.pathname = "/bga-grants-and-programs/planning";
     });
     
+    $('#ChangeToggle').on('click', function(){
+        $('#navigation-bar').slideToggle();
+    });
+    $(window).on('resize', function(){
+        if ($(window).width() < 770) {
+            $('#navigation-bar').hide();
+        } else {
+           $('#navigation-bar').show(); 
+        }
+    });
+    
+    
     
     
     // Prevent click empty 'a' tag from causing scrolling
@@ -89,10 +101,10 @@ $(document).ready(function () {
     $('a.breadcrumb-link').each(function(){
         if( $(this).is(':empty') ) {
             var wrapper = $(this).parent('.breadcrumb-home-wrapper');
-            $(wrapper).css('display', 'none');
+            $(wrapper).remove();
         }
     });
-    
+    $('.breadcrumb-home-wrapper').last().addClass('last');
 
     /*----------- Add side-menu (sticky_list) functionality ----------- */
     
