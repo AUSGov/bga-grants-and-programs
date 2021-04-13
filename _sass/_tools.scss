@@ -32,6 +32,12 @@
 }
 .top-of-page {
     padding-top: 0;
+    
+    &.loading {
+        text-align: center;
+        margin: 20px 40px 60px 40px;
+        font-weight: 400;
+    }
 }
 
 /* FINDER SECTION */

@@ -3764,6 +3764,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .top-of-page { padding-top: 0; }
 
+.top-of-page.loading { text-align: center; margin: 20px 40px 60px 40px; font-weight: 400; }
+
 /* FINDER SECTION */
 #section_0, #section_1, #section_2, #section_3, #section_4, #section_5, #section_6, #section_7, #section_8, #section_9 { display: none; }
 
