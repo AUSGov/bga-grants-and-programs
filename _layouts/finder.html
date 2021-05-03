@@ -28,7 +28,8 @@
     
     <!-- RESULTS SECTION -->
     <div class="results-section c-wrapper c-wrapper-bg-transparent container-fluid layout">
-    <div class="row">
+    <div class="results-title-wrapper">
+        <div class="row">
         <div class="col-12 col-lg-12 col-xl-12">
             <div class="results-title">
                 <h2 class="showing-results">Showing <span class="number">587</span> grants and programs</h2>
@@ -53,6 +54,7 @@
             </div>
           
         </div>
+    </div>
     </div>
     
 
@@ -94,8 +96,9 @@
     
     
     
+    <div class="filter-and-results-wrapper">
     
-    <div class="row">
+        <div class="row">
         <div class="col-4">
            <div class="filter-wrapper">
             
@@ -146,6 +149,9 @@
             </div>
         </div>
         <div class="col-md-8 offset-md-4">      
+            
+            
+            
     
     <!-- PAGINATION -->
     <div class="row">
@@ -167,12 +173,14 @@
     <!-- CONTENT --> 
     {{ content }}
         
+        </div>
+        
 
     <!-- FOOTER -->
     {% include footer.html %}
     
         
-    </div>
+    </div> <!--end filter-and-results-wrapper-->
 </body>
 
 </html>

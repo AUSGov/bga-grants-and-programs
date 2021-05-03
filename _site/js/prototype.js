@@ -1017,6 +1017,20 @@ $(document).ready(function () {
     
     // Rearrange cards on page load (so the task remains consistent across tool sections once it is selected).
     rearrange_cards();
+    
+    
+    // Persistent showing number and shortlist
+    var showing_position = $('.results-title').offset();
+    console.log(showing_position);
+    $(window).scroll(function(){
+        if($(window).scrollTop() > showing_position.top){
+            $('.results-title-wrapper').addClass('sticky'); 
+            $('.filter-and-results-wrapper').addClass('sticky');
+        } else {
+            $('.results-title-wrapper').removeClass('sticky');
+            $('.filter-and-results-wrapper').removeClass('sticky');
+        }    
+    });
 
 
     
