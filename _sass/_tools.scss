@@ -144,7 +144,8 @@
                 padding: 0;
                 justify-content: center !important;
                 text-align:center;
-                
+                width: 100%;
+        
                 li {
                     list-style: none;
                     font-size: 15px;
@@ -393,6 +394,15 @@
             
         }
         
+        @media (min-width: 992px) {
+            .finder-question {
+                ul {
+                    max-width: 900px;
+                    margin: 0 calc(50% - 450px);
+                }
+            }
+            
+        }
         
         @media (max-width: 767px) {
             .start-button-wrapper {
@@ -466,6 +476,7 @@
                     width: 100%;
                 }
                 ul {
+                    margin: 0;
                     li {
                         font-size: 13px;
                         min-height: 32px;
@@ -1268,6 +1279,7 @@
                 
                 a {
                     color: $blue-primary-mid;
+                    text-decoration: underline;
                 }
             }
             .search-card-body {
