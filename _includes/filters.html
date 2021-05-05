@@ -168,11 +168,11 @@
                     <div class="active-filters single-select">
                         <ul>
                             <li filter-value="27" data-value="">select business type</li>
-                            <li filter-value="27" data-value="sole-trader">Sole trader</li>
-                            <li filter-value="27" data-value="partnership">Partnership</li>
                             <li filter-value="27" data-value="company">Company</li>
-                            <li filter-value="27" data-value="trust">Trust</li>
                             <li filter-value="27" data-value="not-for-profit">Not for profit</li>
+                            <li filter-value="27" data-value="partnership">Partnership</li>
+                            <li filter-value="27" data-value="sole-trader">Sole trader</li>
+                            <li filter-value="27" data-value="trust">Trust</li>     
                         </ul>
                     </div>                
                     <div class="filter-item-content">
@@ -180,11 +180,11 @@
                         <form>
                         <select id="filter_business" select-filter-type="business-type" filter-value="27">
                             <option value="select-option" selected="selected" disabled="">select business type</option>
-                            <option value="sole-trader">Sole trader</option>
-                            <option value="partnership">Partnership</option>
-                            <option value="company">Company</option>
-                            <option value="trust">Trust</option>
-                            <option value="not-for-profit">Not for profit</option>
+                            <option value="company" class="select-option">Company</option>
+                            <option value="not-for-profit" class="select-option">Not for profit</option>
+                            <option value="partnership" class="select-option">Partnership</option>
+                            <option value="sole-trader" class="select-option">Sole trader</option>
+                            <option value="trust" class="select-option">Trust</option>
                         </select>
                         </form>
 
@@ -206,36 +206,37 @@
                          </div>
                     <div class="active-filters multi-select">
                         <ul>
-                            <li filter-type="support-type" filter-value="60" data-value="funding">Funding</li>
-                            <li filter-type="support-type" filter-value="30" data-value="subsidy">Subsidy</li>
-                            <li filter-type="support-type" filter-value="10" data-value="concession">Concession</li>
-                            <li filter-type="support-type" filter-value="10" data-value="scholarship">Scholarship</li>
-                            <li filter-type="support-type" filter-value="10" data-value="tax-rebate">Tax rebate</li>
                             <li filter-type="support-type" filter-value="30" data-value="advice">Advice</li>
+                            <li filter-type="support-type" filter-value="10" data-value="concession">Concession</li>
+                            <li filter-type="support-type" filter-value="60" data-value="funding">Funding</li>
                             <li filter-type="support-type" filter-value="10" data-value="mentorship">Mentorship</li>
+                            <li filter-type="support-type" filter-value="10" data-value="scholarship">Scholarship</li>
+                            <li filter-type="support-type" filter-value="30" data-value="subsidy">Subsidy</li>
+                            <li filter-type="support-type" filter-value="10" data-value="tax-rebate">Tax rebate</li>
+                                                        
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
                         <form>
-                            <div class="checkbox-item" filter-value="60" filter-type="support-type">
-                            <input type="checkbox" id="funding">
-                            <label for="funding">Funding</label>
-                            </div>
-                            
                             <div class="checkbox-item" filter-value="30" filter-type="support-type">
-                            <input type="checkbox" id="subsidy">
-                            <label for="subsidy">Subsidy</label>
-                            </div>  
+                            <input type="checkbox" id="advice">
+                            <label for="advice">Advice</label>
+                            </div>
                             
                             <div class="checkbox-item" filter-value="10" filter-type="support-type">
                             <input type="checkbox" id="concession">
                             <label for="concession">Concession</label>
                             </div>
                             
+                            <div class="checkbox-item" filter-value="60" filter-type="support-type">
+                            <input type="checkbox" id="funding">
+                            <label for="funding">Funding</label>
+                            </div>
+                            
                             <div class="checkbox-item" filter-value="10" filter-type="support-type">
-                            <input type="checkbox" id="tax-rebate">
-                            <label for="tax-rebate">Tax rebate</label>
+                            <input type="checkbox" id="mentorship">
+                            <label for="tax-mentorship">Mentorship</label>
                             </div>
                             
                             <div class="checkbox-item" filter-value="10" filter-type="support-type">
@@ -244,15 +245,15 @@
                             </div>
                             
                             <div class="checkbox-item" filter-value="30" filter-type="support-type">
-                            <input type="checkbox" id="advice">
-                            <label for="advice">Advice</label>
-                            </div>
+                            <input type="checkbox" id="subsidy">
+                            <label for="subsidy">Subsidy</label>
+                            </div>  
                             
                             <div class="checkbox-item" filter-value="10" filter-type="support-type">
-                            <input type="checkbox" id="mentorship">
-                            <label for="tax-mentorship">Mentorship</label>
+                            <input type="checkbox" id="tax-rebate">
+                            <label for="tax-rebate">Tax rebate</label>
                             </div>
-                            
+
                         </form>
 
                         </div>
@@ -273,9 +274,8 @@
                          </div>
                     <div class="active-filters multi-select">
                         <ul>
-                            <li filter-type="objectives" filter-value="25" data-value="covid-19-related-support">Covid-19 related support</li>
-                            <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
                             <li filter-type="objectives" filter-value="13" data-value="build-or-improve-infrastructure">Build or improve infrastructure</li>
+                            <li filter-type="objectives" filter-value="25" data-value="covid-19-related-support">Covid-19 related support</li>
                             <li filter-type="objectives" filter-value="13" data-value="employ-people">Employ people</li>
                             <li filter-type="objectives" filter-value="13" data-value="funding-for-training-and-skills-development">Funding for training and skills development</li>
                             <li filter-type="objectives" filter-value="13" data-value="import-or-export-products-or-services">Import or export products or services</li>
@@ -283,32 +283,27 @@
                             <li filter-type="objectives" filter-value="13" data-value="invest-money-in-other-businesses">Invest money in other businesses</li>
                             <li filter-type="objectives" filter-value="13" data-value="market-and-advertise-my-business">Market and advertise my business</li>
                             <li filter-type="objectives" filter-value="13" data-value="organise-an-event">Organise an event</li>
+                            <li filter-type="objectives" filter-value="25" data-value="prevent-or-recover-from-a-natural-disaster">Prevent or recover from a natural disaster</li>
                             <li filter-type="objectives" filter-value="13" data-value="purchase-or-upgrade-equipment-vehicles-or-tools">Purchase or upgrade equipment, vehicles or tools</li>
                             <li filter-type="objectives" filter-value="13" data-value="recycle-waste-or-reduce-my-energy-use">Recycle waste or reduce my energy use</li>
                             <li filter-type="objectives" filter-value="25" data-value="research-and-develop-innovative-new-products-or-services">Research and develop innovative new products or services</li>
                             <li filter-type="objectives" filter-value="13" data-value="start-a-business">Start a business</li>
                             <li filter-type="objectives" filter-value="13" data-value="upgrade-restore-or-fit-out-a-building">Upgrade, restore or fit out a building</li>
-                            <!--<li filter-type="objectives" filter-value="13" data-value="none-of-these">None of these</li>-->
                         </ul>
                     </div>                
                     <div class="filter-item-content">
 
                         <form>
                             <div class="checkbox-item" filter-value="25" filter-type="objectives">
-                            <input type="checkbox" id="covid-19-related-support">
-                            <label>Covid-19 related support</label>
-                            </div>
-
-                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
-                            <input type="checkbox" id="prevent-or-recover-from-a-natural-disaster">
-                            <label>Prevent or recover from a natural disaster</label>
-                            </div>  
-                            
-                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
                             <input type="checkbox" id="build-or-improve-infrastructure">
                             <label>Build or improve infrastructure</label>
                             </div>
                             
+                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
+                            <input type="checkbox" id="covid-19-related-support">
+                            <label>Covid-19 related support</label>
+                            </div>                     
+                                                        
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
                             <input type="checkbox" id="employ-people">
                             <label>Employ people</label>
@@ -343,7 +338,11 @@
                             <input type="checkbox" id="organise-an-event">
                             <label>Organise an event</label>
                             </div>
-
+                            
+                            <div class="checkbox-item" filter-value="25" filter-type="objectives">
+                            <input type="checkbox" id="prevent-or-recover-from-a-natural-disaster">
+                            <label>Prevent or recover from a natural disaster</label>
+                            </div>  
                             
                             <div class="checkbox-item" filter-value="13" filter-type="objectives">
                             <input type="checkbox" id="purchase-or-upgrade-equipment-vehicles-or-tools">
@@ -369,11 +368,7 @@
                             <input type="checkbox" id="upgrade-restore-or-fit-out-a-building">
                             <label>Upgrade, restore or fit out a building</label>
                             </div>
-                            
-                            <!--<div class="checkbox-item none-of-these" filter-value="13" filter-type="objectives">
-                            <input type="checkbox" id="none-of-these">
-                            <label>None of these</label>
-                            </div>-->
+
                             
                         </form>
 
@@ -433,7 +428,7 @@
                         <ul>
                             <li filter-type="status" filter-value="50" data-value="open">Open</li>
                             <li filter-type="status" filter-value="10" data-value="coming-soon">Coming soon</li>
-                            <li filter-type="status" filter-value="50" data-value="closed">Closed</li>    
+                            <li filter-type="status" filter-value="50" data-value="closed">Closed</li>  
                         </ul>
                     </div>                
                     <div class="filter-item-content">
@@ -442,7 +437,7 @@
                             <div class="checkbox-item" filter-value="50" filter-type="status">
                             <input type="checkbox" id="open">
                             <label >Open</label>
-                            </div>
+                            </div>                        
                             
                             <div class="checkbox-item" filter-value="10" filter-type="status">
                             <input type="checkbox" id="coming-soon">

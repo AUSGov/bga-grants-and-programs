@@ -239,6 +239,7 @@ $(document).ready(function () {
     $(".modal-background").on("click", function(){
         $(".modal-wrapper").removeClass("active");
         $(".modal-background").removeClass("active");
+        $(".shortlist-wrapper-2").removeClass("active");
     });
     
     // Search not working modal
@@ -307,6 +308,68 @@ $(document).ready(function () {
     // Add or remove items from the checklist (using link on results cards)
      $(document).on('click', ".shortlist", function(){
         
+        // Animate the changing number
+        var animDuration = 400;
+
+        if ($(window).width() < 769 ) {
+            $(".shortlist-btn-counter").animate({
+                 now: '+=200'
+             }, {
+                    duration: animDuration,
+                    step: function (now, fx) {
+                     $(this).css({'width': '22px',
+                                  'height': '22px',
+                                  'font-size': '13px',
+                                  'background-color': '#254f90'
+                                 });
+                    }
+                });
+
+                $('.shortlist-btn-counter').animate({
+                 now: '-=400'
+             }, {
+                    duration: animDuration,
+                    step: function (now, fx) {
+                     $(this).css({'width': '20px',
+                                  'height': '20px',
+                                  'font-size': '12px',
+                                  'background-color': '#2F70BF'
+                                 });
+                 }
+            });
+        } else {
+            $(".shortlist-btn-counter").animate({
+             now: '+=200'
+         }, {
+                duration: animDuration,
+                step: function (now, fx) {
+                 $(this).css({'width': '30px',
+                              'height': '30px',
+                              'font-size': '17px',
+                              'top': '1px',
+                              'right': '7px',
+                              'background-color': '#254f90'
+                             });
+                }
+            });
+
+            $('.shortlist-btn-counter').animate({
+             now: '-=400'
+         }, {
+                duration: animDuration,
+                step: function (now, fx) {
+                 $(this).css({'width': '28px',
+                              'height': '28px',
+                              'font-size': '16px',
+                              'top': '2px',
+                              'right': '8px',
+                              'background-color': '#2F70BF'
+                             });
+             }
+            });
+        }
+         
+       
         var parent_card = $(this).parents('.search-card-standard-content'),
             grant = parent_card.find('.search-card-content-type').text(),
             description = parent_card.find('h5').text(),
@@ -359,8 +422,18 @@ $(document).ready(function () {
          
         var shortlist_count = $('.shortlist-counter').text();
         sessionStorage.setItem('shortlist count', shortlist_count);
+         
+        
     });
     
+    // Reset shortlist counter size on screen resize
+    $(window).on('resize', function(){
+        if ($(window).width() < 769 ) {
+            $('.shortlist-btn-counter').css({'width': '20px', 'height': '20px', 'font-size': '12px', 'top': '0px', 'right': '0px' });
+        } 
+        else {$('.shortlist-btn-counter').css({'width': '28px', 'height': '28px', 'font-size': '16px', 'top': '2px', 'right': '8px'});
+        }
+    });
     
     // Remove items from shortlist (in the shortlist modal)  
     $(document).on('click', '.shortlist-links li span', function(){
@@ -418,6 +491,25 @@ $(document).ready(function () {
         $(".modal-background").removeClass("active");
     });
     
+    // Shortlist INSTRUCTIONS modal - only appears once
+    $(document).on("click", '.shortlist', function(){
+        var parent_card = $(this).parents('.search-card-standard-content'),
+            grant = parent_card.find('.search-card-content-type').text();
+        
+        $('.shortlist-wrapper-2 h4 span').text(grant);
+        
+        
+        if (!sessionStorage.getItem('shortlist use')) {
+            $(".shortlist-wrapper-2").addClass("active");
+            $(".modal-background").addClass("active");
+            sessionStorage.setItem('shortlist use', '1');
+        }
+    });
+    $(".shortlist-wrapper-2 .modal-close").on("click", function(){
+        $(".shortlist-wrapper-2").removeClass("active");
+        $(".modal-background").removeClass("active");
+    });
+
     
     
     // FINDER CHANGE SECTION
@@ -616,7 +708,7 @@ $(document).ready(function () {
    
     $('.filter-item .filter-toggle-switch').on('click', function(){
         var filter_type = $(this).attr('data-value');
-        //console.log(filter_type);
+        
         $(this).removeClass('selected');
         $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
         $('#filter-' + filter_type).prop('checked', false).toggleClass('selected');
@@ -1017,6 +1109,20 @@ $(document).ready(function () {
     
     // Rearrange cards on page load (so the task remains consistent across tool sections once it is selected).
     rearrange_cards();
+    
+    
+    // Persistent showing number and shortlist
+    var showing_position = $('.results-title').offset();
+    console.log(showing_position);
+    $(window).scroll(function(){
+        if($(window).scrollTop() > showing_position.top){
+            $('.results-title-wrapper').addClass('sticky'); 
+            $('.filter-and-results-wrapper').addClass('sticky');
+        } else {
+            $('.results-title-wrapper').removeClass('sticky');
+            $('.filter-and-results-wrapper').removeClass('sticky');
+        }    
+    });
 
 
     
