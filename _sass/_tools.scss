@@ -165,13 +165,40 @@
                     &::before {
                         content: none !important;            
                     }
-
                     &.selected {
                         color: $white;
                         background: $blue-primary-mid url(../assets/Icon-finder-tick-white.svg) no-repeat;
                         background-position: left 9px center;
-                        
+                        border-colour: $blue-primary-mid;
                     }
+                    
+                    &:focus{
+                        background-color: $blue-active;
+                        background-image:  url(../assets/Icon-finder-plus-white.svg); 
+                        border-color: $blue-active;
+                        color: $white;
+                    }
+                    &:hover {
+                        background-color: $blue-primary;
+                        background-image:  url(../assets/Icon-finder-plus-white.svg); 
+                        border-color: $blue-primary;
+                        color: $white;
+                    }
+                    &:active {
+                        background-color: $blue-active;
+                        background-image:  url(../assets/Icon-finder-plus-white.svg); 
+                        border-color: $blue-active;
+                        color: $white;
+                    }
+                    &.selected {
+                        &:focus, &:hover, &:active {
+                            background-image:  url(../assets/Icon-finder-tick-white.svg); 
+                        }
+                    }
+                    
+
+                    
+                    
                 }
             }
             
@@ -190,10 +217,14 @@
                 background: $white url(../assets/Icon-chevron-down-blue.svg) no-repeat;
                 background-position: right 16px center;
                 
+                &::placeholder {
+                    color: pink;
+                    opacity: 1;
+                }
                 &:focus {
                     outline: none;
                 }
-                
+
             }
             
             input {
@@ -257,7 +288,7 @@
                 }
                 
                 &.heading-level {
-                    padding: 0 0 32px 0;
+                    padding: 0 0 16px 0;
                     
                     h2 {
                         display: inline;
@@ -1276,7 +1307,7 @@
             }
             .card-body {
                 background-color: #f0f8ff;
-                padding: 20px;
+                padding: 24px;
                 margin-bottom: 0;
                 border-radius: none;
                 outline: none;
@@ -1294,6 +1325,11 @@
                         font-weight: normal;
                         color: #333;
                         padding-bottom: 16px;
+                    }
+                    div:last-of-type {
+                        .accordion-grant-content-description:last-of-type {
+                            padding-bottom: 0px;
+                        }
                     }
                 }
                 
@@ -1462,7 +1498,7 @@
 }
 .pagination-wrapper {
     width: 100%;
-    border-bottom: $blue-primary solid 1px;
+    border-bottom: $black-light solid 1px;
     border-radius: 0px;
     padding-bottom: 8px;
     
@@ -1570,6 +1606,46 @@
             padding: 0 8px 0 0;
         }
     }
+}
+@media(max-width: 576px) {
+    .page-number-wrapper {
+        margin-bottom: 32px;
+        .page-number {
+            display: none;
+        }
+        .select-number-results {
+            text-align: center;
+            width: 100%;
+        }
+    }
+    .pagination-wrapper {
+        .pagination {
+            a {
+                display: none;
+                margin: 0 4px;
+                
+                &.next, &.last {
+                    display: inline-block;
+                    text-indent: -9999px; 
+                    width: 10px;
+                }
+                &.active {
+                    display: inline-block;
+                    background: none;
+                    color: $blue-primary;
+                    padding: 0;
+                    
+                    &::before {
+                        content: "Page ";
+                    }
+                    &::after {
+                        content: " of 3";
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 

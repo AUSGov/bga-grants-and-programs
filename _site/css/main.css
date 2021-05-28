@@ -3811,9 +3811,19 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .finder-question ul li::before { content: none !important; }
 
-.finder-main-section .finder-wrapper .finder-question ul li.selected { color: #ffffff; background: #4569A0 url(../assets/Icon-finder-tick-white.svg) no-repeat; background-position: left 9px center; }
+.finder-main-section .finder-wrapper .finder-question ul li.selected { color: #ffffff; background: #4569A0 url(../assets/Icon-finder-tick-white.svg) no-repeat; background-position: left 9px center; border-colour: #4569A0; }
+
+.finder-main-section .finder-wrapper .finder-question ul li:focus { background-color: #18335C; background-image: url(../assets/Icon-finder-plus-white.svg); border-color: #18335C; color: #ffffff; }
+
+.finder-main-section .finder-wrapper .finder-question ul li:hover { background-color: #254F90; background-image: url(../assets/Icon-finder-plus-white.svg); border-color: #254F90; color: #ffffff; }
+
+.finder-main-section .finder-wrapper .finder-question ul li:active { background-color: #18335C; background-image: url(../assets/Icon-finder-plus-white.svg); border-color: #18335C; color: #ffffff; }
+
+.finder-main-section .finder-wrapper .finder-question ul li.selected:focus, .finder-main-section .finder-wrapper .finder-question ul li.selected:hover, .finder-main-section .finder-wrapper .finder-question ul li.selected:active { background-image: url(../assets/Icon-finder-tick-white.svg); }
 
 .finder-main-section .finder-wrapper .finder-question select { -o-appearance: none; -ms-appearance: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: 8px 56px 8px 16px; border-radius: 0; margin-top: 16px; font-size: 18px; border: none; border-bottom: solid 3px #4569A0; background: #ffffff url(../assets/Icon-chevron-down-blue.svg) no-repeat; background-position: right 16px center; }
+
+.finder-main-section .finder-wrapper .finder-question select::placeholder { color: pink; opacity: 1; }
 
 .finder-main-section .finder-wrapper .finder-question select:focus { outline: none; }
 
@@ -3833,7 +3843,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .finder-question .toggle-question label:after { background: #ffffff; width: 40px; height: 40px; border: #4569A0 solid 2px; border-radius: 50px; background: #ffffff url(../assets/Icon-cross-blue.svg) no-repeat; background-position: center center; background-size: 14px 14px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px; top: -4px; left: 0; cursor: pointer; }
 
-.finder-main-section .finder-wrapper .finder-question .toggle-question.heading-level { padding: 0 0 32px 0; }
+.finder-main-section .finder-wrapper .finder-question .toggle-question.heading-level { padding: 0 0 16px 0; }
 
 .finder-main-section .finder-wrapper .finder-question .toggle-question.heading-level h2 { display: inline; padding: 0 16px 8px 0 !important; }
 
@@ -4125,11 +4135,13 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .results-wrapper .search-accordion-expand-wrapper .card { border: none; }
 
-.results-section .results-wrapper .search-accordion-expand-wrapper .card-body { background-color: #f0f8ff; padding: 20px; margin-bottom: 0; border-radius: none; outline: none; }
+.results-section .results-wrapper .search-accordion-expand-wrapper .card-body { background-color: #f0f8ff; padding: 24px; margin-bottom: 0; border-radius: none; outline: none; }
 
 .results-section .results-wrapper .search-accordion-expand-wrapper .card-body .accordion-expand-contents .accordion-grant-content-heading { font-size: 14px; font-weight: bold; line-height: 2; color: #333; padding-bottom: 16px; }
 
 .results-section .results-wrapper .search-accordion-expand-wrapper .card-body .accordion-expand-contents .accordion-grant-content-description { font-size: 14px; font-weight: normal; color: #333; padding-bottom: 16px; }
+
+.results-section .results-wrapper .search-accordion-expand-wrapper .card-body .accordion-expand-contents div:last-of-type .accordion-grant-content-description:last-of-type { padding-bottom: 0px; }
 
 @media (max-width: 767px) { .results-section .results-wrapper .search-card-content .top-row .search-card-content-type { margin-top: 32px; width: 100%; position: relative; }
   .results-section .results-wrapper .search-card-content .top-row .shortlist { position: absolute; top: 0; right: 0; } }
@@ -4155,7 +4167,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 @media (max-width: 576px) { .results-section .results-title-wrapper .results-title .showing-results { font-size: 16px; margin-bottom: 0px; }
   .results-section .filter-and-results-wrapper.sticky { padding-top: 130px; } }
 
-.pagination-wrapper { width: 100%; border-bottom: #254F90 solid 1px; border-radius: 0px; padding-bottom: 8px; }
+.pagination-wrapper { width: 100%; border-bottom: #333333 solid 1px; border-radius: 0px; padding-bottom: 8px; }
 
 .pagination-wrapper .pagination { text-align: center; display: block; }
 
@@ -4194,6 +4206,15 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .page-number-wrapper .select-number-results label { display: inline-block; padding: 0px 8px 0px 0; }
 
 .page-number-wrapper .select-number-results select { border: none; border-bottom: solid 1px #333333; padding: 0 8px 0 0; }
+
+@media (max-width: 576px) { .page-number-wrapper { margin-bottom: 32px; }
+  .page-number-wrapper .page-number { display: none; }
+  .page-number-wrapper .select-number-results { text-align: center; width: 100%; }
+  .pagination-wrapper .pagination a { display: none; margin: 0 4px; }
+  .pagination-wrapper .pagination a.next, .pagination-wrapper .pagination a.last { display: inline-block; text-indent: -9999px; width: 10px; }
+  .pagination-wrapper .pagination a.active { display: inline-block; background: none; color: #254F90; padding: 0; }
+  .pagination-wrapper .pagination a.active::before { content: "Page "; }
+  .pagination-wrapper .pagination a.active::after { content: " of 3"; } }
 
 /* SHORTLIST MODAL */
 .shortlist-wrapper, .shortlist-wrapper-2 { display: none; height: 80%; }
