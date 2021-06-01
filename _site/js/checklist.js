@@ -65,6 +65,15 @@ $(document).ready(function () {
     });
     
     
+    
+    /*------------------- Checkbox functionality -------------------*/ 
+    $('.checkbox-icon').on('click', function(){
+        $(this).parents('.checklist-item').toggleClass('done');
+    })
+    
+    
+    
+    
 
 
 }); // END doc ready

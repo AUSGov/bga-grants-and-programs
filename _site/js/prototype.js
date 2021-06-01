@@ -305,7 +305,7 @@ $(document).ready(function () {
        
     
     
-    // Add or remove items from the checklist (using link on results cards)
+    // Add or remove items from the shortlist (using link on results cards)
      $(document).on('click', ".shortlist", function(){
         
         // Animate the changing number
@@ -851,6 +851,7 @@ $(document).ready(function () {
     var filter_set_business_stage = ['select-option', '2-years-or-less', '3-and-5-years', 'more-than-5-years'];
     
     set_single_filters('industry', filter_set_industry);
+    set_single_filters('industry', filter_set_industry);
     set_single_filters('business-type', filter_set_business_type);
     set_single_filters('business-stage', filter_set_business_stage);
     
@@ -1112,19 +1113,23 @@ $(document).ready(function () {
     
     
     // Persistent showing number and shortlist
-    var showing_position = $('.results-title').offset();
-    console.log(showing_position);
-    $(window).scroll(function(){
-        if($(window).scrollTop() > showing_position.top){
-            $('.results-title-wrapper').addClass('sticky'); 
-            $('.filter-and-results-wrapper').addClass('sticky');
-        } else {
-            $('.results-title-wrapper').removeClass('sticky');
-            $('.filter-and-results-wrapper').removeClass('sticky');
-        }    
-    });
-
-
+    
+    
+    if ($('.showing-results').length) {
+        var showing_position = $('.results-title').offset();
+        console.log(showing_position);
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > showing_position.top) {
+                $('.results-title-wrapper').addClass('sticky');
+                $('.filter-and-results-wrapper').addClass('sticky');
+            } else {
+                $('.results-title-wrapper').removeClass('sticky');
+                $('.filter-and-results-wrapper').removeClass('sticky');
+            }
+        });
+    } 
+    
+    
     
 }); // END doc ready
 

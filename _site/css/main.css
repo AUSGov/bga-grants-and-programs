@@ -3710,6 +3710,16 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content a:active { color: #000000; }
 
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox { padding: 16px 32px; background: #bac8db; line-height: 1 !important; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox .checkbox-icon { display: inline-block; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox .displaynone { display: none; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox input[type="checkbox"] { opacity: 0; width: 28px !important; height: 28px !important; cursor: pointer; display: none; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox label { padding: 0 0 0 6px; display: inline; font-weight: normal; }
+
 .checklist-wrapper .checklist-item.open:last-of-type .checklist-item-title:before { height: 100%; }
 
 .checklist-wrapper .checklist-item.open .checklist-item-title { background: #E5EDF7 url("../assets/Icon-chevron-up-blue.svg") no-repeat; background-position: right 24px center; border: none; }
@@ -3723,6 +3733,14 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .checklist-wrapper .checklist-item.open .checklist-item-title:active { background: #E5EDF7 url("../assets/Icon-chevron-up-hover-white.svg") no-repeat; background-position: right 16px center; background-size: 36px 36px; }
 
 .checklist-wrapper .checklist-item.open .checklist-sub-item-wrapper { display: block; }
+
+.checklist-wrapper .checklist-item.done .checklist-item-title h2 span { text-indent: -9999px; background: #297e28 url(../assets/Icon-tick-white.svg) no-repeat; border: #297e28 solid 3px; background-position: center center; background-size: 20px 16px; }
+
+.checklist-wrapper .checklist-item.done .checklist-item-checkbox { background: #b7ddb7; line-height: 1 !important; }
+
+.checklist-wrapper .checklist-item.done .checkbox-icon { display: none !important; }
+
+.checklist-wrapper .checklist-item.done .checkbox-icon.displaynone { display: inline-block !important; }
 
 @media (max-width: 991px) { .checklist-wrapper .checklist-line { width: 2px; margin: 48px 0 0 8px; }
   .checklist-wrapper .checklist-item .checklist-item-title { padding: 24px 56px 24px 24px; margin-left: 40px; }
