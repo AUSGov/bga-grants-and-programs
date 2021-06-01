@@ -160,6 +160,31 @@
                 }
 
             }
+            
+            .checklist-item-checkbox {
+                padding: 16px 32px;
+                background: #bac8db;
+                line-height: 1 !important;
+                
+                .checkbox-icon {
+                    display: inline-block;
+                }
+                .displaynone {
+                    display: none;
+                }
+                input[type="checkbox"] {
+                    opacity: 0;
+                    width: 28px !important;
+                    height: 28px !important;
+                    cursor: pointer;
+                    display: none;
+                }
+                label {
+                    padding: 0 0 0 6px;
+                    display: inline;
+                    font-weight: normal;
+                }
+            }            
         }
 
         
@@ -202,7 +227,31 @@
             }
         }
 
+        &.done {
+            .checklist-item-title {
+                h2 {
+                    span {
+                        text-indent: -9999px;
+                        background: #297e28 url(../assets/Icon-tick-white.svg) no-repeat;
+                        border: #297e28 solid 3px;
+                        background-position: center center;
+                        background-size: 20px 16px;
+                    }
+                }
+            }
+            
+            .checklist-item-checkbox {
+                background: #b7ddb7;
+                line-height: 1 !important;
+            }
+            .checkbox-icon {
+                display: none !important;
 
+                &.displaynone {
+                    display: inline-block !important;
+                }
+            }
+        }
 
     }
 
