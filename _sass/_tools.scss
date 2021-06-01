@@ -289,6 +289,7 @@
                 
                 &.heading-level {
                     padding: 0 0 16px 0;
+                    width: calc(100% - 66px);
                     
                     h2 {
                         display: inline;
@@ -451,6 +452,15 @@
 
                     svg {
                         display: none;
+                    }
+                }
+            }
+            
+            .finder-question {
+                .toggle-question.heading-level {
+                    width: 100%;
+                    h2 {
+                        display: block;
                     }
                 }
             }
@@ -907,6 +917,7 @@
                 cursor: pointer;
                 line-height: 18px;
                 font-size: 14px;
+                text-indent: -9999px;
             }
 
             &.active {
@@ -945,10 +956,10 @@
                         }
                         
                         input {
-                            border: solid 1px $darkblue-mid;
+                            border: solid 1px $black-light;
                             border-right: none;
                             height: 40px;
-                            font-size: 12px;
+                            font-size: 14px;
                             width: calc(100% - 40px);
                         }
                         button {
@@ -1372,7 +1383,7 @@
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
-                    margin-bottom: 24px;
+                    margin-bottom: 16px;
 
                 }
 
@@ -1662,10 +1673,10 @@
 .shortlist-wrapper-2.active {
     display: block;
     position: fixed;
-    width: 900px;
-    padding: 64px 32px 32px 32px;
+    width: 800px;
+    padding: 32px;
     top: 10%;
-    left: calc(50% - 450px);
+    left: calc(50% - 400px);
     background: $white;
     z-index: 7000;
     box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
@@ -1679,19 +1690,20 @@
         background-size: 16px 16px;
         background-position: right center;
         position: absolute;
-        right: 24px;
+        right: 16px;
         top: 16px;
         cursor: pointer;
         line-height: 18px;
         font-size: 14px;
         display: block;
+        text-indent: -9999px;
     }
      
     .shortlist-links {
         height: auto;
-        max-height: calc(100% - 260px);
+        max-height: calc(100% - 320px);
         overflow-y: scroll;
-        padding: 16px;
+        padding: 24px;
         background: #E1F2F2;
         
         .empty-shortlist {
@@ -1708,7 +1720,7 @@
     h2 {
         position: relative;
         padding-right: 40px;
-        padding: 0 50px 32px 0;
+        padding: 24px 50px 32px 0;
         display: inline-block;
         
         span {
@@ -1722,7 +1734,7 @@
             text-align: center;
             line-height: 1.7;
             position: absolute;
-            top: 6px;
+            top: 30px;
             right: 0;
         }
     }
@@ -1745,8 +1757,12 @@
         
         li {
             list-style-type: none;
-            padding: 16px 0 0 0;
+            padding: 0 0 16px 0;
             text-indent: -26px;
+            
+            &:last-of-type {
+                padding: 0;
+            }
 
             a {
                 color: $blue-primary-mid;
@@ -1774,7 +1790,7 @@
             }
         }
     }
-    
+        
     .email-shortlist {
         padding-top: 16px;
     }
@@ -1808,7 +1824,6 @@
             font-size: 16px;
             height: 52px;
             width: calc(100% - 200px);
-            max-width: 400px;
             padding: 10px 16px;
         }
         .combo-button-wrapper {   
@@ -1884,28 +1899,37 @@
     }
 
     @media(max-width: 992px) {
-        width: 760px;
-        left:calc(50% - 380px)
+        width: 90%;
+        left: 5%;
     }
     @media (max-width: 767px) {
         width: calc(100% - 30px);
         left: 15px;
         top: 15px;
-        padding: 58px 24px 24px 24px;
+        overflow-y: scroll;
+        
+        .shortlist-links {
+            overflow-y: auto;
+            height: auto;
+            max-height: none;
+        }
         
         h2 {
             font-size: 21px;
-            padding: 0 35px 32px 0;
+            padding: 24px 35px 32px 0;
             
             span {
                 width: 24px;
                 height: 24px;
                 font-size: 14px;
-                top: 2px;
+                top: 30px;
             }
         }
     }   
     @media (max-width: 576px) {
+        .shortlist-links {
+            padding: 16px;
+        }
         .text-box-button-combo-example {
             display: block;
             text-align: right;
