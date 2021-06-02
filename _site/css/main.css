@@ -3786,7 +3786,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .checklist-wrapper .checklist-item.open .checklist-sub-item-wrapper { display: block; }
 
-.checklist-wrapper .checklist-item.done .checklist-item-title h2 span { text-indent: -9999px; background: #297e28 url(../assets/Icon-tick-white.svg) no-repeat; border: #297e28 solid 3px; background-position: center center; background-size: 20px 16px; }
+.checklist-wrapper .checklist-item.done .checklist-item-title h2 span { text-indent: -9999px; background: #297e28 url(../assets/icon-tick-white.svg) no-repeat; border: #297e28 solid 3px; background-position: center center; background-size: 20px 16px; }
 
 .checklist-wrapper .checklist-item.done .checklist-item-checkbox { background: #b7ddb7; line-height: 1 !important; }
 
