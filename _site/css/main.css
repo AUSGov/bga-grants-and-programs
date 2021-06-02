@@ -3704,13 +3704,65 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content h3 { padding-right: 120px; }
 
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content ul { margin-left: 16px; }
+
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content a { color: #254F90; box-shadow: none; border-bottom: 2px solid #748FB8; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content a:hover { text-decoration: none; box-shadow: #D8D8D8 0px -20px 0px 0px inset; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content a:active { color: #000000; }
 
-.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox { padding: 16px 32px; background: #bac8db; line-height: 1 !important; }
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box { height: auto; border-top: none; background: none; padding: 32px; border-top: 4px solid #E1AA21; background: #FFF7DF; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box > *:last-child { padding-bottom: 0; margin-bottom: 0; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box > *:last-child li:last-of-type { padding-bottom: 0; margin-bottom: 0; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box .feature-box-title { display: flex; margin-bottom: 32px; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box .feature-box-title h3 { padding: 8px 0 0 0 !important; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box .feature-icon { height: 56px; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .feature-box .feature-icon svg { width: 56px; height: 56px; margin-right: 16px; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card { display: block; width: 100%; transition-property: transform, -webkit-transform; transition-duration: 0.4s, 0.4s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; background: #F6F9FC; padding: 24px; border: none; border-top: 4px solid #b3c2d8; font-family: "Open Sans", sans-serif; text-decoration: none !important; box-shadow: none; color: #333333; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:hover { background: #D5E2F2; box-shadow: none; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card .description { margin: 0; padding: 0 0 16px 0; font-size: 16px; line-height: 28px; color: #254F90; font-weight: 600; text-decoration: underline; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card .link-container { position: relative; display: flex; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card .link-text { font-size: 12px; line-height: 24px; text-transform: uppercase; text-decoration: none; margin: 0 0 0 8px; padding: 0; color: #333333; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card .link-container .link-icon { height: 16px; width: 16px; line-height: 1.3; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card .link-container .link-icon svg { fill: #254f90; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:hover .inline-pathway-card-content, .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:focus .inline-pathway-card-content { transform: translateX(1rem); }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:hover .description, .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:focus .description { text-decoration: underline; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:hover .link-text, .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .inline-pathway-card:focus .link-text { text-decoration: none; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .download-group { padding-bottom: 2rem; font-family: "Open Sans", sans-serif; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .download-item { align-items: center; display: flex; padding-left: 0; margin-right: 16px; position: relative; text-decoration: none; background-color: transparent; transition: box-shadow 0.25s, -webkit-box-shadow 0.25s; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .download-item:hover { text-decoration: underline; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .icon-row { max-width: 1200px; display: flex; flex-wrap: wrap; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .icon-row .download-icon { height: 16px; width: 16px; display: inline-block; fill: #254f90; line-height: 0; right: 0; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list .download-group-heading { color: #333; font-size: 18px; font-stretch: normal; font-style: normal; font-weight: 700; letter-spacing: normal; line-height: 1.33; margin: 0 0 8px 0; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-list span { font-weight: 600; font-style: normal; text-decoration: none !important; font-size: 12px; line-height: 2; margin-left: 8px; text-transform: uppercase; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content .download-container { margin-bottom: 32px; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox { padding: 24px 32px; background: #bac8db; line-height: 1 !important; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox .checkbox-icon { display: inline-block; }
 

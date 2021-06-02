@@ -115,17 +115,18 @@ $(document).ready(function () {
             var top_position = positions[i];
             if ($(window).scrollTop() >= top_position) {
                 $('.anchor-menu a').removeClass('active-sticky');
-                $('.anchor-menu a[data-value=' + positions[i] + ']').addClass('active-sticky');
+                $('.anchor-menu a[data-value=' + positions[i] + ']').addClass('active-  sticky');
             }
         }
     }
     
     // Remove whitespace from anchor-section names or they break the sidemenu links
-    $('.anchor-section').each(function(){
+    /*$('.anchor-section').each(function(){
         var section_name = $(this).attr('name');
+        console.log(section_name);
         section_name = $(this).attr('name').replace(/\s/g,' ');
         $(this).attr('name', section_name);
-    });
+    });*/
     
     // Function to make the side menu sticky
     var stickyPosition = $('.anchor-menu').offset(); //This var is outside the function because it needs to be determined BEFORE window resizing,.
@@ -173,7 +174,7 @@ $(document).ready(function () {
         // and add top position of element to anchor link as a data-value
         $('.anchor-menu a').each(function(){
             
-            var a_text = $(this).text(),
+            /*var a_text = $(this).text(),
                 element_name = $(this).text().replace(/\s/g,' ');
                 var name_str = '.anchor-section[name="' +  element_name  + '"]';
                 var element_position = $(name_str).offset();
@@ -189,6 +190,7 @@ $(document).ready(function () {
                     $(this).addClass('active-sticky');
                 });
             }
+            */
             
             
         });   
@@ -196,10 +198,17 @@ $(document).ready(function () {
     
         // Change menu active state on scroll to different sections of the page
         var positions = [];
-        $('.anchor-menu a').each(function(){
-            var element_position = $(this).attr('data-value');
-            positions.push(Math.round(element_position));
-        }); 
+        $('.anchor-menu a').each(function(i, obj){
+            // Add position in anchor-menu to each link as a data value
+            $(this).attr('data-value', i);
+            
+            var section = "div#" + i;
+            var element_position = $(section).position();
+            //var element_top = element_position;
+            console.log(element_position);
+            //positions.push(Math.round(element_top));
+        });
+        console.log(positions);
     
         $(window).scroll(function(){
             add_position(positions); 
