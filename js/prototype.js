@@ -68,8 +68,7 @@ $(document).ready(function () {
     
     $('.mobile-test #navbarDropdownMenuLink_0').on('click', function(e){
         e.preventDefault();
-        window.location.pathname = "/bga-grants-and-programs/registrations";
-        
+        window.location.pathname = "/bga-grants-and-programs/registrations";     
     });
     $('.mobile-test #navbarDropdownMenuLink_1').on('click', function(e){
         e.preventDefault();
@@ -89,6 +88,13 @@ $(document).ready(function () {
     
     
     
+    // Information page accordions
+    $('.accordion-item-tile').on('click', function(){
+        $(this).parents('.accordion-item').toggleClass('open');
+        $(this).parents('.accordion-item').find('.accordion-item-content').slideToggle(400);
+    });
+    
+    
     
     // Prevent click empty 'a' tag from causing scrolling
     $('a').on('click', function(e){
@@ -96,6 +102,7 @@ $(document).ready(function () {
             e.preventDefault();
         }
     });
+    
     
     // Hide empty breadcrumb links and arrows
     $('a.breadcrumb-link').each(function(){
@@ -115,18 +122,10 @@ $(document).ready(function () {
             var top_position = positions[i];
             if ($(window).scrollTop() >= top_position) {
                 $('.anchor-menu a').removeClass('active-sticky');
-                $('.anchor-menu a[data-value=' + positions[i] + ']').addClass('active-  sticky');
+                $('.anchor-menu a[data-value=' + positions[i] + ']').addClass('active-sticky');
             }
         }
     }
-    
-    // Remove whitespace from anchor-section names or they break the sidemenu links
-    /*$('.anchor-section').each(function(){
-        var section_name = $(this).attr('name');
-        console.log(section_name);
-        section_name = $(this).attr('name').replace(/\s/g,' ');
-        $(this).attr('name', section_name);
-    });*/
     
     // Function to make the side menu sticky
     var stickyPosition = $('.anchor-menu').offset(); //This var is outside the function because it needs to be determined BEFORE window resizing,.
@@ -168,18 +167,16 @@ $(document).ready(function () {
 
         // Apply menu stickiness
         menuStickiness();
-
         
         // Side menu scroll to section of the page
         // and add top position of element to anchor link as a data-value
         $('.anchor-menu a').each(function(){
             
-            /*var a_text = $(this).text(),
-                element_name = $(this).text().replace(/\s/g,' ');
-                var name_str = '.anchor-section[name="' +  element_name  + '"]';
+            var a_text = $(this).text(),
+                element_name = a_text.replace(/\s+/g, '-').toLowerCase();
+                var name_str = '#' + element_name;
                 var element_position = $(name_str).offset();
-            
-            
+                      
             if ($(name_str).length){
                 $(this).attr('data-value', Math.round(element_position.top));
         
@@ -189,33 +186,9 @@ $(document).ready(function () {
                     $('.anchor-menu a').removeClass('active-sticky');
                     $(this).addClass('active-sticky');
                 });
-            }
-            */
-            
-            
+            }   
         });   
-        
-    
-        // Change menu active state on scroll to different sections of the page
-        var positions = [];
-        $('.anchor-menu a').each(function(i, obj){
-            // Add position in anchor-menu to each link as a data value
-            $(this).attr('data-value', i);
-            
-            var section = "div#" + i;
-            var element_position = $(section).position();
-            //var element_top = element_position;
-            console.log(element_position);
-            //positions.push(Math.round(element_top));
-        });
-        console.log(positions);
-    
-        $(window).scroll(function(){
-            add_position(positions); 
-        });
-    
     } // END if .anchor-menu .sticky-container EXISTS
-    
     
     // Menu stickiness on .resize()
     $(window).on('resize', function(){

@@ -3356,6 +3356,22 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .standardcta .theme-button:hover { background: #254f90 0% 0% no-repeat padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px 0px; border: 2px solid #18335c; border-radius: 6px; opacity: 1; }
 
+.accordion-item .accordion-item-content { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
+
+.accordion-item.open { background: #ebebeb; border-bottom: #ffd964 solid 4px; }
+
+.vertical-list .vertical-list-fileName { font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; color: #254f90; text-decoration: underline; }
+
+.vertical-list .action-card-info a { margin-left: 8px; text-transform: uppercase; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; font-size: 14px; text-decoration: none; border: none; box-shadow: none; }
+
+.vertical-list .action-card-info a:hover, .vertical-list .action-card-info a:focus { border: none; box-shadow: none; }
+
+.vertical-list .action-card-button:hover, .vertical-list .action-card-button:focus { background: #d5e2f2; }
+
+.download-item a { border: none; box-shadow: none; }
+
+.download-item a:hover, .download-item a:focus { border: none; box-shadow: none; text-decoration: underline; }
+
 .mini-list { margin-bottom: 32px; }
 
 .mini-list .mini-list-item { position: relative; margin-bottom: 4px; min-height: 64px; }
@@ -3401,6 +3417,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .feature-box .feature-icon { height: 56px; }
 
 .feature-box .feature-icon svg { width: 56px; height: 56px; margin-right: 16px; }
+
+.feature-box a:hover, .feature-box a:active { box-shadow: inset 0 -20px 0 #ffffff; }
 
 .contact-card-content h4 { padding: 0 0 16px 0; }
 

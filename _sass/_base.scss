@@ -389,6 +389,62 @@ html {
 }
 
 
+// ACCORDIONS
+.accordion-item {
+    .accordion-item-content {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+    }
+    &.open {
+        background: #ebebeb;
+        border-bottom: #ffd964 solid 4px;
+    }
+}
+
+// INLINE PATHWAYS
+.vertical-list {
+    .vertical-list-fileName{ 
+        @include font-format($font-family, $font-semibold, normal);
+        color: #254f90;
+        text-decoration: underline;
+    }
+    .action-card-info {
+        a {
+            margin-left: 8px;
+            text-transform: uppercase;
+            @include font-format($font-family, $font-regular, normal);
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            box-shadow: none;
+            
+            &:hover, &:focus {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+    .action-card-button:hover, .action-card-button:focus {
+        background: #d5e2f2;
+    }
+}
+
+// DOWNLOAD LIST
+.download-item {
+    a {
+        border: none;
+        box-shadow: none;
+        
+        &:hover, &:focus {
+            border: none;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+    }
+}
+
 
 
 // MINI-LIST
@@ -515,6 +571,12 @@ html {
              margin-right: 16px;
          }
      }
+     
+     
+     a:hover, a:active {
+         box-shadow: inset 0 -20px 0 $white;
+     }
+ 
  }
 
 // Contact card
