@@ -4,7 +4,7 @@ $(document).ready(function () {
     
     /*------------------- Open & close checklist items -------------------*/
     $(".checklist-item-title").on("click", function () {
-        $(this).next('.checklist-sub-item-wrapper').slideToggle(400);
+        $(this).next('.checklist-sub-item-wrapper').slideToggle(600);
 
         if ($(this).closest('.checklist-item').hasClass('open')) {
             
@@ -14,7 +14,7 @@ $(document).ready(function () {
             // Close sub-items when close step
             if ( $(this).closest('.checklist-item').find('.checklist-sub-item').hasClass('open') ) {
                
-                $(this).closest('.checklist-item').find('.checklist-sub-item.open').find('.content-wrapper').slideToggle(400);
+                $(this).closest('.checklist-item').find('.checklist-sub-item.open').find('.content-wrapper').slideToggle(600);
                 $(this).closest('.checklist-item').find('.checklist-sub-item').removeClass('open');
             }
             
@@ -34,7 +34,7 @@ $(document).ready(function () {
     /*------------------- Open & close sub-checklist items -------------------*/
      $(".checklist-sub-item-title").on("click", function () {
 
-        $(this).next('.content-wrapper').slideToggle(400);
+        $(this).next('.content-wrapper').slideToggle(600);
          
         if ($(this).closest('.checklist-sub-item').hasClass('open')) {
             $(this).closest('.checklist-sub-item').removeClass('open');
@@ -68,8 +68,31 @@ $(document).ready(function () {
     
     /*------------------- Checkbox functionality -------------------*/ 
     $('.checkbox-icon').on('click', function(){
-        $(this).parents('.checklist-item').toggleClass('done');
-    })
+        // Mark item as done
+        var parent_item = $(this).parents('.checklist-item');
+        $(parent_item).toggleClass('done');
+        
+        
+        // Scroll and close
+        if(parent_item.hasClass('done')) {
+            console.log('now is done');
+            
+            parent_item.removeClass('open');
+                var parent_position = parent_item.position();
+                $("html").animate(
+                    {
+                    scrollTop: $(parent_item).offset().top
+                      },
+                    400 //speed
+                );
+
+                var content = $(this).parents('.checklist-sub-item-wrapper');
+                setTimeout(function(){
+                    content.slideUp(1000);
+                }, 400);
+            
+         } 
+    });
     
     
     
