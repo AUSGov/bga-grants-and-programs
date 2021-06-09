@@ -3368,6 +3368,29 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .vertical-list .action-card-button:hover, .vertical-list .action-card-button:focus { background: #d5e2f2; }
 
+.vertical-list .inline-pathway-card { display: block; width: 100%; transition-property: transform, -webkit-transform; transition-duration: 0.4s, 0.4s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; background: #E5EDF7; padding: 24px; border: none; border-top: 4px solid #b3c2d8; font-family: "Open Sans", sans-serif; font-style: normal; font-stretch: normal; text-decoration: none; color: #333333; box-shadow: none; }
+
+.vertical-list .inline-pathway-card .link-container { position: relative; display: flex; align-items: center; }
+
+.vertical-list .inline-pathway-card .link-container .link-icon { height: 16px; width: 16px; position: relative; }
+
+.vertical-list .inline-pathway-card .link-container .link-icon svg { fill: #254f90; vertical-align: top; }
+
+.vertical-list .inline-pathway-card .description { margin: 0 0 16px 0; padding: 0; font-size: 16px; line-height: 28px; color: #254F90; font-weight: 600; text-decoration: underline; }
+
+.vertical-list .inline-pathway-card .link-text { letter-spacing: 0; font-size: 12px; line-height: 24px; text-transform: uppercase; text-decoration: none; margin: 0 0 0 8px; color: #333333; padding: 0; }
+
+.vertical-list .inline-pathway-card:hover, .vertical-list .inline-pathway-card:focus { background: #D5E2F2; box-shadow: none; }
+
+.vertical-list .inline-pathway-card:hover .inline-pathway-card-content, .vertical-list .inline-pathway-card:focus .inline-pathway-card-content { transform: translateX(1rem); }
+
+.vertical-list .inline-pathway-card:hover .description, .vertical-list .inline-pathway-card:focus .description { text-decoration: underline; }
+
+.vertical-list .inline-pathway-card:hover .link-text, .vertical-list .inline-pathway-card:focus .link-text { text-decoration: none; }
+
+/* Media queries */
+@media (max-width: 575px) { .inline-pathway-card { max-width: 320px; } }
+
 .download-item a { border: none; box-shadow: none; }
 
 .download-item a:hover, .download-item a:focus { border: none; box-shadow: none; text-decoration: underline; }

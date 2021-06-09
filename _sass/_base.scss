@@ -404,7 +404,9 @@ html {
 }
 
 // INLINE PATHWAYS
+
 .vertical-list {
+    // Within checklist pattern
     .vertical-list-fileName{ 
         @include font-format($font-family, $font-semibold, normal);
         color: #254f90;
@@ -428,6 +430,86 @@ html {
     }
     .action-card-button:hover, .action-card-button:focus {
         background: #d5e2f2;
+    }
+    
+    // Outside checklist pattern
+    .inline-pathway-card {
+        display: block;
+        width: 100%;
+        transition-property: transform, -webkit-transform;
+        transition-duration: 0.4s, 0.4s;
+        transition-timing-function: ease, ease;
+        transition-delay: 0s, 0s;
+        background: #E5EDF7;
+        padding: 24px;
+        border: none;
+        border-top: 4px solid #b3c2d8;
+        font-family: "Open Sans", sans-serif;
+        font-style: normal;
+        font-stretch: normal;
+        text-decoration: none;
+        color: #333333;
+        box-shadow: none;
+        
+        .link-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            
+            .link-icon {
+                height: 16px;
+                width: 16px;
+                position: relative;
+                
+                svg {
+                    fill: #254f90;
+                    vertical-align: top;
+                }
+            }
+        }
+        .description {
+            margin: 0 0 16px 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 28px;
+            color: #254F90;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .link-text {
+            letter-spacing: 0;
+            font-size: 12px;
+            line-height: 24px;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 0 0 0 8px;
+            color: #333333;
+            padding: 0;
+        }
+        &:hover, &:focus {
+            background: #D5E2F2;
+            box-shadow: none;
+            
+            .inline-pathway-card-content {
+                transform: translateX(1rem);
+            } 
+            .description {
+                text-decoration: underline;
+            }
+            .link-text {
+                text-decoration: none;
+            }
+        }
+        
+    }  
+}
+
+
+
+/* Media queries */
+@media (max-width: 575px) {
+    .inline-pathway-card {
+        max-width: 320px;
     }
 }
 
