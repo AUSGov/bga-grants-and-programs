@@ -172,10 +172,16 @@ $(document).ready(function () {
         // and add top position of element to anchor link as a data-value
         $('.anchor-menu a').each(function(){
             
-            var a_text = $(this).text(),
-                element_name = a_text.replace(/\s+/g, '-').toLowerCase();
+            // Get rid of punctuation before converting it an ID.
+             var a_text = $(this).text(),
+                element_name = a_text.replace(". ", "");
+                element_name = element_name.replace(/\s+/g, '-').toLowerCase();
+                element_name = element_name.replace("'", "");
+                element_name = element_name.replace(",", "");
+                element_name = element_name.replace(/[0-9]/g, '');
                 var name_str = '#' + element_name;
                 var element_position = $(name_str).offset();
+                console.log(element_position);
                       
             if ($(name_str).length){
                 $(this).attr('data-value', Math.round(element_position.top));
