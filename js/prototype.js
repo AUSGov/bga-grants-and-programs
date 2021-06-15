@@ -181,7 +181,7 @@ $(document).ready(function () {
                 element_name = element_name.replace(/[0-9]/g, '');
                 var name_str = '#' + element_name;
                 var element_position = $(name_str).offset();
-                console.log(element_position);
+                //console.log(element_position);
                       
             if ($(name_str).length){
                 $(this).attr('data-value', Math.round(element_position.top));
@@ -667,6 +667,7 @@ $(document).ready(function () {
     $('.finder-question-toggle .custom-control-input').on('click', function(){
         var filter_type = $(this).parents('.finder-question-toggle').attr('id');  
         filter_type = filter_type.slice(9, filter_type.length);
+        //console.log(filter_type);
 
             if ($(this).is(":checked")) { 
                 $('li[data-value="' + filter_type + '"]').toggleClass('selected');
@@ -681,6 +682,7 @@ $(document).ready(function () {
     $('.filter-item .custom-control-input').on('click', function(){
         var filter_type = $(this).attr('id');
         filter_type = filter_type.slice(7, filter_type.length);
+        //console.log(filter_type);
         
         if ($(this).is(":checked")) { 
             $(this).toggleClass('selected');
@@ -696,6 +698,7 @@ $(document).ready(function () {
    
     $('.filter-item .filter-toggle-switch').on('click', function(){
         var filter_type = $(this).attr('data-value');
+        //console.log(filter_type);
         
         $(this).removeClass('selected');
         $('#'+ filter_type + '-switch').prop('checked', false).toggleClass('selected');
@@ -706,7 +709,7 @@ $(document).ready(function () {
  
 
     // FUNCTION TO COUNT and SET active filter counts
-    var all_filter_types = ['location', 'rural', 'industry', 'business-type', 'support-type', 'objectives', 'business-stage', 'status', 'atsi'];
+    var all_filter_types = ['location', 'rural', 'industry', 'industry-toggle', 'business-type', 'support-type', 'objectives', 'business-stage', 'status', 'atsi'];
     
     
     // MOBILE FILTER VISIBILITY
@@ -846,10 +849,11 @@ $(document).ready(function () {
     
     
     // SET TOGGLE SWITCH QUESTIONS ON PAGE LOAD.
-    var filter_set_toggles = ['rural', 'atsi'];
+    var filter_set_toggles = ['rural', 'atsi', 'industry-toggle'];
     
     for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
         var toggle_option = filter_set_toggles[toggle];
+        console.log(toggle_option);
 
         if (sessionStorage.getItem(toggle_option) === '1') {  
             
@@ -1105,7 +1109,6 @@ $(document).ready(function () {
     
     if ($('.showing-results').length) {
         var showing_position = $('.results-title').offset();
-        console.log(showing_position);
         $(window).scroll(function () {
             if ($(window).scrollTop() > showing_position.top) {
                 $('.results-title-wrapper').addClass('sticky');
