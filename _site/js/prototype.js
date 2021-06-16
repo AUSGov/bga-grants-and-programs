@@ -853,7 +853,6 @@ $(document).ready(function () {
     
     for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
         var toggle_option = filter_set_toggles[toggle];
-        console.log(toggle_option);
 
         if (sessionStorage.getItem(toggle_option) === '1') {  
             
@@ -1019,8 +1018,8 @@ $(document).ready(function () {
             result_count = parseInt(max_showing);
         }
         
-        var reduced_count = Math.round(result_count - 51),
-            restore_count = Math.round(result_count + 51);
+        var reduced_count = Math.round(result_count - filter_value),
+            restore_count = Math.round(result_count + filter_value);
 
         reduced_count = max_min_count(reduced_count);
         restore_count = max_min_count(restore_count);  
