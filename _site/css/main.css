@@ -4154,6 +4154,12 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .filter-wrapper .filters .filter-item .toggle-question .custom-control-input:checked ~ .custom-control-label::after { background: url(../assets/Icon-tick-filters.svg) no-repeat #ffffff; background-position: center center; border: solid 2px #333333; background-size: 18px 14px; left: -34px; }
 
+.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label { color: #8E8E8E; }
+
+.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label:before { background: #F5F5F5; }
+
+.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label:after { border: #EBEBEB solid 1px; }
+
 .results-section .filter-wrapper .filters .filter-item.one-option { padding-top: 0; }
 
 .results-section .filter-wrapper .filters .filter-item.one-option li.selected { margin-top: 16px; }
@@ -4352,6 +4358,9 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
   .pagination-wrapper .pagination a.active { display: inline-block; background: none; color: #254F90; padding: 0; }
   .pagination-wrapper .pagination a.active::before { content: "Page "; }
   .pagination-wrapper .pagination a.active::after { content: " of 3"; } }
+
+/* DYNAMIC QUESTION */
+.hidden-question { display: none; }
 
 /* SHORTLIST MODAL */
 .shortlist-wrapper, .shortlist-wrapper-2 { display: none; height: 80%; }

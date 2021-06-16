@@ -597,6 +597,15 @@ $(document).ready(function () {
         // Add to sessionStorage 
         sessionStorage.setItem(filter_type + " selection", filter_option);
         
+        // Show/hide dynamic toggle question
+        var hidden_question = $(this).parents('.finder-question').find('.hidden-question');
+        if(filter_option !== "select-option") {
+            //console.log(filter_option);
+            hidden_question.slideDown();
+        } else {
+            hidden_question.slideUp();
+        } 
+        
     });
     
     
@@ -643,6 +652,14 @@ $(document).ready(function () {
         
         // Add to sessionStorage 
         sessionStorage.setItem(filter_type + " selection", filter_option);
+        
+        // Show/hide dynamic toggle question
+        if(filter_option !== "select-option") {
+            //console.log(filter_option);
+            $(this).parents('.filter-item').find('.dynamic-question').removeClass('disabled');
+        } else {
+            $(this).parents('.filter-item').find('.dynamic-question').addClass('disabled');
+        }
         
     });
     
@@ -1001,6 +1018,17 @@ $(document).ready(function () {
         
         //Set total filter count
         total_active_filters();
+        
+        // Remove count for hidden question toggle
+        //var hidden_question = $(this).parents('.finder-question').find('.hidden-question');
+       
+        /*if($(this).val() !== "select-option") {
+            console.log($(this).val());
+            
+        } else {
+            console.log($(this).val());
+            //hidden_question.slideUp();
+        }*/
 
     });
     
