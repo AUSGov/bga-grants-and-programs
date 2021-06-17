@@ -315,6 +315,24 @@
                     background-size: 18px 14px;
                     left: 14px;
                 }
+
+            }
+            .disabled {
+                cursor: auto;
+                .toggle-question {
+                    h3 {
+                       opacity: 0.3;
+                    }
+                    label {
+                        &:before {
+                            opacity: 0.4;
+                        }
+                        &:after {
+                            border-color: $blue-primary-light;
+                            background-image: url(../assets/Icon-cross-blue-light.svg);
+                        }
+                    }
+                }
             }
         }
         
@@ -850,46 +868,62 @@
 
                 }
                 .toggle-question {
-                        padding-top: 16px;
+                    padding-top: 16px;
 
+                    label {
+                        font-size: 14px;
+                        @include font-format($font-family, $font-regular, normal);
+                        padding-left: 16px;
+
+                        &:before {
+                            width: 44px;
+                            height: 16px;
+                            background: $grey;
+                            border: none;
+                            margin-top: 4px;
+                            border-radius: 50px;
+                            cursor: pointer;
+                        }
+                        &:after {
+                            background: $white;
+                            width: 30px;
+                            height: 30px;
+                            border: $grey-dark solid 1px;
+                            border-radius: 50px;
+                            background: url(../assets/Icon-cross-grey.svg) no-repeat $white;
+                            background-position: center center;
+                            background-size: 14px 14px;  
+                            top: 2px;
+                            left: -37px;
+                            cursor: pointer;
+                        }
+                    }
+                    .custom-control-input:focus~.custom-control-label::before {
+                        box-shadow: none;
+                    }
+                    .custom-control-input:checked~.custom-control-label::after {
+                        background: url(../assets/Icon-tick-filters.svg) no-repeat $white;
+                        background-position: center center;
+                        border: solid 2px $black-light;
+                        background-size: 18px 14px;
+                        left: -34px;
+                    }
+                    
+                    &.disabled {
+                        cursor: auto;
+                        
                         label {
-                            font-size: 14px;
-                            @include font-format($font-family, $font-regular, normal);
-                            padding-left: 16px;
-
+                            color: $grey-dark;
+                            
                             &:before {
-                                width: 44px;
-                                height: 16px;
-                                background: $grey;
-                                border: none;
-                                margin-top: 4px;
-                                border-radius: 50px;
-                                cursor: pointer;
+                                background: $grey-lightest;
                             }
                             &:after {
-                                background: $white;
-                                width: 30px;
-                                height: 30px;
-                                border: $grey-dark solid 1px;
-                                border-radius: 50px;
-                                background: url(../assets/Icon-cross-grey.svg) no-repeat $white;
-                                background-position: center center;
-                                background-size: 14px 14px;  
-                                top: 2px;
-                                left: -37px;
-                                cursor: pointer;
+                                border: $grey-lighter solid 1px;
+                                background-image: url(../assets/Icon-cross-grey-light.svg);
                             }
                         }
-                        .custom-control-input:focus~.custom-control-label::before {
-                            box-shadow: none;
-                        }
-                        .custom-control-input:checked~.custom-control-label::after {
-                            background: url(../assets/Icon-tick-filters.svg) no-repeat $white;
-                            background-position: center center;
-                            border: solid 2px $black-light;
-                            background-size: 18px 14px;
-                            left: -34px;
-                        }
+                    }
                     }
                 &.one-option {
                     padding-top: 0;
@@ -1657,6 +1691,11 @@
         }
     }
     
+}
+
+/* DYNAMIC QUESTION */
+.hidden-question {
+    display: none;
 }
 
 
