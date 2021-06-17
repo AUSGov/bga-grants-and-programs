@@ -589,7 +589,7 @@ $(document).ready(function () {
         
         // Add bubble
         $('#' + filter_type + ' .active-filters.single-select li').removeClass('selected');
-        $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
+            $('.active-filters.single-select li[data-value="' + filter_option + '"]').addClass('selected');
         
         // Change select in the filters
         $('#' + filter_type + ' .filter-item-content select').val(filter_option);
@@ -597,14 +597,19 @@ $(document).ready(function () {
         // Add to sessionStorage 
         sessionStorage.setItem(filter_type + " selection", filter_option);
         
-        // Show/hide dynamic toggle question
-        var hidden_question = $(this).parents('.finder-question').find('.hidden-question');
+        // Disable dynamic toggle question
         if(filter_option !== "select-option") {
-            //console.log(filter_option);
-            hidden_question.slideDown();
+            $('.dynamic-question').removeClass('disabled');
+            $('input[toggle-filter-type="' + toggle_option + '"]').removeAttr("disabled");
         } else {
-            hidden_question.slideUp();
-        } 
+            $('.dynamic-question').addClass('disabled');
+            $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
+            $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", true);
+            console.log(toggle_option);   
+            if (toggle_option === 'industry-toggle') {
+                sessionStorage.setItem('industry-toggle', 0);
+            }
+        }
         
     });
     
@@ -629,15 +634,24 @@ $(document).ready(function () {
     
     // Select filter 'bubble' options-single select
      $('.active-filters.single-select li').on('click', function(){
-         $(this).removeClass('selected');
          
-         var filter_type = $(this).parents('.filter-item').attr('id');
+        var filter_type = $(this).parents('.filter-item').attr('id');
+        if ($(this).hasClass('filter-toggle-switch')) {
+            sessionStorage.setItem(filter_type + " selection", 0);
+        } else {
          
-         $('#question-' + filter_type + ' select').val('select-option');     
-         $('#' + filter_type + ' .filter-item-content select').val('select-option');
+            $(this).parents('.active-filters').find('li').removeClass('selected');
+            $('.dynamic-question').addClass('disabled');
+            $('input[toggle-filter-type="' + filter_type + '-toggle"]').prop('checked', false).removeClass('selected').attr("disabled", true);
+
+            $('#question-' + filter_type + ' select').val('select-option');     
+            $('#' + filter_type + ' .filter-item-content select').val('select-option');
+
+            sessionStorage.setItem(filter_type + " selection", 'select-option');
+            console.log();
+            sessionStorage.setItem(filter_type + "-toggle", 0);
+        }
          
-         // Add to sessionStorage 
-         sessionStorage.setItem(filter_type + " selection", 'select-option');
     });
     
     // Select single select options
@@ -653,14 +667,21 @@ $(document).ready(function () {
         // Add to sessionStorage 
         sessionStorage.setItem(filter_type + " selection", filter_option);
         
-        // Show/hide dynamic toggle question
+        // Disable dynamic toggle question
         if(filter_option !== "select-option") {
-            //console.log(filter_option);
-            $(this).parents('.filter-item').find('.dynamic-question').removeClass('disabled');
+            $('.dynamic-question').removeClass('disabled');
+            $('input[toggle-filter-type="' + toggle_option + '"]').removeAttr("disabled");
         } else {
-            $(this).parents('.filter-item').find('.dynamic-question').addClass('disabled');
+            $('.dynamic-question').addClass('disabled');
+            $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
+            $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", true);
+
+            console.log(toggle_option);   
+            if (toggle_option === 'industry-toggle') {
+                sessionStorage.setItem('industry-toggle', 0);
+            }
         }
-        
+   
     });
     
     // Select filter checkbox options
@@ -859,7 +880,6 @@ $(document).ready(function () {
     var filter_set_business_stage = ['select-option', '2-years-or-less', '3-and-5-years', 'more-than-5-years'];
     
     set_single_filters('industry', filter_set_industry);
-    set_single_filters('industry', filter_set_industry);
     set_single_filters('business-type', filter_set_business_type);
     set_single_filters('business-stage', filter_set_business_stage);
     
@@ -870,18 +890,17 @@ $(document).ready(function () {
     
     for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
         var toggle_option = filter_set_toggles[toggle];
-
+        
         if (sessionStorage.getItem(toggle_option) === '1') {  
-            
-            $('.custom-control-input').addClass('selected');
             $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', true).toggleClass('selected');
             
             $('.active-filters li[filter-type="' + toggle_option + '"]').toggleClass('selected');
-    
-        }       
+            var dynamic_question = $('#question-' + toggle_option);
+            $('#question-' + toggle_option).removeClass('disabled');
+        }    
     }
- 
     
+ 
     
     // SET FILTER COUNT ON PAGE LOAD
     total_active_filters();
@@ -919,7 +938,7 @@ $(document).ready(function () {
         restore_count = max_min_count(restore_count);
         new_count_minus = max_min_count(new_count_minus);
         new_count_plus = max_min_count(new_count_plus); 
-
+        
         // First use of a filter type
         if (filter_type_current_value === 0) {
 
@@ -1015,21 +1034,9 @@ $(document).ready(function () {
         sessionStorage.setItem(filter_type, 1);
         
         $('.filter-item#' + filter_type).find('.mobile-counter').text(1).addClass('active');
-        
+
         //Set total filter count
         total_active_filters();
-        
-        // Remove count for hidden question toggle
-        //var hidden_question = $(this).parents('.finder-question').find('.hidden-question');
-       
-        /*if($(this).val() !== "select-option") {
-            console.log($(this).val());
-            
-        } else {
-            console.log($(this).val());
-            //hidden_question.slideUp();
-        }*/
-
     });
     
     $('[toggle-filter-type]').change(function(){

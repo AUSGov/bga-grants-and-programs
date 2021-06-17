@@ -3992,6 +3992,14 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .finder-question .toggle-question .custom-control-input:checked ~ .custom-control-label::after { background: url(../assets/icon-tick-white.svg) no-repeat #4569A0; background-position: center center; background-size: 18px 14px; left: 14px; }
 
+.finder-main-section .finder-wrapper .finder-question .disabled { cursor: auto; }
+
+.finder-main-section .finder-wrapper .finder-question .disabled .toggle-question h3 { opacity: 0.3; }
+
+.finder-main-section .finder-wrapper .finder-question .disabled .toggle-question label:before { opacity: 0.4; }
+
+.finder-main-section .finder-wrapper .finder-question .disabled .toggle-question label:after { border-color: #B3C2D8; background-image: url(../assets/Icon-cross-blue-light.svg); }
+
 .finder-main-section .finder-wrapper form { margin: 0px 0px 32px 0; width: 100%; text-align: right; }
 
 .finder-main-section .finder-wrapper form h3 { padding: 0 0 16px 0; }
@@ -4154,11 +4162,13 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .filter-wrapper .filters .filter-item .toggle-question .custom-control-input:checked ~ .custom-control-label::after { background: url(../assets/Icon-tick-filters.svg) no-repeat #ffffff; background-position: center center; border: solid 2px #333333; background-size: 18px 14px; left: -34px; }
 
+.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled { cursor: auto; }
+
 .results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label { color: #8E8E8E; }
 
 .results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label:before { background: #F5F5F5; }
 
-.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label:after { border: #EBEBEB solid 1px; }
+.results-section .filter-wrapper .filters .filter-item .toggle-question.disabled label:after { border: #EBEBEB solid 1px; background-image: url(../assets/Icon-cross-grey-light.svg); }
 
 .results-section .filter-wrapper .filters .filter-item.one-option { padding-top: 0; }
 

@@ -315,6 +315,24 @@
                     background-size: 18px 14px;
                     left: 14px;
                 }
+
+            }
+            .disabled {
+                cursor: auto;
+                .toggle-question {
+                    h3 {
+                       opacity: 0.3;
+                    }
+                    label {
+                        &:before {
+                            opacity: 0.4;
+                        }
+                        &:after {
+                            border-color: $blue-primary-light;
+                            background-image: url(../assets/Icon-cross-blue-light.svg);
+                        }
+                    }
+                }
             }
         }
         
@@ -892,6 +910,8 @@
                     }
                     
                     &.disabled {
+                        cursor: auto;
+                        
                         label {
                             color: $grey-dark;
                             
@@ -900,6 +920,7 @@
                             }
                             &:after {
                                 border: $grey-lighter solid 1px;
+                                background-image: url(../assets/Icon-cross-grey-light.svg);
                             }
                         }
                     }
