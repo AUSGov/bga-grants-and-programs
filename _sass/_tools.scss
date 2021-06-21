@@ -162,6 +162,10 @@
                     box-sizing: border-box;
                     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
                     
+                    &.undecided {
+                        background-color: $red-negative-light;
+                    }
+                    
                     &::before {
                         content: none !important;            
                     }

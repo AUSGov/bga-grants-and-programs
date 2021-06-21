@@ -3944,6 +3944,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .finder-main-section .finder-wrapper .finder-question ul li { list-style: none; font-size: 15px; padding: 6px 16px 6px 32px; background: url(../assets/Icon-finder-plus.svg) no-repeat #ffffff; background-position: left 12px center; border: 2px solid #4569A0; border-radius: 30px; margin: 16px 16px 0 0; line-height: 1.5; cursor: pointer; display: inline-block; min-height: 40px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px; }
 
+.finder-main-section .finder-wrapper .finder-question ul li.undecided { background-color: #F5B5B5; }
+
 .finder-main-section .finder-wrapper .finder-question ul li::before { content: none !important; }
 
 .finder-main-section .finder-wrapper .finder-question ul li.selected { color: #ffffff; background: #4569A0 url(../assets/Icon-finder-tick-white.svg) no-repeat; background-position: left 9px center; border-colour: #4569A0; }
