@@ -1217,8 +1217,8 @@
 
 
 
-<!-- SECTION 8 - ATSI-->
-
+<!-- SECTION 8 - ATSI TOGGLE -->
+<!--
 <div class="finder_section" data-value="8" id="section_8">
     <div class="finder-main-section main-section light" id="mainsection">
 
@@ -1264,6 +1264,59 @@
         
     </div>
 </div>
+-->
+
+<!-- SECTION 8 - ATSI SINGLE SELECT -->
+<div class="finder_section" data-value="8" id="section_8">
+<div class="finder-main-section main-section light" id="mainsection">  
+
+
+    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="finder-question single-select" id="question-atsi">
+                    <p class="section-title">Indigenous oppotunities</p>
+                    <h2>Show me opportunities for Indigenous Australians</h2>
+                    
+                       <select id="sel_stage" select-filter-type="atsi" filter-value="51">
+                            <option value="select-option">Both indigenous and non-indigenous opportunities</option>
+                            <option value="indigenous-only" class="select-option">Indigenous opportunities only</option>
+                            <option value="non-indigenous-only" class="select-option">Non-indigenous opportunities only</option>
+                            
+                        </select>
+                    
+                </div>
+                
+                
+                
+                <form>
+                    <div class="form-buttons">
+                       
+                        <a href=/bga-grants-and-programs/finder/tool.html class="start-again clear-all">Start again</a>
+                        
+                        <a href=/bga-grants-and-programs/finder/tool_5.html class="previous" data-value="section_5">Previous</a>
+                       
+                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
+                            <div>
+                                <a href=/bga-grants-and-programs/finder/tool_7.html data-value="section_7" class="next theme-button theme-button-primary theme-button-small btn">
+                                    <span>Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+             
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+
 
     
     
@@ -1796,8 +1849,8 @@
                     </div>
               
       
-    <!-- 8. ATSI -->
-
+    <!-- 8. ATSI TOGGLE -->
+<!--
                 <div class="filter-item one-option" id="atsi">
 
                     <div class="active-filters">
@@ -1812,8 +1865,41 @@
                     </div>
 
                 </div>
+-->
+    
+    <!-- 8. ATSI SINGLE SELECT -->
+                  <div class="filter-item" id="atsi">
+                    <div class="filter-item-title">
+                         <p>Indigenous opportunities <span class="mobile-counter"></span></p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12.5" viewBox="0 0 20 12.5">
+                            <g transform="translate(20 12.5) rotate(180)">
+                                <path id="Chevron_Up" data-name="Chevron / Up" d="M10,4.965,2.478,12.5,0,10.018,10,0,20,10.018,17.522,12.5Z" fill="#333" />
+                            </g>
+                        </svg>
 
-                   
+                         </div>
+                    <div class="active-filters single-select">
+                        <ul>
+                            <li filter-value="51" data-value="indigenous-only" class="select-option">Indigenous opportunities only</li>
+                            <li filter-value="51" data-value="non-indigenous-only" class="select-option">Non-indigenous opportunities only</li>
+                           
+                        </ul>
+                    </div>                
+                    <div class="filter-item-content">
+
+                        <form>
+                        <select id="sel_stage" select-filter-type="atsi" filter-value="51">
+                            <option value="select-option">Select opportunity type</option>
+                            <option value="indigenous-only" class="select-option">Indigenous opportunities only</option>
+                            <option value="non-indigenous-only" class="select-option">Non-indigenous opportunities only</option>
+                            
+                        </select>
+                        </form>
+
+                        </div>
+                    </div>
+   
+    
                  
     </div>
     
