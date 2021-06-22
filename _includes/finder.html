@@ -502,8 +502,8 @@
 
 
 
-<!-- SECTION 8 - ATSI-->
-
+<!-- SECTION 8 - ATSI TOGGLE -->
+<!--
 <div class="finder_section" data-value="8" id="section_8">
     <div class="finder-main-section main-section light" id="mainsection">
 
@@ -549,3 +549,56 @@
         
     </div>
 </div>
+-->
+
+<!-- SECTION 8 - ATSI SINGLE SELECT -->
+<div class="finder_section" data-value="8" id="section_8">
+<div class="finder-main-section main-section light" id="mainsection">  
+
+
+    <div class="finder-wrapper c-wrapper c-wrapper-bg-transparent container-fluid layout top-of-page">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12">
+                <div class="finder-question single-select" id="question-atsi">
+                    <p class="section-title">Indigenous oppotunities</p>
+                    <h2>Show me opportunities for Indigenous Australians</h2>
+                    
+                       <select id="sel_stage" select-filter-type="atsi" filter-value="51">
+                            <option value="select-option">Both indigenous and non-indigenous opportunities</option>
+                            <option value="indigenous-only" class="select-option">Indigenous opportunities only</option>
+                            <option value="non-indigenous-only" class="select-option">Non-indigenous opportunities only</option>
+                            
+                        </select>
+                    
+                </div>
+                
+                
+                
+                <form>
+                    <div class="form-buttons">
+                       
+                        <a href={{ "finder/tool.html" | relative_url }} class="start-again clear-all">Start again</a>
+                        
+                        <a href={{ "finder/tool_5.html" | relative_url }} class="previous" data-value="section_5">Previous</a>
+                       
+                        <div class="standardcta-button-wrapper standardcta-inline-button-wrapper">
+                            <div>
+                                <a href={{ "finder/tool_7.html" | relative_url }} data-value="section_7" class="next theme-button theme-button-primary theme-button-small btn">
+                                    <span>Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+             
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+
