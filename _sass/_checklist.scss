@@ -346,6 +346,16 @@
                     display: inline;
                     font-weight: normal;
                 }
+                .close-item {
+                    btn {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    svg {
+                        margin-right: 8px;
+                    }
+                }
             }            
         }
 
@@ -413,6 +423,7 @@
                     display: inline-block !important;
                 }
             }
+            
         }
 
     }
