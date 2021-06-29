@@ -98,7 +98,6 @@ $(document).ready(function () {
     $('.close-item btn').on('click', function () {
 
         // Scroll and close
-        console.log('clicked');
         var parent_item = $(this).parents('.checklist-item');
 
         parent_item.removeClass('open');

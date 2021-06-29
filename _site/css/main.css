@@ -3763,7 +3763,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item { position: relative; margin-left: 16px; }
 
-.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content { background: #E5EDF7; padding: 16px 32px 32px 32px; position: relative; }
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content { background: #E5EDF7; padding: 16px 24px 24px 24px; position: relative; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content > *:last-child { padding-bottom: 0; margin-bottom: 0; }
 
