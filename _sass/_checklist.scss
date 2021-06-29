@@ -128,7 +128,7 @@
 
             .checklist-item-content {
                 background: #E5EDF7;
-                padding: 16px 24px 24px 24px;
+                padding: 16px 24px 32px 24px;
                 position: relative;
                 
                 // Remove padding from last element of content box
@@ -554,6 +554,36 @@
             .checklist-sub-item-wrapper.step-minimised .checklist-sub-item {
                 .checklist-item-content {
                     padding: 16px;
+                    
+                    .feature-box { 
+                        padding: 16px;
+                        
+                        svg {
+                            display: none;
+                        }
+                        .feature-icon {
+                            height: auto;
+                        }
+                        .feature-box-title h3 {
+                            padding: 0 !important;
+                        }
+                    }
+                    
+                    .inline-pathway-card {
+                        padding: 16px;
+                    }
+                }
+                 .checklist-item-checkbox { 
+                    padding: 16px;
+
+                    svg{
+                      width:16px;
+                      height:16px;
+                    }
+                    svg * {
+                      width:  100%;
+                      height: 100%;
+                    }
                 }
             }
         }
