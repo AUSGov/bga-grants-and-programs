@@ -456,6 +456,10 @@ html {
             display: flex;
             align-items: center;
             
+            span {
+                font-weight: 400;
+            }
+            
             .link-icon {
                 height: 16px;
                 width: 16px;

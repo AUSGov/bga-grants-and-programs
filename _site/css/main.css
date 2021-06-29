@@ -3372,6 +3372,8 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .vertical-list .inline-pathway-card .link-container { position: relative; display: flex; align-items: center; }
 
+.vertical-list .inline-pathway-card .link-container span { font-weight: 400; }
+
 .vertical-list .inline-pathway-card .link-container .link-icon { height: 16px; width: 16px; position: relative; }
 
 .vertical-list .inline-pathway-card .link-container .link-icon svg { fill: #254f90; vertical-align: top; }
@@ -3761,7 +3763,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item { position: relative; margin-left: 16px; }
 
-.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content { background: #E5EDF7; padding: 16px 32px 32px 32px; position: relative; }
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content { background: #E5EDF7; padding: 16px 24px 24px 24px; position: relative; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-content > *:last-child { padding-bottom: 0; margin-bottom: 0; }
 
@@ -3836,6 +3838,10 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox input[type="checkbox"] { opacity: 0; width: 28px !important; height: 28px !important; cursor: pointer; display: none; }
 
 .checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox label { padding: 0 0 0 6px; display: inline; font-weight: normal; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox .close-item btn:hover { cursor: pointer; }
+
+.checklist-wrapper .checklist-item .checklist-sub-item .checklist-item-checkbox .close-item svg { margin-right: 8px; }
 
 .checklist-wrapper .checklist-item.open:last-of-type .checklist-item-title:before { height: 100%; }
 

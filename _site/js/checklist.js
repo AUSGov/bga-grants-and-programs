@@ -67,7 +67,7 @@ $(document).ready(function () {
     
     
     /*------------------- Checkbox functionality -------------------*/ 
-    $('.checkbox-icon').on('click', function(){
+    /*$('.checkbox-icon').on('click', function(){
         // Mark item as done
         var parent_item = $(this).parents('.checklist-item');
         $(parent_item).toggleClass('done');
@@ -92,6 +92,26 @@ $(document).ready(function () {
                 }, 400);
             
          } 
+    });*/
+    
+    /*------------------- Close functionality -------------------*/ 
+    $('.close-item btn').on('click', function () {
+
+        // Scroll and close
+        var parent_item = $(this).parents('.checklist-item');
+
+        parent_item.removeClass('open');
+        var parent_position = parent_item.position();
+        $("html").animate({
+                scrollTop: $(parent_item).offset().top
+            },
+            400 //speed
+        );
+
+        var content = $(this).parents('.checklist-sub-item-wrapper');
+        setTimeout(function () {
+            content.slideUp(1000);
+        }, 400);
     });
     
     
