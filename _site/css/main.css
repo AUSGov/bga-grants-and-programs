@@ -4395,6 +4395,22 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .shortlist-wrapper.active .modal-close, .shortlist-wrapper-2.active .modal-close { height: 16px; width: 60px; background: url(../assets/Icon-cross-blue.svg) no-repeat; position: absolute; background-size: 16px 16px; background-position: right center; position: absolute; right: 16px; top: 16px; cursor: pointer; line-height: 18px; font-size: 14px; display: block; text-indent: -9999px; }
 
+.shortlist-wrapper.active .scroll-separator, .shortlist-wrapper-2.active .scroll-separator { height: 8px; min-height: 8px; z-index: 99; width: calc(100% - 64px); padding-right: 48px; }
+
+.shortlist-wrapper.active .scroll-separator.scroll-separator--bottom, .shortlist-wrapper-2.active .scroll-separator.scroll-separator--bottom { margin-top: -8px; background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%); display: block; position: absolute; }
+
+.shortlist-wrapper.active.scrolling .scroll-separator.scroll-separator--top, .shortlist-wrapper-2.active.scrolling .scroll-separator.scroll-separator--top { margin-bottom: -8px; background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%); display: block; position: absolute; }
+
+.shortlist-wrapper.active.scroll-done .scroll-separator.scroll-separator--top, .shortlist-wrapper-2.active.scroll-done .scroll-separator.scroll-separator--top { margin-bottom: -8px; background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%); display: block; position: absolute; }
+
+.shortlist-wrapper.active.scroll-done .scroll-separator.scroll-separator--bottom, .shortlist-wrapper-2.active.scroll-done .scroll-separator.scroll-separator--bottom { background: none; }
+
+.shortlist-wrapper.active .scrollable::-webkit-scrollbar, .shortlist-wrapper-2.active .scrollable::-webkit-scrollbar { -webkit-appearance: none; width: 8px; height: 8px; }
+
+.shortlist-wrapper.active .scrollable::-webkit-scrollbar-thumb, .shortlist-wrapper-2.active .scrollable::-webkit-scrollbar-thumb { background-color: #666666; border-radius: 4px; z-index: 99; }
+
+.shortlist-wrapper.active.no-overflow .scroll-separator, .shortlist-wrapper-2.active.no-overflow .scroll-separator { display: none; }
+
 .shortlist-wrapper.active .shortlist-links, .shortlist-wrapper-2.active .shortlist-links { height: auto; max-height: calc(100% - 320px); overflow-y: scroll; padding: 24px; background: #E1F2F2; }
 
 .shortlist-wrapper.active .shortlist-links .empty-shortlist, .shortlist-wrapper-2.active .shortlist-links .empty-shortlist { display: block; }
@@ -4458,6 +4474,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 @media (max-width: 992px) { .shortlist-wrapper.active, .shortlist-wrapper-2.active { width: 90%; left: 5%; } }
 
 @media (max-width: 767px) { .shortlist-wrapper.active, .shortlist-wrapper-2.active { width: calc(100% - 30px); left: 15px; top: 15px; overflow-y: scroll; }
+  .shortlist-wrapper.active .scroll-separator, .shortlist-wrapper-2.active .scroll-separator { display: none !important; }
   .shortlist-wrapper.active .shortlist-links, .shortlist-wrapper-2.active .shortlist-links { overflow-y: auto; height: auto; max-height: none; }
   .shortlist-wrapper.active h2, .shortlist-wrapper-2.active h2 { font-size: 21px; padding: 24px 35px 32px 0; }
   .shortlist-wrapper.active h2 span, .shortlist-wrapper-2.active h2 span { width: 24px; height: 24px; font-size: 14px; top: 30px; } }

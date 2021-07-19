@@ -1740,8 +1740,62 @@
         font-size: 14px;
         display: block;
         text-indent: -9999px;
+    } 
+    .scroll-separator {
+        height: 8px;
+        min-height: 8px;
+        z-index: 99;
+        width: calc(100% - 64px);
+        padding-right: 48px;
+
+        &.scroll-separator--bottom {
+            margin-top: -8px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, .15) 100%);
+            display: block;
+            position: absolute;
+        }
     }
-     
+    &.scrolling {
+        .scroll-separator {
+             &.scroll-separator--top {
+                margin-bottom: -8px;
+                background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, .15) 100%);
+                display: block;
+                position: absolute;
+            }  
+        }
+    }
+    &.scroll-done {
+        .scroll-separator {
+             &.scroll-separator--top {
+                margin-bottom: -8px;
+                background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, .15) 100%);
+                display: block;
+                position: absolute;
+            }
+            &.scroll-separator--bottom {
+                background: none;
+            }
+        }
+    }   
+    .scrollable {
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 8px;
+            height: 8px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: $grey-darker;
+            border-radius: 4px;
+            z-index: 99;
+        }
+    }
+    &.no-overflow {
+        .scroll-separator {
+            display: none;
+        }
+    }
     .shortlist-links {
         height: auto;
         max-height: calc(100% - 320px);
@@ -1951,6 +2005,9 @@
         top: 15px;
         overflow-y: scroll;
         
+        .scroll-separator {
+            display: none !important;
+        }
         .shortlist-links {
             overflow-y: auto;
             height: auto;

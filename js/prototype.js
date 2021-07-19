@@ -290,8 +290,27 @@ $(document).ready(function () {
             $('#' + shortlist_items[item] + ' .shortlist').addClass('shortlisted');
         }   
     } 
-       
     
+    // Shortlist scrollable section
+    $(".shortlist-wrapper .scrollable").on("scroll", function() {
+            
+        var scroll_wrapper = $(this).parents('.shortlist-wrapper'),
+            scroll_position = $(this).scrollTop(),
+            scroll_height = $(this)[0].scrollHeight,
+            container_height = $(this).innerHeight(),
+            scroll_done = scroll_height - container_height - 10;
+
+        if (scroll_position === 0) {
+            scroll_wrapper.removeClass('scrolling');
+        } else if (scroll_position >= scroll_done) {
+            scroll_wrapper.addClass("scroll-done");
+            scroll_wrapper.removeClass('scrolling');
+        } else {
+            scroll_wrapper.removeClass("scroll-done");
+            scroll_wrapper.addClass('scrolling');
+        }  
+    });
+  
     
     // Add or remove items from the shortlist (using link on results cards)
      $(document).on('click', ".shortlist", function(){
@@ -421,6 +440,13 @@ $(document).ready(function () {
         } 
         else {$('.shortlist-btn-counter').css({'width': '28px', 'height': '28px', 'font-size': '16px', 'top': '2px', 'right': '8px'});
         }
+        
+        var scroll_container = $('.shortlist-wrapper .scrollable');
+        if(scroll_container[0].scrollHeight === scroll_container.innerHeight()){
+           $('.shortlist-wrapper').addClass('no-overflow');
+        } else {
+            scroll_container.removeClass('no-overflow');
+        }
     });
     
     // Remove items from shortlist (in the shortlist modal)  
@@ -460,6 +486,13 @@ $(document).ready(function () {
                 sessionStorage.setItem(shortlist_id, '');
             }
         });
+        
+        var scroll_container = $('.shortlist-wrapper .scrollable');
+        if(scroll_container[0].scrollHeight === scroll_container.innerHeight()){
+           $('.shortlist-wrapper').addClass('no-overflow');
+        } else {
+            scroll_container.removeClass('no-overflow');
+        }
     });
     
     // Shortlist modal
@@ -467,6 +500,13 @@ $(document).ready(function () {
         if( !($(this).hasClass('disabled')) ) {
             $(".shortlist-wrapper").addClass("active");
             $(".modal-background").addClass("active");
+            
+            var scroll_container = $('.shortlist-wrapper .scrollable');
+            if(scroll_container[0].scrollHeight === scroll_container.innerHeight()){
+               $('.shortlist-wrapper').addClass('no-overflow');
+            } else {
+                scroll_container.removeClass('no-overflow');
+            }
         }
     });
     $(".shortlist-wrapper .modal-close").on("click", function(){
