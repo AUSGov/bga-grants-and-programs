@@ -1194,5 +1194,12 @@ $(document).ready(function () {
     
     
     
+    // NAME SEARCH
+    $(".name-search input").on("input", function() {
+        $('.search-list-wrapper').slideToggle();
+    });
+
+    
+    
 }); // END doc ready
 

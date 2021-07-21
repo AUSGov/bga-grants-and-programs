@@ -1149,6 +1149,45 @@
                 fill: $white;
             }
         }
+        .search-list-wrapper {
+            background: $white; 
+            display: none;
+            //position: absolute;
+            //z-index: 1000;
+            //width: 600px;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid #254f90;
+                
+                li {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 8px;
+                    font-size: 14px;
+                    color: $blue-primary-mid;
+                    border-top: 1px solid #254f90;
+                    
+                    a {
+                        color: $blue-primary-mid;
+                        
+                        span {
+                            @include font-format($font-family, $font-semibold, normal);
+                            color: $blue-primary;
+                            background: $blue-lightest;
+                        }
+                        &:hover {
+                            text-decoration:none;
+                        }
+                    }
+                    &:hover {
+                        background: $blue-lightest;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
   
     .results-wrapper {

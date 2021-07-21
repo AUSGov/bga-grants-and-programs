@@ -4232,6 +4232,20 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .name-search button svg { fill: #ffffff; }
 
+.results-section .name-search .search-list-wrapper { background: #ffffff; display: none; }
+
+.results-section .name-search .search-list-wrapper ul { margin: 0; padding: 0; border-bottom: 1px solid #254f90; }
+
+.results-section .name-search .search-list-wrapper ul li { list-style-type: none; margin: 0; padding: 8px; font-size: 14px; color: #4569A0; border-top: 1px solid #254f90; }
+
+.results-section .name-search .search-list-wrapper ul li a { color: #4569A0; }
+
+.results-section .name-search .search-list-wrapper ul li a span { font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; color: #254F90; background: #E5EDF7; }
+
+.results-section .name-search .search-list-wrapper ul li a:hover { text-decoration: none; }
+
+.results-section .name-search .search-list-wrapper ul li:hover { background: #E5EDF7; cursor: pointer; }
+
 .results-section .results-wrapper .result-task-1 { display: block; }
 
 .results-section .results-wrapper .result-task-2 { display: none !important; }
