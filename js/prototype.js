@@ -235,10 +235,11 @@ $(document).ready(function () {
         $(".modal-wrapper").addClass("active");
         $(".modal-background").addClass("active");
     });
-    $(".name-search button").on("click", function(){
+    
+    /*$(".name-search button").on("click", function(){
         $(".modal-wrapper").addClass("active");
         $(".modal-background").addClass("active");
-    });
+    });*/
      
 
     // FINDER ALT LINK and VIEW RESULTS - scroll to results      
@@ -827,7 +828,7 @@ $(document).ready(function () {
    
     
     // CLEAR ALL FILTERS / QUESTIONS
-    $('.clear-all').on('click', function(){
+    var clear_filters = function(){
         $('.active-filters li.selected').removeClass('selected');
         $('.checkbox-item.selected').removeClass('selected');
         $('.finder-question li.selected').removeClass('selected');
@@ -850,10 +851,12 @@ $(document).ready(function () {
             $(this).removeClass('active').text(0);
         });
         $('.filter-counter').text(0);
-
+    };
+    
+    $('.clear-all').on('click', function(){
+        clear_filters();
     });
     
-
     
     
     // FUNCTION COUNT TOTAL NUMBER OF ACTIVE FILTERS
@@ -1192,6 +1195,53 @@ $(document).ready(function () {
         });
     } 
     
+    
+    
+    // NAME SEARCH
+    $(".name-search input").on("input", function() {
+        if($(this).val() !== "") {
+            $('.search-list-wrapper').slideDown();
+        } else {
+            $('.search-list-wrapper').slideUp();
+            $('.name-filter li').text($(this).val()).removeClass('selected');
+        }
+    });
+    
+    $(".name-search button").on('click', function(){
+        $('.search-list-wrapper').slideUp();
+        
+        if ($(".name-search input").val() !== "") {
+            $('.name-filter li').text($('.name-search input').val()).addClass('selected');
+            clear_filters();
+            sessionStorage.setItem('name-filter', $('.name-search input').val());
+            sessionStorage.setItem('showing', 11);
+            $('.showing-results span').text(11);
+        } else {
+            $('.name-filter li').text($('.name-search input').val()).removeClass('selected');
+            sessionStorage.removeItem('name-filter');
+            sessionStorage.setItem('showing', max_showing);
+            $('.showing-results span').text(max_showing);
+        }
+    });
+    
+    $('.searchbar-list li').on('click', function(){
+        $('.search-list-wrapper').slideUp();
+        clear_filters();
+        
+        $('.name-filter li').text($(this).text()).addClass('selected');
+        sessionStorage.setItem('name-filter', $(this).text());
+        sessionStorage.setItem('showing', 11);
+        $('.showing-results span').text(11);
+    });
+    
+    $('.name-filter li').on('click', function(){
+        $(this).text('').removeClass('selected');
+        clear_filters();
+        sessionStorage.removeItem('name-filter');
+        sessionStorage.setItem('showing', max_showing);
+        $('.showing-results span').text(max_showing);
+    });
+
     
     
 }); // END doc ready

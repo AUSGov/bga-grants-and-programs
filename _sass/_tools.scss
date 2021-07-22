@@ -1120,7 +1120,7 @@
     .name-search {
         background: $grey-lighter;
         border-top: 4px solid $grey-light;
-        padding: 24px;
+        padding: 16px;
 
         h4 {
             padding-top: 0px;
@@ -1147,6 +1147,70 @@
             
             svg {
                 fill: $white;
+            }
+        }
+        .search-list-wrapper {
+            background: $white; 
+            display: none;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid #254f90;
+                
+                li {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 8px;
+                    font-size: 14px;
+                    color: $blue-primary-mid;
+                    border-top: 1px solid #254f90;
+                    
+                    span {
+                        @include font-format($font-family, $font-semibold, normal);
+                        color: $blue-primary;
+                        background: $blue-lightest;
+                    }
+                    &:hover {
+                        background: $blue-lightest;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        
+        .name-filter {
+            li {
+                list-style: none;
+                font-size: 13px;
+                padding: 6px 16px 6px 32px;
+                background: #CFEBEB;
+                border: 1px solid #119191;
+                border-radius: 30px;
+                margin: 24px 0 0 0;
+                line-height: 1;
+                cursor: pointer;
+                background: #CFEBEB url(../assets/Icon-cross-333333.svg) no-repeat;
+                background-size: 10px 10px;
+                background-position: left 12px center;
+                display: none;
+                
+                &.selected {
+                    display: inline-block;
+                }
+            }
+        }
+        
+        @media(max-width: 992px) {
+            input {
+                height: 40px;
+                width: calc(100% - 40px);
+                padding: 6px;
+                font-size: 14px;
+            }
+            button {
+                height: 40px;
+                width: 40px;
             }
         }
     }

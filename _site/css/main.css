@@ -4220,7 +4220,7 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .results-section .clear-filters svg { position: absolute; top: 4px; right: -24px; }
 
-.results-section .name-search { background: #EBEBEB; border-top: 4px solid #D8D8D8; padding: 24px; }
+.results-section .name-search { background: #EBEBEB; border-top: 4px solid #D8D8D8; padding: 16px; }
 
 .results-section .name-search h4 { padding-top: 0px; }
 
@@ -4231,6 +4231,23 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 .results-section .name-search button { background: #4569A0; border: none; outline: none; height: 52px; width: 52px; border-bottom-right-radius: 6px; border-top-right-radius: 6px; }
 
 .results-section .name-search button svg { fill: #ffffff; }
+
+.results-section .name-search .search-list-wrapper { background: #ffffff; display: none; }
+
+.results-section .name-search .search-list-wrapper ul { margin: 0; padding: 0; border-bottom: 1px solid #254f90; }
+
+.results-section .name-search .search-list-wrapper ul li { list-style-type: none; margin: 0; padding: 8px; font-size: 14px; color: #4569A0; border-top: 1px solid #254f90; }
+
+.results-section .name-search .search-list-wrapper ul li span { font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; color: #254F90; background: #E5EDF7; }
+
+.results-section .name-search .search-list-wrapper ul li:hover { background: #E5EDF7; cursor: pointer; }
+
+.results-section .name-search .name-filter li { list-style: none; font-size: 13px; padding: 6px 16px 6px 32px; background: #CFEBEB; border: 1px solid #119191; border-radius: 30px; margin: 24px 0 0 0; line-height: 1; cursor: pointer; background: #CFEBEB url(../assets/Icon-cross-333333.svg) no-repeat; background-size: 10px 10px; background-position: left 12px center; display: none; }
+
+.results-section .name-search .name-filter li.selected { display: inline-block; }
+
+@media (max-width: 992px) { .results-section .name-search input { height: 40px; width: calc(100% - 40px); padding: 6px; font-size: 14px; }
+  .results-section .name-search button { height: 40px; width: 40px; } }
 
 .results-section .results-wrapper .result-task-1 { display: block; }
 
