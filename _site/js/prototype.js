@@ -641,16 +641,24 @@ $(document).ready(function () {
         if(filter_option !== "select-option") {
             $('.dynamic-question').removeClass('disabled');
             $('input[toggle-filter-type="' + toggle_option + '"]').removeAttr("disabled");
+            
+            $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
+            
+            $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", false);
+            
         } else {
             $('.dynamic-question').addClass('disabled');
             $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
             $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", true);
-            console.log(toggle_option);   
+             
             if (toggle_option === 'industry-toggle') {
                 sessionStorage.setItem('industry-toggle', 0);
             }
         }
         
+        if (toggle_option === 'industry-toggle') {
+            sessionStorage.setItem('industry-toggle', 0);
+        }   
     });
     
     
@@ -688,7 +696,7 @@ $(document).ready(function () {
             $('#' + filter_type + ' .filter-item-content select').val('select-option');
 
             sessionStorage.setItem(filter_type + " selection", 'select-option');
-            console.log();
+            
             sessionStorage.setItem(filter_type + "-toggle", 0);
         }
          
@@ -710,16 +718,23 @@ $(document).ready(function () {
         // Disable dynamic toggle question
         if(filter_option !== "select-option") {
             $('.dynamic-question').removeClass('disabled');
+            
+            console.log('not disabled');
             $('input[toggle-filter-type="' + toggle_option + '"]').removeAttr("disabled");
+            $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
+            
+            $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", false);
+            
         } else {
             $('.dynamic-question').addClass('disabled');
+            
             $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
+            
             $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', false).removeClass('selected').attr("disabled", true);
-
-            console.log(toggle_option);   
-            if (toggle_option === 'industry-toggle') {
-                sessionStorage.setItem('industry-toggle', 0);
-            }
+        }
+        
+        if (toggle_option === 'industry-toggle') {
+            sessionStorage.setItem('industry-toggle', 0);
         }
    
     });
@@ -930,6 +945,7 @@ $(document).ready(function () {
     
     for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
         var toggle_option = filter_set_toggles[toggle];
+        console.log(toggle_option);
         
         if (sessionStorage.getItem(toggle_option) === '1') {  
             $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', true).toggleClass('selected');
@@ -937,7 +953,16 @@ $(document).ready(function () {
             $('.active-filters li[filter-type="' + toggle_option + '"]').toggleClass('selected');
             var dynamic_question = $('#question-' + toggle_option);
             $('#question-' + toggle_option).removeClass('disabled');
-        }    
+        } 
+        
+        
+        
+        
+        // FIX TOGGLE DISABLED ON LOAD (SHOUDLN"T BE WHEN AN INDUSTRY IS SELECTED)
+        
+        
+        
+        
     }
     
  
