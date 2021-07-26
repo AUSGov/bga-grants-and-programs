@@ -720,7 +720,6 @@ $(document).ready(function () {
         if(filter_option !== "select-option") {
             $('.dynamic-question').removeClass('disabled');
             
-            console.log('not disabled');
             $('input[toggle-filter-type="' + toggle_option + '"]').removeAttr("disabled");
             $('.active-filters li[filter-type="' + toggle_option + '"]').removeClass('selected');
             
@@ -948,7 +947,7 @@ $(document).ready(function () {
     
     for ( var toggle = 0; toggle < filter_set_toggles.length ; toggle++){
         var toggle_option = filter_set_toggles[toggle];
-        console.log(toggle_option);
+        //console.log(toggle_option);
         
         if (sessionStorage.getItem(toggle_option) === '1') {  
             $('input[toggle-filter-type="' + toggle_option + '"]').prop('checked', true).toggleClass('selected');
