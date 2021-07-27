@@ -833,6 +833,10 @@ $(document).ready(function () {
         $('.modal-background').removeClass('active');
     });
     
+    $('.name-search-btn').on('click', function(){   
+        $('.filter-wrapper').removeClass('active');
+        $('.modal-background').removeClass('active');
+    });
     
     // FINDER RESULTS CARDS
     $(document).on('click', '.accordion-title', function(){
@@ -875,6 +879,7 @@ $(document).ready(function () {
     
     // FUNCTION COUNT TOTAL NUMBER OF ACTIVE FILTERS
     var total_active_filters = function(){
+       
         var total_active = 0;
 
         for ( var k = 0; k < all_filter_types.length; k++){ 
@@ -886,7 +891,7 @@ $(document).ready(function () {
                 filter_count = 0;
             }
             total_active = total_active + filter_count;
-        } 
+        }
         
         $('.filter-counter').text(total_active);
     };
@@ -977,6 +982,10 @@ $(document).ready(function () {
     var showing = sessionStorage.getItem('showing');
     
     if (showing === null) {
+        showing = 587;
+    }
+    if(sessionStorage.getItem('name-filter') !== null) {
+        sessionStorage.removeItem('name-filter');
         showing = 587;
     }
     $('span.number').text(showing);
@@ -1250,6 +1259,7 @@ $(document).ready(function () {
     
     $('.searchbar-list li').on('click', function(){
         $('.search-list-wrapper').slideUp();
+        $(".name-search input").val($(this).text());
         clear_filters();
         
         $('.name-filter li').text($(this).text()).addClass('selected');
@@ -1260,6 +1270,7 @@ $(document).ready(function () {
     
     $('.name-filter li').on('click', function(){
         $(this).text('').removeClass('selected');
+        $(".name-search input").val('');
         clear_filters();
         sessionStorage.removeItem('name-filter');
         sessionStorage.setItem('showing', max_showing);
