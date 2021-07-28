@@ -177,9 +177,9 @@
                     }
                     
                     &:focus{
-                        background-color: $blue-active;
+                        background-color: #0F1A3E;
                         background-image:  url(../assets/Icon-finder-plus-white.svg); 
-                        border-color: $blue-active;
+                        border-color: #0F1A3E;
                         color: $white;
                     }
                     &:hover {
@@ -189,9 +189,9 @@
                         color: $white;
                     }
                     &:active {
-                        background-color: $blue-active;
+                        background-color: #0F1A3E;
                         background-image:  url(../assets/Icon-finder-plus-white.svg); 
-                        border-color: $blue-active;
+                        border-color: #0F1A3E;
                         color: $white;
                     }
                     &.selected {
@@ -276,7 +276,6 @@
                         cursor: pointer;
                     }
                     &:after {
-                        background: $white;
                         width: 40px;
                         height: 40px;
                         border: $blue-primary-mid solid 2px;
@@ -288,6 +287,22 @@
                         top: -4px;
                         left: 0;
                         cursor: pointer;
+                    }
+                    
+                    
+                    &:focus, &:active {
+                        &:after {
+                            background-color: #0F1A3E;
+                            background-image: url(../assets/Icon-cross-white.svg);
+                            border-color: #0F1A3E;
+                        }
+                    }
+                    &:hover {
+                        &:after {
+                            background-color: $blue-primary;
+                            background-image: url(../assets/Icon-cross-white.svg);
+                            border-color: $blue-primary;
+                        }
                     }
                 }
                 
@@ -319,6 +334,13 @@
                     background-size: 18px 14px;
                     left: 14px;
                 }
+                .custom-control-input:checked~.custom-control-label:hover {
+                    &::after {
+                        background-color: $blue-primary;
+                        border-color: $blue-primary;
+                    }
+                }
+                
 
             }
             .disabled {
@@ -334,6 +356,15 @@
                         &:after {
                             border-color: $blue-primary-light;
                             background-image: url(../assets/Icon-cross-blue-light.svg);
+                        }
+                        
+                        &:focus, &:hover, &:active {
+                             &:after {
+                                border-color: $blue-primary-light;
+                                background-color: $white;
+                                background-image: url(../assets/Icon-cross-blue-light.svg);
+                                cursor: default;
+                            }
                         }
                     }
                 }
@@ -411,9 +442,13 @@
                             background: $blue-primary;
                             border: $blue-active solid 2px;
                         }
+                        &:focus, &:active {
+                            background: #0F1A3E;
+                            border: #0F1A3E solid 2px;
+                        }
                     }
 
-                    .theme-button-secondary {
+                    .theme-button.theme-button-secondary {
                         color: $blue-primary-mid;
                         background: $white;
                         border: $blue-primary-mid solid 2px;
@@ -425,13 +460,17 @@
                             border: $blue-primary solid 2px;
                             background: $white;
                         }
-
+                        &:focus {
+                           background: #18335C !important; 
+                        }
                         &:hover {
                             color: $white;
                             background: $blue-primary;
                         }
 
-                        &:active {}
+                        &:active {
+                           background: #18335C !important; 
+                        }
                     }
 
                     @media (max-width: 576px) {
@@ -662,7 +701,27 @@
                         }
                     }
 
+                    &:focus {
+                        background: #0F1A3E !important;
+                        border-color: #0F1A3E !important;
+                        svg {
+                            fill: $white;
+                        }
+                        p {
+                            color: $white;
+                        }
+                    }
                     &:hover {
+                        svg {
+                            fill: $white;
+                        }
+                        p {
+                            color: $white;
+                        }
+                    }
+                    &:active {
+                        background: #0F1A3E !important;
+                        border-color:#0F1A3E !important;
                         svg {
                             fill: $white;
                         }
@@ -1123,6 +1182,14 @@
                     &:focus {
                         outline: none;
                     }
+                    &:hover {
+                        p {
+                            color: $blue-primary;
+                        }
+                        svg {
+                            fill: $blue-primary;
+                        }
+                    }
                     
                     p {
                         font-size: 12px;
@@ -1505,13 +1572,15 @@
                         }
                     }
                     .name-filter li.selected {
-                        padding: 0 0 0 48px;
-                        margin: 8px 0 16px 0;
+                        padding: 0 0 0 51px;
+                        margin: 16px 0 0 0;
                         border: none;
                         background-color: $white;
                         display: inline-block;
                         position: relative;
                         background-position: left 32px top 3px;
+                        font-size: 13px;
+                        line-height: 16px;
                         
                         &:before {
                             content: "1";
