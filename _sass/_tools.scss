@@ -2332,6 +2332,7 @@
                     background: url(../assets/chevron-down-black.svg) no-repeat;
                     background-size: 16px 10px;
                     background-position: right 8px center;
+                    max-width: 100%;
                     
                     &:focus {
                         padding: 4px 32px 4px 6px;
@@ -2347,17 +2348,30 @@
             }
         }
         @media(max-width: 992px) {
-            .status-indicator-content-icon-wrapper {
-                
-                    display: block;
-            
-            }
             .status-indicator-content-item {
                 .change-time-zone {
                     display: block;
 
                     label {
                         margin-bottom: 8px;
+                    }
+                    
+                }
+            }
+        }
+        @media(max-width: 768px) {
+            .status-indicator-content-icon-wrapper {
+                display: inline-block;
+                
+                
+                .status-tag {
+                    height: 48px;
+                    padding: 0 16px;
+                    margin-bottom: 16px;
+                    
+                    svg {
+                        width: 24px;
+                        height: 18px;
                     }
                 }
             }

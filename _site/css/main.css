@@ -4562,13 +4562,16 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone label { padding: 4px 0 0 0; margin: 0; font-size: 14px; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; margin-right: 8px; }
 
-#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone select { padding: 4px 32px 4px 6px; margin: 0; font-size: 14px; background: #E8F4E8; border: solid 1px #333333; border-radius: 0; -moz-appearance: none; /* Firefox */ -webkit-appearance: none; /* Safari and Chrome */ appearance: none; background: url(../assets/chevron-down-black.svg) no-repeat; background-size: 16px 10px; background-position: right 8px center; }
+#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone select { padding: 4px 32px 4px 6px; margin: 0; font-size: 14px; background: #E8F4E8; border: solid 1px #333333; border-radius: 0; -moz-appearance: none; /* Firefox */ -webkit-appearance: none; /* Safari and Chrome */ appearance: none; background: url(../assets/chevron-down-black.svg) no-repeat; background-size: 16px 10px; background-position: right 8px center; max-width: 100%; }
 
 #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone select:focus { padding: 4px 32px 4px 6px; border: 3px solid #254F90; background: #ffffff url(../assets/chevron-down-black.svg) no-repeat; background-size: 16px 10px; background-position: right 8px center; outline: none; }
 
-@media (max-width: 992px) { #grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper { display: block; }
-  #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone { display: block; }
+@media (max-width: 992px) { #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone { display: block; }
   #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone label { margin-bottom: 8px; } }
+
+@media (max-width: 768px) { #grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper { display: inline-block; }
+  #grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-tag { height: 48px; padding: 0 16px; margin-bottom: 16px; }
+  #grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-tag svg { width: 24px; height: 18px; } }
 
 .mobile-frame { display: block; z-index: 0; position: absolute; top: 30px; left: 100px; }
 
