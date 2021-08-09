@@ -2239,3 +2239,128 @@
     position: fixed;
     z-index: 6999;
 }
+
+
+// Grant status indicator on Grants Information pages
+#grant-status-example {
+    .status-indicator.new {
+        background: #E8F4E8;
+        padding: 32px;
+        border-top: 3px solid #219420;
+        margin-bottom: 32px;
+        
+        .status-indicator-content-icon-wrapper {
+            .status-tag {
+                background: $white;
+                display: flex;
+                height: 64px;
+                padding: 0 24px;
+                border-radius: 50px;
+                align-items: center;
+                margin-right: 24px;
+                
+                svg {
+                    margin-right: 16px;
+                }
+                .open-status {
+                    padding: 0;
+                    @include font-format($font-family, $font-semibold, normal);
+                    font-size: 18px;
+                }
+                
+            }
+            .status-details {
+                @include font-format($font-family, $font-semibold, normal);
+                font-size: 18px;
+                padding: 0; 
+            }
+
+        }
+        
+        .status-indicator-content-item {
+            p {
+                display: inline-block;
+                padding-bottom: 8px;
+                
+                &:last-of-type {
+                    padding-bottom: 0;
+                }
+                
+                span {
+                    display: none;
+                    
+                    &.show {
+                        display: inline;
+                        background-color: #E8F4E8;
+                        transition: background-color 1s linear; 
+                       -moz-transition: background-color 1s linear;  
+                       -webkit-transition: background-color 1s linear; 
+                       -ms-transition: background-color 1s linear;
+                        
+                    &.highlight {
+                          background-color: #B9DDB9;
+                        }
+                    }
+                }
+                
+
+
+            }
+            .change-time-zone {
+                margin-bottom: 32px;
+                display: flex;
+                align-content: center;
+                
+                label {
+                    padding: 4px 0 0 0;
+                    margin: 0;
+                    font-size: 14px;
+                    @include font-format($font-family, $font-regular, normal);
+                    margin-right: 8px;
+                    
+                }
+                select {
+                    padding: 4px 32px 4px 6px;
+                    margin: 0;
+                    font-size: 14px;
+                    background: #E8F4E8;
+                    border: solid 1px #333333;
+                    border-radius: 0;
+                    -moz-appearance:none; /* Firefox */
+                    -webkit-appearance:none; /* Safari and Chrome */
+                    appearance:none;
+                    background: url(../assets/chevron-down-black.svg) no-repeat;
+                    background-size: 16px 10px;
+                    background-position: right 8px center;
+                    
+                    &:focus {
+                        padding: 4px 32px 4px 6px;
+                        border: 3px solid $blue-primary;
+                        background: $white url(../assets/chevron-down-black.svg) no-repeat;
+                        background-size: 16px 10px;
+                        background-position: right 8px center;
+                        outline: none;
+                    }
+                    
+                }
+
+            }
+        }
+        @media(max-width: 992px) {
+            .status-indicator-content-icon-wrapper {
+                
+                    display: block;
+            
+            }
+            .status-indicator-content-item {
+                .change-time-zone {
+                    display: block;
+
+                    label {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

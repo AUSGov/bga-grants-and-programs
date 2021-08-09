@@ -1279,5 +1279,20 @@ $(document).ready(function () {
 
     
     
+    // Grant status indicator
+    $('#timezones').on('change', function(){
+        var new_timezone = $(this).val();
+
+        $(this).blur();
+        
+        $('.dates-times .show').removeClass('show');     
+        $('.' + new_timezone).addClass('show highlight');
+        
+        setTimeout(function(){ 
+            $('.highlight').removeClass('highlight');
+        }, 400);
+    });
+    
+    
 }); // END doc ready
 

@@ -4538,6 +4538,38 @@ html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
 
 .modal-background.active { width: 100%; height: 100%; display: block; background: rgba(51, 51, 51, 0.5); position: fixed; z-index: 6999; }
 
+#grant-status-example .status-indicator.new { background: #E8F4E8; padding: 32px; border-top: 3px solid #219420; margin-bottom: 32px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-tag { background: #ffffff; display: flex; height: 64px; padding: 0 24px; border-radius: 50px; align-items: center; margin-right: 24px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-tag svg { margin-right: 16px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-tag .open-status { padding: 0; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; font-size: 18px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper .status-details { font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; font-size: 18px; padding: 0; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item p { display: inline-block; padding-bottom: 8px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item p:last-of-type { padding-bottom: 0; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item p span { display: none; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item p span.show { display: inline; background-color: #E8F4E8; transition: background-color 1s linear; -moz-transition: background-color 1s linear; -webkit-transition: background-color 1s linear; -ms-transition: background-color 1s linear; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item p span.show.highlight { background-color: #B9DDB9; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone { margin-bottom: 32px; display: flex; align-content: center; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone label { padding: 4px 0 0 0; margin: 0; font-size: 14px; font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; margin-right: 8px; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone select { padding: 4px 32px 4px 6px; margin: 0; font-size: 14px; background: #E8F4E8; border: solid 1px #333333; border-radius: 0; -moz-appearance: none; /* Firefox */ -webkit-appearance: none; /* Safari and Chrome */ appearance: none; background: url(../assets/chevron-down-black.svg) no-repeat; background-size: 16px 10px; background-position: right 8px center; }
+
+#grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone select:focus { padding: 4px 32px 4px 6px; border: 3px solid #254F90; background: #ffffff url(../assets/chevron-down-black.svg) no-repeat; background-size: 16px 10px; background-position: right 8px center; outline: none; }
+
+@media (max-width: 992px) { #grant-status-example .status-indicator.new .status-indicator-content-icon-wrapper { display: block; }
+  #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone { display: block; }
+  #grant-status-example .status-indicator.new .status-indicator-content-item .change-time-zone label { margin-bottom: 8px; } }
+
 .mobile-frame { display: block; z-index: 0; position: absolute; top: 30px; left: 100px; }
 
 .mobile-frame img { width: 415px; height: 855px; }
