@@ -1572,13 +1572,15 @@
                         }
                     }
                     .name-filter li.selected {
-                        padding: 0 0 0 51px;
+                        //padding: 0 0 0 51px;
+                        padding: 0 0 0 24px;
                         margin: 16px 0 0 0;
                         border: none;
                         background-color: $white;
                         display: inline-block;
                         position: relative;
-                        background-position: left 32px top 3px;
+                        //background-position: left 32px top 3px;
+                        background-position: left 4px top 4px;
                         font-size: 13px;
                         line-height: 16px;
                         
@@ -1600,6 +1602,7 @@
                             font-style: normal;
                             position: absolute;
                             left: 0;
+                            display: none;
                         }
                     }
                     h5 {
